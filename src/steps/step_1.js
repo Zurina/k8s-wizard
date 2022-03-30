@@ -2,26 +2,14 @@ import React, { useState } from "react";
 import ActionButtons from "../utilities/actionButtons";
 
 const One = (props) => {
-	const [value, setValue] = useState(null);
 	const [error, setError] = useState("");
 
-	const onInputChanged = (event) => {
-		const targetName = event.target.name;
-		const targetValue = event.target.value;
-
-		setValue((value) => ({
-			...value,
-			[targetName]: targetValue,
-		}));
-		console.log(value);
-	};
-
 	const validate = () => {
-		if (value == null) setError("Mandatory field, choose one.");
+		if ("" == null) setError("Mandatory field, choose one.");
 		else {
 			setError("");
 			props.nextStep();
-			props.userCallback(value);
+			// props.userCallback(value);
 		}
 	};
 
@@ -42,7 +30,7 @@ const One = (props) => {
 					type="radio"
 					name="environment"
 					value="on-premise"
-					onChange={onInputChanged}
+					onChange={props.handleStepInfChange}
 				/>
 				<div className="box">
 					<span>On-premise</span>
@@ -54,7 +42,7 @@ const One = (props) => {
 					type="radio"
 					name="environment"
 					value="cloud"
-					onChange={onInputChanged}
+					onChange={props.handleStepInfChange}
 				/>
 				<div className="box">
 					<span>Cloud</span>

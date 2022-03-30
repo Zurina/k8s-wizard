@@ -2,26 +2,14 @@ import React, { useState } from "react";
 import ActionButtons from "../utilities/actionButtons";
 
 const Two = (props) => {
-	const [value, setValue] = useState(null);
 	const [error, setError] = useState("");
 
-	const onInputChanged = (event) => {
-		const targetName = event.target.name;
-		const targetValue = event.target.value;
-
-		setValue((value) => ({
-			...value,
-			[targetName]: targetValue,
-		}));
-		console.log(value);
-	};
-
 	const validate = () => {
-		if (value == null) setError("Mandatory field, choose one.");
+		if ("" == null) setError("Mandatory field, choose one.");
 		else {
 			setError("");
 			props.nextStep();
-			props.userCallback(value);
+			// props.userCallback(value);
 		}
 	};
 
@@ -38,7 +26,7 @@ const Two = (props) => {
 					type="radio"
 					name="authentication"
 					value="yes"
-					onChange={onInputChanged}
+					onChange={props.handleStepInfChange}
 				/>
 				<div className="box">
 					<span>Yes</span>
@@ -50,7 +38,7 @@ const Two = (props) => {
 					type="radio"
 					name="authentication"
 					value="No"
-					onChange={onInputChanged}
+					onChange={props.handleStepInfChange}
 				/>
 				<div className="box">
 					<span>No</span>
@@ -62,7 +50,7 @@ const Two = (props) => {
 					type="radio"
 					name="authentication"
 					value="no-need"
-					onChange={onInputChanged}
+					onChange={props.handleStepInfChange}
 				/>
 				<div className="box">
 					<span>No need for auth</span>

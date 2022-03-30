@@ -4,12 +4,20 @@ import StepWizard from "react-step-wizard";
 import One from "./steps/step_1";
 import Two from "./steps/step_2";
 import Three from "./steps/step_3";
-import Four from "./steps/step_3";
+import Four from "./steps/step_4";
 
 const Wizard = () => {
 	const [stepWizard, setStepWizard] = useState(null);
 	const [user, setUser] = useState({});
 	const [activeStep, setActiveStep] = useState(0);
+	const [information, setInformation] = useState({});
+
+	const handleStepInfChange = (event) => {
+		const name = event.target.name;
+		const value = event.target.value;
+		setInformation({ ...information, [name]: value });
+		console.log(information)
+	};
 
 	const assignStepWizard = (instance) => {
 		setStepWizard(instance);
@@ -44,21 +52,25 @@ const Wizard = () => {
 		completedColor: "#184699",
 		style: "dashed",
 		size: 2,
-	}
+	};
 
 	return (
 		<div>
-			<Stepper styleConfig={styleConfig} connectorStyleConfig={connectorStyleConfig} activeStep={activeStep}>
+			<Stepper
+				styleConfig={styleConfig}
+				connectorStyleConfig={connectorStyleConfig}
+				activeStep={activeStep}
+			>
 				<Step label="Deployment environment" />
 				<Step label="Authentication" />
 				<Step label="Monitoring" />
 				<Step label="Visualization of monitoring metircs" />
 			</Stepper>
 			<StepWizard instance={assignStepWizard} onStepChange={handleStepChange}>
-				<One userCallback={assignUser} />
-				<Two user={user} />
-				<Three user={user} />
-				<Four user={user} completeCallback={handleComplete} />
+				<One handleStepInfChange={handleStepInfChange} userCallback={assignUser} />
+				<Two handleStepInfChange={handleStepInfChange} user={user} />
+				<Three handleStepInfChange={handleStepInfChange} user={user} />
+				<Four handleStepInfChange={handleStepInfChange} user={user} completeCallback={handleComplete} />
 			</StepWizard>
 		</div>
 	);
