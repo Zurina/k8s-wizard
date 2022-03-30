@@ -1,0 +1,149 @@
+html,
+body {
+	margin: 0px;
+}
+
+.App {
+	font-family: sans-serif;
+	text-align: center;
+}
+
+button {
+	text-decoration: none;
+	display: inline-block;
+	padding: 8px 16px;
+}
+
+button:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.previous {
+	background-color: #f1f1f1;
+	color: black;
+}
+
+.next {
+	background-color: #3371e3;
+	color: white;
+}
+
+.button-container {
+	display: flex;
+	justify-content: space-around;
+}
+
+
+@import url("https://fonts.googleapis.com/css?family=Inter:400'");
+$font: "Inter", sans-serif;
+$white: #fff;
+$green: #007e90;
+html {
+  overflow: hidden;
+}
+
+.middle {
+  width: 100%;
+  text-align: center;
+  h1 {
+    font-family: $font;
+    color: $white;
+  }
+
+  input[type="radio"] + .box {
+    background-color: #cddfff;
+  }
+  input[type="radio"] {
+    display: none;
+    background-color: #3371e3;
+    &:checked {
+      + .box {
+        background-color: #3371e3;
+        span {
+          color: white;
+          &:before {
+            transform: translateY(0px);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .box {
+    width: 200px;
+    height: 200px;;
+    border: 1px solid;
+    margin: 20px;
+    background-color: $white;
+    transition: all 250ms ease;
+    will-change: transition;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    font-family: $font;
+    font-weight: 900;
+    &:active {
+      transform: translateY(10px);
+    }
+    span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      transition: all 300ms ease;
+      font-size: 1.5em;
+      user-select: none;
+      color: #3371e3;
+      &:before {
+        font-size: 1.2em;
+        font-family: FontAwesome;
+        display: block;
+        transform: translateY(-150px);
+        opacity: 0;
+        transition: all 300ms ease-in-out;
+        font-weight: normal;
+        color: white;
+      }
+    }
+  }
+  .front-end {
+    span {
+      &:before {
+        content: "\f121";
+      }
+    }
+  }
+  .back-end {
+    span {
+      &:before {
+        content: "\f0f4";
+      }
+    }
+  }
+
+  /* Made by */
+  p {
+    color: $white;
+    font-family: $font;
+    font-weight: 400;
+    a {
+      text-decoration: underline;
+      font-weight: bold;
+      color: #fff;
+    }
+    span {
+      &:after {
+        content: "\f0e7";
+        font-family: FontAwesome;
+        color: yellow;
+      }
+    }
+  }
+}
+
+#description {
+  color: black;
+}
