@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/k8s-wizard/static/css/main.f280394e.css",
-    "main.js": "/k8s-wizard/static/js/main.e2b33bd5.js",
+    "main.css": "/k8s-wizard/static/css/main.d186eba8.css",
+    "main.js": "/k8s-wizard/static/js/main.ffbaa6da.js",
+    "static/media/environment.png": "/k8s-wizard/static/media/environment.df75b0bbbcd3f6891f66.png",
     "static/media/logo-mathias.png": "/k8s-wizard/static/media/logo-mathias.2bcda5c7f5193a89ecd5.png",
+    "static/media/monitoring.png": "/k8s-wizard/static/media/monitoring.859d8a92b9585a167d7b.png",
     "static/media/texture.png": "/k8s-wizard/static/media/texture.d630a42e18fba6a81e24.png",
+    "static/media/authentication.png": "/k8s-wizard/static/media/authentication.2a7ee4a53acc2168091c.png",
     "index.html": "/k8s-wizard/index.html",
-    "main.f280394e.css.map": "/k8s-wizard/static/css/main.f280394e.css.map",
-    "main.e2b33bd5.js.map": "/k8s-wizard/static/js/main.e2b33bd5.js.map"
+    "main.d186eba8.css.map": "/k8s-wizard/static/css/main.d186eba8.css.map",
+    "main.ffbaa6da.js.map": "/k8s-wizard/static/js/main.ffbaa6da.js.map"
   },
   "entrypoints": [
-    "static/css/main.f280394e.css",
-    "static/js/main.e2b33bd5.js"
+    "static/css/main.d186eba8.css",
+    "static/js/main.ffbaa6da.js"
   ]
 }
