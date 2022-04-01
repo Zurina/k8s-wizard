@@ -5,12 +5,14 @@ import One from "./steps/step_1";
 import Two from "./steps/step_2";
 import Three from "./steps/step_3";
 import Four from "./steps/step_4";
+import Result from './components/result'
 
 const Wizard = () => {
 	const [stepWizard, setStepWizard] = useState(null);
 	const [user, setUser] = useState({});
 	const [activeStep, setActiveStep] = useState(0);
 	const [information, setInformation] = useState({});
+	const [done, setDone] = useState(false)
 
 	const handleStepInfChange = (event) => {
 		const name = event.target.name;
@@ -39,6 +41,7 @@ const Wizard = () => {
 	};
 
 	const handleComplete = () => {
+		setDone(!done);
 		alert("You r done. TQ");
 	};
 
@@ -64,13 +67,15 @@ const Wizard = () => {
 				<Step label="Deployment environment" />
 				<Step label="Authentication" />
 				<Step label="Monitoring" />
-				<Step label="Visualization of monitoring metircs" />
+				<Step label="Visualization of monitoring metrics" />
+				<Step label="Result" />
 			</Stepper>
 			<StepWizard instance={assignStepWizard} onStepChange={handleStepChange}>
 				<One handleStepInfChange={handleStepInfChange} userCallback={assignUser} />
 				<Two handleStepInfChange={handleStepInfChange} user={user} />
 				<Three handleStepInfChange={handleStepInfChange} user={user} />
 				<Four handleStepInfChange={handleStepInfChange} user={user} completeCallback={handleComplete} />
+				<Result information={information} /> 
 			</StepWizard>
 		</div>
 	);

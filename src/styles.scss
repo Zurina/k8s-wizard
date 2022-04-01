@@ -5,7 +5,9 @@ body {
 
 .App {
 	font-family: sans-serif;
-	text-align: center;
+  justify-content: center;
+  flex-direction: column ;
+  display: flex;
 }
 
 button {
@@ -40,7 +42,7 @@ $font: "Inter", sans-serif;
 $white: #fff;
 $green: #007e90;
 html {
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .middle {

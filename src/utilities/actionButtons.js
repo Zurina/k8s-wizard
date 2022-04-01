@@ -11,7 +11,7 @@ const ActionButtons = (props) => {
 	};
 
 	const handleFinish = () => {
-		props.lastStep();
+		props.completeCallback();
 	};
 
 	return (
