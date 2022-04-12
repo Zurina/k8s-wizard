@@ -70,7 +70,7 @@ const One = (props) => {
 							value="AWS"
 							onChange={handleInput}
 						/>
-						<div className="box">
+						<div className="box" id="smallbox">
 							<span>AWS</span>
 						</div>
 					</label>
@@ -81,7 +81,7 @@ const One = (props) => {
 							value="Azure"
 							onChange={handleInput}
 						/>
-						<div className="box">
+						<div className="box" id="smallbox">
 							<span>Azure</span>
 						</div>
 					</label>
@@ -92,7 +92,7 @@ const One = (props) => {
 							value="GCP"
 							onChange={handleInput}
 						/>
-						<div className="box">
+						<div className="box" id="smallbox">
 							<span>GCP</span>
 						</div>
 					</label>
