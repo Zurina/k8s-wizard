@@ -4,7 +4,7 @@ import "./result.scss";
 const Result = (props) => {
 	return (
 		<div className="App">
-			{Object.keys(props.information).map((key) => {
+			{/* {Object.keys(props.information).map((key) => {
                 return (
                     <div className="container">
                         <img className="container__image" src={require("./" + key + ".png")} width='250' height='100'/>
@@ -13,7 +13,7 @@ const Result = (props) => {
 						</div>
                     </div>
                 )
-			})}
+			})} */}
 		</div>
 	);
 };

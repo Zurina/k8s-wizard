@@ -4,6 +4,12 @@ import ActionButtons from "../utilities/actionButtons";
 const Four = (props) => {
 	const [error, setError] = useState("");
 
+	const handleInput = (event) => {
+		const name = event.target.name;
+		const value = event.target.value;
+		props.handleStepInfChange(name, value);
+	};
+
 	const validate = () => {
 		if ("" == null) setError("Mandatory field, choose one.");
 		else {
@@ -22,14 +28,14 @@ const Four = (props) => {
 				<span style={{ color: "red" }}>{error}</span>
 			</div>
 			<label>
-				<input type="radio" name="monitoring-visualization" value="yes" onChange={props.handleStepInfChange} />
+				<input type="radio" name="monitoring-visualization" value="yes" onChange={handleInput} />
 				<div className="box">
 					<span>Yes</span>
 				</div>
 			</label>
 
 			<label>
-				<input type="radio" name="monitoring-visualization" value="no" onChange={props.handleStepInfChange} />
+				<input type="radio" name="monitoring-visualization" value="no" onChange={handleInput} />
 				<div className="box">
 					<span>No</span>
 				</div>

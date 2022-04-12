@@ -3,6 +3,19 @@ import ActionButtons from "../utilities/actionButtons";
 
 const One = (props) => {
 	const [error, setError] = useState("");
+	const [isCloud, setIsCloud] = useState(false);
+
+	const handleInput = (event) => {
+		const name = event.target.name;
+		const value = event.target.value;
+		if (value == "cloud") {
+			setIsCloud(true);
+		} else if (value == "on-premise") {
+			setIsCloud(false);
+		}
+
+		props.handleStepInfChange(name, value);
+	};
 
 	const validate = () => {
 		if ("" == null) setError("Mandatory field, choose one.");
@@ -30,7 +43,7 @@ const One = (props) => {
 					type="radio"
 					name="environment"
 					value="on-premise"
-					onChange={props.handleStepInfChange}
+					onChange={handleInput}
 				/>
 				<div className="box">
 					<span>On-premise</span>
@@ -42,12 +55,49 @@ const One = (props) => {
 					type="radio"
 					name="environment"
 					value="cloud"
-					onChange={props.handleStepInfChange}
+					onChange={handleInput}
 				/>
 				<div className="box">
 					<span>Cloud</span>
 				</div>
 			</label>
+			{isCloud && (
+				<div>
+					<label>
+						<input
+							type="radio"
+							name="cloud-provider"
+							value="AWS"
+							onChange={handleInput}
+						/>
+						<div className="box">
+							<span>AWS</span>
+						</div>
+					</label>
+					<label>
+						<input
+							type="radio"
+							name="cloud-provider"
+							value="Azure"
+							onChange={handleInput}
+						/>
+						<div className="box">
+							<span>Azure</span>
+						</div>
+					</label>
+					<label>
+						<input
+							type="radio"
+							name="cloud-provider"
+							value="GCP"
+							onChange={handleInput}
+						/>
+						<div className="box">
+							<span>GCP</span>
+						</div>
+					</label>
+				</div>
+			)}
 			<ActionButtons {...props} nextStep={validate} />
 		</div>
 	);

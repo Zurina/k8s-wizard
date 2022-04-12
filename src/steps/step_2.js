@@ -4,6 +4,12 @@ import ActionButtons from "../utilities/actionButtons";
 const Two = (props) => {
 	const [error, setError] = useState("");
 
+	const handleInput = (event) => {
+		const name = event.target.name;
+		const value = event.target.value;
+		props.handleStepInfChange(name, value);
+	};
+
 	const validate = () => {
 		if ("" == null) setError("Mandatory field, choose one.");
 		else {
@@ -26,7 +32,7 @@ const Two = (props) => {
 					type="radio"
 					name="authentication"
 					value="yes"
-					onChange={props.handleStepInfChange}
+					onChange={handleInput}
 				/>
 				<div className="box">
 					<span>Yes</span>
@@ -38,7 +44,7 @@ const Two = (props) => {
 					type="radio"
 					name="authentication"
 					value="No"
-					onChange={props.handleStepInfChange}
+					onChange={handleInput}
 				/>
 				<div className="box">
 					<span>No</span>
@@ -50,7 +56,7 @@ const Two = (props) => {
 					type="radio"
 					name="authentication"
 					value="no-need"
-					onChange={props.handleStepInfChange}
+					onChange={handleInput}
 				/>
 				<div className="box">
 					<span>No need for auth</span>

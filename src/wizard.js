@@ -14,10 +14,8 @@ const Wizard = () => {
 	const [information, setInformation] = useState({});
 	const [done, setDone] = useState(false)
 
-	const handleStepInfChange = (event) => {
-		const name = event.target.name;
-		const value = event.target.value;
-		setInformation({ ...information, [name]: value });
+	const handleStepInfChange = (key, value) => {
+		setInformation({ ...information, [key]: value });
 		console.log(information)
 	};
 
