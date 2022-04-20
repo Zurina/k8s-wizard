@@ -5,6 +5,8 @@ import One from "./steps/step_1";
 import Two from "./steps/step_2";
 import Three from "./steps/step_3";
 import Four from "./steps/step_4";
+import Five from "./steps/step_5";
+import Six from "./steps/step_6";
 import Result from './components/result'
 
 const Wizard = () => {
@@ -66,6 +68,8 @@ const Wizard = () => {
 				<Step label="Authentication" />
 				<Step label="Monitoring" />
 				<Step label="Visualization of monitoring metrics" />
+				<Step label="Security" />
+				<Step label="Ingress" />
 				<Step label="Result" />
 			</Stepper>
 			<StepWizard instance={assignStepWizard} onStepChange={handleStepChange}>
@@ -73,6 +77,8 @@ const Wizard = () => {
 				<Two handleStepInfChange={handleStepInfChange} user={user} />
 				<Three handleStepInfChange={handleStepInfChange} user={user} />
 				<Four handleStepInfChange={handleStepInfChange} user={user} completeCallback={handleComplete} />
+				<Five handleStepInfChange={handleStepInfChange} user={user} completeCallback={handleComplete} />
+				<Six handleStepInfChange={handleStepInfChange} user={user} completeCallback={handleComplete} />
 				<Result information={information} /> 
 			</StepWizard>
 		</div>

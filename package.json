@@ -16,6 +16,7 @@
     "react-dom": "16.12.0",
     "react-form-stepper": "1.2.10",
     "react-icons": "3.11.0",
+    "react-modal": "^3.14.4",
     "react-scripts": "^5.0.0",
     "react-step-wizard": "5.3.4",
     "reactstrap": "8.5.1",
@@ -30,7 +31,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build" 
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     ">0.2%",

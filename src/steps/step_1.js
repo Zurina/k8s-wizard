@@ -25,7 +25,6 @@ const One = (props) => {
 			// props.userCallback(value);
 		}
 	};
-
 	return (
 		<div className="middle">
 			<h2 className="section-heading">
