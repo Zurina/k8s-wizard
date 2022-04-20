@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ActionButtons from "../utilities/actionButtons";
 
-const Six = (props) => {
+const Seven = (props) => {
 	const [error, setError] = useState("");
 
 	const handleInput = (event) => {
@@ -22,20 +22,20 @@ const Six = (props) => {
 	return (
 		<div className="middle">
 			<h2 className="section-heading">
-                Do you need a tool for handling traffic to your applications/services?
+                Do you need a tool for ingesting and analyzing logs?
 			</h2>
             <div>
 				<span style={{ color: "red" }}>{error}</span>
 			</div>
 			<label>
-				<input type="radio" name="ingress" value="yes" onChange={handleInput} />
+				<input type="radio" name="logging" value="yes" onChange={handleInput} />
 				<div className="box">
 					<span>Yes</span>
 				</div>
 			</label>
 
 			<label>
-				<input type="radio" name="ingress" value="no" onChange={handleInput} />
+				<input type="radio" name="logging" value="no" onChange={handleInput} />
 				<div className="box">
 					<span>No</span>
 				</div>
@@ -45,4 +45,4 @@ const Six = (props) => {
 	);
 };
 
-export default Six;
+export default Seven;
