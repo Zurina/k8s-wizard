@@ -4,7 +4,6 @@ import StepWizard from "react-step-wizard";
 import One from "./steps/step_1";
 import Two from "./steps/step_2";
 import Three from "./steps/step_3";
-import Four from "./steps/step_4";
 import Five from "./steps/step_5";
 import Six from "./steps/step_6";
 import Seven from "./steps/step_7";
@@ -68,7 +67,6 @@ const Wizard = () => {
 				<Step label="Deployment environment" />
 				<Step label="Authentication" />
 				<Step label="Monitoring" />
-				<Step label="Visualization of monitoring metrics" />
 				<Step label="Security" />
 				<Step label="Ingress" />
 				<Step label="Logging" />
@@ -78,7 +76,6 @@ const Wizard = () => {
 				<One handleStepInfChange={handleStepInfChange} userCallback={assignUser} />
 				<Two handleStepInfChange={handleStepInfChange} user={user} />
 				<Three handleStepInfChange={handleStepInfChange} user={user} />
-				<Four handleStepInfChange={handleStepInfChange} user={user} completeCallback={handleComplete} />
 				<Five handleStepInfChange={handleStepInfChange} user={user} completeCallback={handleComplete} />
 				<Six handleStepInfChange={handleStepInfChange} user={user} completeCallback={handleComplete} />
 				<Seven handleStepInfChange={handleStepInfChange} user={user} completeCallback={handleComplete} />

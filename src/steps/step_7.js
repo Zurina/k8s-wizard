@@ -3,10 +3,17 @@ import ActionButtons from "../utilities/actionButtons";
 
 const Seven = (props) => {
 	const [error, setError] = useState("");
+	const [useLogging, setUseLogging] = useState(false);
 
 	const handleInput = (event) => {
 		const name = event.target.name;
 		const value = event.target.value;
+		if (value == "yes") {
+			setUseLogging(true);
+		} else if (value == "no") {
+			setUseLogging(false);
+		}
+
 		props.handleStepInfChange(name, value);
 	};
 
@@ -40,6 +47,35 @@ const Seven = (props) => {
 					<span>No</span>
 				</div>
 			</label>
+			{useLogging && (
+				<div>
+					<h2 className="section-heading">
+						Do you you want a tool to visualize and explore your logs?
+					</h2>
+					<label>
+						<input
+							type="radio"
+							name="logging-visualization"
+							value="yes"
+							onChange={handleInput}
+						/>
+						<div className="box" id="smallbox">
+							<span>Yes</span>
+						</div>
+					</label>
+					<label>
+						<input
+							type="radio"
+							name="logging-visualization"
+							value="no"
+							onChange={handleInput}
+						/>
+						<div className="box" id="smallbox">
+							<span>No</span>
+						</div>
+					</label>
+				</div>
+			)}
 			<ActionButtons {...props} nextStep={validate} />
 		</div>
 	);
