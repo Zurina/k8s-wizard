@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.scss";
 import Albus from "./albus";
 import Header from "./components/header";
 import HelmModal from "./components/helmModal";

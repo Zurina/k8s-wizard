@@ -1,9 +1,7 @@
-.example-steps, .example-steps ul {
-    text-align: center;
-    padding-left: 0;
-    text-align: center;
-    list-style-position: inside;
-  }
+.example-steps {
+  margin-left: 30%;
+  margin-right: 30%;
+}
   
   .example-buttons {
     padding-top: 75px;
@@ -26,6 +24,8 @@
     opacity: 0.01;
     transition: opacity 300ms ease-in;
   }
+
+  path.rc-progress-line-path { stroke:#3371e3 }
 
   button {
     background-color: #3371e3;
@@ -114,8 +114,8 @@
       align-items: center;
       padding: 10px 30px 10px 10px;
       overflow: hidden;
-      margin-left: 30%;
-      margin-right: 30%;
+      // margin-left: 20%;
+      // margin-right: 20%;
       margin-top: 10px;
       margin-bottom: 10px;
       border-radius: 10px;

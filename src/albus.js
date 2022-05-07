@@ -13,7 +13,6 @@ const SkipAStep = () => (
                 <div>
                   <Line
                     percent={(steps.indexOf(step) + 1) / steps.length * 100}
-                    className="pad-b"
                   />
                   <TransitionGroup>
                     <CSSTransition
@@ -29,9 +28,14 @@ const SkipAStep = () => (
                               <div>
                                 <h1>Should you even use Kubernetes?</h1>
                                 <h3>If you can say yes to the following, then yes:</h3>
+                                <ul>
                                     <li>Do you operate many different applications?</li>
                                     <li>Are they containerized or do you plan to containerize them?</li>
                                     <li>Have you ruled out the Container as a Service options (Cloud run, Apprunner, Fargatte and so on)?</li>
+                                </ul>
+                                <p>So in the end, it comes down to whether you are operating many, containerized, microservices k8s
+                                   can provide a great base for building an app platform. If you have a single monolithic app,
+                                   you will almost certainly be better served by a different approach!</p>
                                 <button onClick={() => push('self-host-k8s')}>YES</button>
                                 <button onClick={() => push('no-need')}>NO</button>
                               </div>
