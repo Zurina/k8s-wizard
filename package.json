@@ -20,7 +20,12 @@
     "react-scripts": "^5.0.0",
     "react-step-wizard": "5.3.4",
     "reactstrap": "8.5.1",
-    "sass": "^1.49.9"
+    "sass": "^1.49.9",
+    "prop-types": "15.6.0",
+    "rc-progress": "2.2.1",
+    "react-albus": "2.0.0",
+    "react-router-dom": "4.2.2",
+    "react-transition-group": "2.2.1"
   },
   "devDependencies": {
     "typescript": "3.8.3"

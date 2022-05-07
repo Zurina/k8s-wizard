@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.scss";
-import Wizard from "./wizard";
+import Albus from "./albus";
 import Header from "./components/header";
 import HelmModal from "./components/helmModal";
 
@@ -19,7 +19,7 @@ export default function App() {
   return (
     <div>
       <Header openModal={openModal}/>
-      <Wizard />
+      <Albus />
       <HelmModal modalIsOpen={modalIsOpen} closeModal={closeModal}/>
     </div>
   );
