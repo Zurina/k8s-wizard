@@ -8,7 +8,7 @@ const ArticleRow = (props) => {
 				alt="Mark Zuckerberg"
 				class="leaderboard__picture"
 			/>
-			<span class="leaderboard__name">{props.text}</span>
+			<span class="leaderboard__name">{props.name}</span>
 		</article>
 	);
 };

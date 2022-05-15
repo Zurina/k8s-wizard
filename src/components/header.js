@@ -10,7 +10,7 @@ const styles = createUseStyles({
 		paddingRight: "100px",
 		paddingTop: "20px",
 		paddingBottom: "20px",
-		height: "200px",
+		height: "100px",
 		backgroundImage: `url(${background})`,
 		backgroundColor: "#303030",
 		color: "white",

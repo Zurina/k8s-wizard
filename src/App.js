@@ -14,7 +14,6 @@ export default function App() {
 	function closeModal() {
 		setIsOpen(false);
 	}
-
   return (
     <div>
       <Header openModal={openModal}/>
