@@ -155,7 +155,7 @@ const Albus = () => (
 									<Credentials />
 									<DevEnv />
 									<BackupClusters />
-									<DevEnv />
+									<Security />
 								</div>
 							)}
 							/>

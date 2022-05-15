@@ -21,7 +21,7 @@ const Security = () => {
 	return (
 		<div className="super-box" onClick={openModal}>
 			<div className="container">
-				<h2 className="description">IAC</h2>
+				<h2 className="description">Security</h2>
 				<span className="description">
 					How should you handle security in your cluster?
 				</span>
