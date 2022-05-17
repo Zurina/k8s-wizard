@@ -20,8 +20,9 @@ import BackupClusters from "./box-components/backupClusters";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Wizard, Steps, Step } from "react-albus";
 import ArticleRow from "./utilities/articleRow";
+import Configuration from "./components/configuration";
 
-const Albus = () => (
+const Albus = (props) => (
 	<div className="row pad-t">
 		<div className="col-xs-6 col-xs-offset-3">
 			<Wizard
@@ -58,16 +59,23 @@ const Albus = () => (
 														If you have a single monolithic app, you will almost
 														certainly be better served by a different approach!
 													</p>
-													<button onClick={() => push("self-host-k8s")}>
+													<button
+														onClick={() => {
+															props.updateState("use-k8s", "yes");
+															push("self-host-k8s");
+														}}
+													>
 														YES
 													</button>
-													<button onClick={() => push("no-need")}>NO</button>
+													<button
+														onClick={() => {
+															props.updateState("use-k8s", "yes");
+															push("no-need");
+														}}
+													>
+														NO
+													</button>
 												</div>
-												//   <article class="leaderboard__profile">
-												//   <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mark Zuckerberg" class="leaderboard__picture"/>
-												//   <span class="leaderboard__name">Mark Zuckerberg</span>
-												//   <span class="leaderboard__value">35.7<span></span></span>
-												// </article>
 											)}
 										/>
 										<Step
@@ -109,11 +117,21 @@ const Albus = () => (
 															arise?
 														</li>
 													</ul>
-													<button onClick={() => push("on-premise-hosting")}>
-														YES?
+													<button
+														onClick={() => {
+															props.updateState("self-host-k8s", "yes");
+															push("on-premise-hosting");
+														}}
+													>
+														YES
 													</button>
-													<button onClick={() => push("cloud-hosting")}>
-														NO?
+													<button
+														onClick={() => {
+															props.updateState("self-host-k8s", "no");
+															push("cloud-hosting");
+														}}
+													>
+														NO
 													</button>
 												</div>
 											)}
@@ -183,7 +201,10 @@ const Albus = () => (
 											id="infrastructure-as-code"
 											render={({ push }) => (
 												<div>
-                          <h1>Which tools and configurations are you looking for?</h1>
+													<Configuration />
+													<h1>
+														Which tools and configurations are you looking for?
+													</h1>
 													<div className="boxes-container">
 														<IAC />
 														<EnvIsolation />
