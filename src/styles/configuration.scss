@@ -134,7 +134,12 @@
   }
 }
 
+.configuration-container {
+  width: 40%;
+}
+
 .configuration-container li {
   list-style-type: none;
   margin-top: 10px;
+  margin-left: -20px;
 }
