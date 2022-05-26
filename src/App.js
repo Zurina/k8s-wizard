@@ -21,9 +21,8 @@ export default function App() {
 	}
   return (
     <div>
-      {JSON.stringify(state)}
       <Header openModal={openModal}/>
-      <Albus updateState={updateState}/>
+      <Albus state={state} updateState={updateState}/>
       <HelmModal modalIsOpen={modalIsOpen} closeModal={closeModal}/>
     </div>
   );

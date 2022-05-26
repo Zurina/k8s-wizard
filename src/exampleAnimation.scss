@@ -25,37 +25,6 @@
     transition: opacity 300ms ease-in;
   }
 
-//   html {
-//     display: -webkit-box;
-//     display: -ms-flexbox;
-//     display: flex;
-//    -webkit-box-pack: center;
-//        -ms-flex-pack: center;
-//            justify-content: center;
-//    -webkit-box-align: center;
-//        -ms-flex-align: center;
-//            align-items: center;
-//  }
- 
-//  body {
-//    display: -webkit-box;
-//    display: -ms-flexbox;
-//    display: flex;
-//    -webkit-box-pack: justify;
-//        -ms-flex-pack: justify;
-//            justify-content: space-between;
-//    -webkit-box-align: center;
-//        -ms-flex-align: center;
-//            align-items: center;
-//   //  min-height: 100vh;
-//    background-color: #F7F9FC;
-//    font-family: system, -apple-system, BlinkMacSystemFont, sans-serif;
-//    font-size: 20px;
-//    color: #5d6494;
-//    -webkit-font-smoothing: antialiased;
-//    -moz-osx-font-smoothing: grayscale;
-//  }
-
 .boxes-container {
   margin-top: 50px;
   // margin-left: 15%;
@@ -124,7 +93,8 @@
    border: 1px solid rgba(225, 227, 232, 0.18);
    -webkit-box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
            box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
-   background-color: #fff;
+   background-image: url('./images/iac.jpg');
+   background-color: white;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
@@ -151,12 +121,14 @@
            box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
    -webkit-transition-delay: 0.02s;
            transition-delay: 0.02s;
+           
  }
  
  .super-box:hover .icon_bg {
    -webkit-transform: translateY(-32px) scale(6);
            transform: translateY(-32px) scale(6);
    background-color: #3371e3;
+   background-image: none;
  }
  
  .super-box:hover .icon {
@@ -181,6 +153,7 @@
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
+   cursor: pointer;
    -webkit-box-pack: center;
        -ms-flex-pack: center;
            justify-content: center;

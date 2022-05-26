@@ -23,7 +23,7 @@ const ContainerRegistry = () => {
 			<div className="container">
 				<h2 className="description">Application Packaging</h2>
 				<span className="description">
-                    Application Packaging is a registry to store your container images.
+                    How should you package your applications?
 				</span>
 				<div className="box">
 					<div className="icon_bg"></div>

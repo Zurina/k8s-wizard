@@ -4,75 +4,77 @@ import "./configuration.scss";
 const Configuration = (props) => {
 	return (
 		<div className="configuration-container">
-			<h2>Current configuration</h2>
+			<h2>Environment</h2>
+			<div><pre>{JSON.stringify(props.state, null, 2) }</pre></div>
+			<h2>Tools</h2>
 			<ul>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Infrastructure as Code </label>
+					<label htmlFor="s1">Infrastructure as Code </label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Environment Isolation </label>
+					<label htmlFor="s1">Environment Isolation </label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Container Registry </label>
+					<label htmlFor="s1">Container Registry </label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Application Packaging </label>
+					<label htmlFor="s1">Application Packaging </label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Version Control </label>
+					<label htmlFor="s1">Version Control </label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Repository Structure </label>
+					<label htmlFor="s1">Repository Structure </label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">CI</label>
+					<label htmlFor="s1">CI</label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">CD</label>
+					<label htmlFor="s1">CD</label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Traffic</label>
+					<label htmlFor="s1">Traffic</label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Networking</label>
+					<label htmlFor="s1">Networking</label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Service Mesh</label>
+					<label htmlFor="s1">Service Mesh</label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Storage</label>
+					<label htmlFor="s1">Storage</label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Observability</label>
+					<label htmlFor="s1">Observability</label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Credentials</label>
+					<label htmlFor="s1">Credentials</label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Development Environment</label>
+					<label htmlFor="s1">Development Environment</label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Backup Clusters</label>
+					<label htmlFor="s1">Backup Clusters</label>
 				</li>
 				<li>
 					<input id="s1" type="checkbox" class="switch" />
-					<label for="s1">Security</label>
+					<label htmlFor="s1">Security</label>
 				</li>
 			</ul>
 		</div>

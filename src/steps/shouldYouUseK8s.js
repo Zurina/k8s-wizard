@@ -1,13 +1,11 @@
 import React from "react";
 import { Step } from "react-albus";
 
-const Header = (props) => {
-	const classes = styles();
-
+const ShouldYouUseK8s = (props) => {
 	return (
 		<Step
-			id="introduction"
-			render={({ props.push }) => (
+			id={props.id}
+			render={({ push }) => (
 				<div>
 					<h1>Should you even use Kubernetes?</h1>
 					<h3>If you can say yes to the following, then yes:</h3>
@@ -25,12 +23,26 @@ const Header = (props) => {
 						building an app platform. If you have a single monolithic app, you
 						will almost certainly be better served by a different approach!
 					</p>
-					<button onClick={() => push("self-host-k8s")}>YES</button>
-					<button onClick={() => push("no-need")}>NO</button>
+					<button
+						onClick={() => {
+							props.updateState("use-k8s", "yes");
+							push("self-host-k8s");
+						}}
+					>
+						YES
+					</button>
+					<button
+						onClick={() => {
+							props.updateState("use-k8s", "no");
+							push("no-need");
+						}}
+					>
+						NO
+					</button>
 				</div>
 			)}
 		/>
 	);
 };
 
-export default Header;
+export default ShouldYouUseK8s;

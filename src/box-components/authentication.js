@@ -1,7 +1,7 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
 
-const EnvIsolation = () => {
+const ContainerRegistry = () => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
 
 	function openModal() {
@@ -13,17 +13,17 @@ const EnvIsolation = () => {
 	}
 
     const content = {
-        "title": "Traffic",
-        "description": "If your requirements are low-key, a loadbalancer from your cloud provider might be exactly what you need. However, if not, you might need to look for something with more capabilities and which is more customizable.",
-        "technologies": ["Nginx", "Kong", "HAProxy", "Traefik", "Loadbalancer services from your cloud provider"]
+        "title": "Authentication",
+        "description": "Kubernetes does not provide an OpenID Connect Identity Provider. Choosing the approach to handle this comes down to whether you already have an existing identity provider and whether you want to manage it yourself.",
+        "technologies": ["Keycloak", "Dex", "Existing Public Identity Provider (Google etc.)", "Cloudfoundry UAA", "Tremolo Security's OpenUnison"]
     }
 
 	return (
 		<div className="super-box" onClick={openModal}>
 			<div className="container">
-				<h2 className="description">Traffic</h2>
+				<h2 className="description">Authentication</h2>
 				<span className="description">
-                    How do you want to track and debug your traffic?
+                    How do you want to handle authentication?
 				</span>
 				<div className="box">
 					<div className="icon_bg"></div>
@@ -31,7 +31,7 @@ const EnvIsolation = () => {
 				<div className="icon"></div>
 			</div>
 			<div className="text">
-				<p className="title">Traffic</p>
+				<p className="title">Authentication</p>
 			</div>
 			<MyModal
 				content={content}
@@ -42,4 +42,4 @@ const EnvIsolation = () => {
 	);
 };
 
-export default EnvIsolation;
+export default ContainerRegistry;
