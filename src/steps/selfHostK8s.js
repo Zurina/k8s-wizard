@@ -18,19 +18,29 @@ const SelfHostK8s = (props) => {
 						</li>
 					</ul>
 					<button
+						className="general-button"
 						onClick={() => {
 							props.updateState("self-host-k8s", "yes");
 							push("on-premise-hosting");
 						}}
 					>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
 						YES
 					</button>
 					<button
+						className="general-button"
 						onClick={() => {
 							props.updateState("self-host-k8s", "no");
 							push("cloud-hosting");
 						}}
 					>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
 						NO
 					</button>
 				</div>

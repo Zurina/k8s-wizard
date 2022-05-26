@@ -20,7 +20,15 @@ const OnPremiseHosting = (props) => {
 					<ArticleRow name="Rancher" />
 					<ArticleRow name="Talos" />
 					<ArticleRow name="Portainer" />
-					<button onClick={() => push("tool-boxes")}>Next</button>
+					<button className="general-button"
+							onClick={() => 
+							push("tool-boxes")}>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						Next
+					</button>
 				</div>
 			)}
 		/>

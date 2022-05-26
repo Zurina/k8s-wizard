@@ -15,11 +15,16 @@ const NoNeedForK8s = (props) => {
 					<ArticleRow name="Hashicorp Nomad" />
 					<ArticleRow name="One or few VMs to keep things simple" />
 					<button
+						className="general-button"
 						onClick={() => {
 							push("introduction");
 						}}
 					>
-						Regret?
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						Back
 					</button>
 				</div>
 			)}

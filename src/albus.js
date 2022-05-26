@@ -1,5 +1,6 @@
 import React from "react";
-import "./exampleAnimation.scss";
+import "./styles/exampleAnimation.scss";
+import "./styles/buttons.scss";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Wizard, Steps } from "react-albus";
 import ShouldYouUseK8s from './steps/shouldYouUseK8s'

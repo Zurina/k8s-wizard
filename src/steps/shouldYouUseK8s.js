@@ -24,19 +24,29 @@ const ShouldYouUseK8s = (props) => {
 						will almost certainly be better served by a different approach!
 					</p>
 					<button
+						className="general-button"
 						onClick={() => {
 							props.updateState("use-k8s", "yes");
 							push("self-host-k8s");
 						}}
 					>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
 						YES
 					</button>
 					<button
+						className="general-button"
 						onClick={() => {
 							props.updateState("use-k8s", "no");
 							push("no-need");
 						}}
 					>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
 						NO
 					</button>
 				</div>
