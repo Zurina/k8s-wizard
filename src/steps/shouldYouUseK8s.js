@@ -19,7 +19,7 @@ const ShouldYouUseK8s = (props) => {
 					</ul>
 					<p>
 						So in the end, it comes down to whether you are operating many,
-						containerized, microservices k8s can provide a great base for
+						containerized, microservices k8s can provide a great base for <br></br>
 						building an app platform. If you have a single monolithic app, you
 						will almost certainly be better served by a different approach!
 					</p>

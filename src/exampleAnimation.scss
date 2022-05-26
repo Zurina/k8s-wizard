@@ -1,6 +1,6 @@
 .example-steps {
-  margin-left: 20%;
-  margin-right: 20%;
+  display: flex;
+  justify-content: center;
 }
   
   .example-buttons {
@@ -329,4 +329,12 @@
 
 .leaderboard {
   box-shadow: 0 0 40px -10px rgba(0, 0, 0, .4);
+}
+
+.toolbox-container {
+  display: flex;
+}
+
+.toolboxes {
+  padding: 0px 20px; 
 }

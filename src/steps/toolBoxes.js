@@ -25,28 +25,30 @@ const ToolBoxes = (props) => {
 		<Step
 			id="tool-boxes"
 			render={({ push }) => (
-				<div>
+				<div className="toolbox-container">
 					<Configuration state={props.state} />
-					<h1>Which tools and configurations are you looking for?</h1>
-					<div className="boxes-container">
-						<IAC />
-						<Authentication />
-						<EnvIsolation />
-						<ContainerRegistry />
-						<ApplicationPackaging />
-						<VersionControl />
-						<RepositoryStructure />
-						<CI />
-						<CD />
-						<Traffic />
-						<Networking />
-						<ServiceMesh />
-						<Storage />
-						<Observability />
-						<Credentials />
-						<DevEnv />
-						<BackupClusters />
-						<Security />
+					<div className="toolboxes">
+						<h1>Which tools and configurations are you looking for?</h1>
+						<div className="boxes-container">
+							<IAC />
+							<Authentication />
+							<EnvIsolation />
+							<ContainerRegistry />
+							<ApplicationPackaging />
+							<VersionControl />
+							<RepositoryStructure />
+							<CI />
+							<CD />
+							<Traffic />
+							<Networking />
+							<ServiceMesh />
+							<Storage />
+							<Observability />
+							<Credentials />
+							<DevEnv />
+							<BackupClusters />
+							<Security />
+						</div>
 					</div>
 				</div>
 			)}
