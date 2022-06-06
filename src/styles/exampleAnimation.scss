@@ -152,6 +152,7 @@
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
+  //  padding: 4px;
    cursor: pointer;
    -webkit-box-pack: center;
        -ms-flex-pack: center;
@@ -274,6 +275,7 @@
   &__profile {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
+    border: 2px solid white;
     align-items: center;
     padding: 10px 30px 10px 10px;
     overflow: hidden;
@@ -288,7 +290,7 @@
     background-color: #fff;
     
     &:hover {
-      transform: scale(1.02);
+      transform: scale(1.04);
       box-shadow: 0px 0px 5px 5px #3371e3;
     }
   }
@@ -301,7 +303,7 @@
   }
   
   &__name {
-    color: #979cb0;
+    color: #000000;
     font-weight: 600;
     font-size: 20px;
     letter-spacing: 0.64px;
@@ -330,10 +332,20 @@
   box-shadow: 0 0 40px -10px rgba(0, 0, 0, .4);
 }
 
+.active .leaderboard__profile {
+  background-color: #000c22;
+}
+
+.active .leaderboard__name {
+  color: white;
+}
+
 .toolbox-container {
   display: flex;
+  padding: 20px;
 }
 
 .toolboxes {
   padding: 0px 20px; 
+  text-align: center;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
 
-const Security = () => {
+const Security = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
 
 	function openModal() {
@@ -37,6 +37,7 @@ const Security = () => {
 				content={content}
 				modalIsOpen={modalIsOpen}
 				closeModal={closeModal}
+				setToolState={props.setToolState}
 			/>
 		</div>
 	);

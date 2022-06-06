@@ -4,26 +4,25 @@ import Header from "./components/header";
 import HelmModal from "./components/helmModal";
 
 export default function App() {
+	const [modalIsOpen, setIsOpen] = React.useState(false);
+	const [envState, setEnvState] = React.useState({});
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [state, setState] = React.useState({});
+	function updateEnvState(key, value) {
+		setEnvState((prev) => ({ ...prev, [key]: value }));
+	}
 
-  function updateState(key, value) {
-    setState(prev => ({...prev, [key]: value}))
-  }
-
-  function openModal() {
+	function openModal() {
 		setIsOpen(true);
 	}
 
 	function closeModal() {
 		setIsOpen(false);
 	}
-  return (
-    <div>
-      <Header openModal={openModal}/>
-      <Albus state={state} updateState={updateState}/>
-      <HelmModal modalIsOpen={modalIsOpen} closeModal={closeModal}/>
-    </div>
-  );
+	return (
+		<div>
+			<Header openModal={openModal} />
+			<Albus envState={envState} updateEnvState={updateEnvState} />
+			<HelmModal modalIsOpen={modalIsOpen} closeModal={closeModal} />
+		</div>
+	);
 }

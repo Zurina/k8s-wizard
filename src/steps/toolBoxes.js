@@ -21,33 +21,36 @@ import Authentication from "../box-components/authentication";
 import Configuration from "../components/configuration";
 
 const ToolBoxes = (props) => {
+
+	const [toolState, setToolState] = React.useState({});
+
 	return (
 		<Step
 			id="tool-boxes"
-			render={({ push }) => (
+			render={({}) => (
 				<div className="toolbox-container">
-					<Configuration state={props.state} />
+					<Configuration toolState={toolState} envState={props.envState} />
 					<div className="toolboxes">
 						<h1>Which tools and configurations are you looking for?</h1>
 						<div className="boxes-container">
-							<IAC />
-							<Authentication />
-							<EnvIsolation />
-							<ContainerRegistry />
-							<ApplicationPackaging />
-							<VersionControl />
-							<RepositoryStructure />
-							<CI />
-							<CD />
-							<Traffic />
-							<Networking />
-							<ServiceMesh />
-							<Storage />
-							<Observability />
-							<Credentials />
-							<DevEnv />
-							<BackupClusters />
-							<Security />
+							<IAC setToolState={setToolState}/>
+							<Authentication setToolState={setToolState}/>
+							<EnvIsolation setToolState={setToolState}/>
+							<ContainerRegistry setToolState={setToolState}/>
+							<ApplicationPackaging setToolState={setToolState}/>
+							<VersionControl setToolState={setToolState}/>
+							<RepositoryStructure setToolState={setToolState}/>
+							<CI setToolState={setToolState}/>
+							<CD setToolState={setToolState}/>
+							<Traffic setToolState={setToolState}/>
+							<Networking setToolState={setToolState}/>
+							<ServiceMesh setToolState={setToolState}/>
+							<Storage setToolState={setToolState}/>
+							<Observability setToolState={setToolState}/>
+							<Credentials setToolState={setToolState}/>
+							<DevEnv setToolState={setToolState}/>
+							<BackupClusters setToolState={setToolState}/>
+							<Security setToolState={setToolState}/>
 						</div>
 					</div>
 				</div>

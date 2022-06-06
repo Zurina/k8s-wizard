@@ -1,7 +1,7 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
 
-const EnvIsolation = () => {
+const EnvIsolation = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
 
 	function openModal() {
@@ -37,6 +37,7 @@ const EnvIsolation = () => {
 				content={content}
 				modalIsOpen={modalIsOpen}
 				closeModal={closeModal}
+				setToolState={props.setToolState}
 			/>
 		</div>
 	);

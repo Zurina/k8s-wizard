@@ -1,7 +1,7 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
 
-const IAC = () => {
+const IAC = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
 
 	function openModal() {
@@ -37,6 +37,7 @@ const IAC = () => {
 				content={content}
 				modalIsOpen={modalIsOpen}
 				closeModal={closeModal}
+				setToolState={props.setToolState}
 			/>
 		</div>
 	);

@@ -14,18 +14,18 @@ const Albus = (props) => (
 	<div className="row pad-t">
 		<div className="col-xs-6 col-xs-offset-3">
 			<Wizard
-				render={({ step, steps }) => (
+				render={({ step }) => (
 					<div>
 						<TransitionGroup>
 							<CSSTransition key={step.id} classNames="fade-enter " timeout={0}>
 								<div className="example-steps">
 									<Steps key={step.id} step={step}>
-										<ShouldYouUseK8s id="introduction" updateState={props.updateState}/>
-										<NoNeedForK8s id="no-need" updateState={props.updateState}/>
-										<SelfHostK8s id="self-host-k8s" updateState={props.updateState}/>
-										<OnPremiseHosting id="on-premise-hosting" updateState={props.updateState}/>
-										<CloudHosting id="cloud-hosting" updateState={props.updateState}/>
-										<ToolBoxes state={props.state} id="tool-boxes" updateState={props.updateState}/>
+										<ShouldYouUseK8s id="introduction" updateEnvState={props.updateEnvState}/>
+										<NoNeedForK8s id="no-need" updateEnvState={props.updateEnvState}/>
+										<SelfHostK8s id="self-host-k8s" updateEnvState={props.updateEnvState}/>
+										<OnPremiseHosting id="on-premise-hosting" updateEnvState={props.updateEnvState}/>
+										<CloudHosting id="cloud-hosting" updateEnvState={props.updateEnvState}/>
+										<ToolBoxes envState={props.envState} id="tool-boxes" updateEnvState={props.updateEnvState}/>
 									</Steps>
 								</div>
 							</CSSTransition>

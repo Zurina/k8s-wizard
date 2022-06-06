@@ -3,10 +3,9 @@ import React from "react";
 const ArticleRow = (props) => {
 
     const clickUpdate = () => {
-        props.updateState('cloud-provider', props.name)
+        props.updateEnvState('cloud-provider', props.name)
         props.push("tool-boxes")
     }
-
 
 	return (
 		<div onClick={clickUpdate}>

@@ -14,7 +14,7 @@ const ShouldYouUseK8s = (props) => {
 						<li>Are they containerized or do you plan to containerize them?</li>
 						<li>
 							Have you ruled out the Container as a Service options (Cloud run,
-							Apprunner, Fargatte and so on)?
+							Apprunner, Fargate and so on)?
 						</li>
 					</ul>
 					<p>
@@ -26,7 +26,7 @@ const ShouldYouUseK8s = (props) => {
 					<button
 						className="general-button"
 						onClick={() => {
-							props.updateState("use-k8s", "yes");
+							props.updateEnvState("use-k8s", "yes");
 							push("self-host-k8s");
 						}}
 					>
@@ -39,7 +39,8 @@ const ShouldYouUseK8s = (props) => {
 					<button
 						className="general-button"
 						onClick={() => {
-							props.updateState("use-k8s", "no");
+							console.log(props)
+							props.updateEnvState("use-k8s", "no");
 							push("no-need");
 						}}
 					>

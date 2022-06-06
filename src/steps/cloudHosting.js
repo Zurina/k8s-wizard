@@ -22,67 +22,67 @@ const CloudHosting = (props) => {
 					<span>Choose one.</span>
 					<ClickableArticleRow
 						name="Google Kubernetes Engine"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="Elastic Kubernetes Engine"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="Azure Kubernetes Engine"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="Digital Ocean Kubernetes"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="Linode Kubernetes Engine"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="Vultr Kubernetes Engine"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="Civo Kubernetes"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="Oracle Kubernetes Engine"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="Openshift"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="IBM Kubernetes"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="OVHcloud Kubernetes"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="Alibaba Cloud Kubernetes"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 					<ClickableArticleRow
 						name="Tencent Kubernetes"
-						updateState={props.updateState}
+						updateEnvState={props.updateEnvState}
 						push={push}
 					/>
 				</div>

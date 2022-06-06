@@ -1,3 +1,20 @@
+.disabled-button {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: white;
+  text-transform: uppercase;
+  overflow: hidden;
+  margin: 10px;
+  font-family: arial, "Roboto", sans-serif;
+  font-size: large;
+  filter: hue-rotate(0deg);
+  border: 2px solid #3371e3;
+  transition: all 0.1s linear;
+}
+
 .general-button {
     position: relative;
     cursor: pointer;
@@ -14,6 +31,10 @@
     filter: hue-rotate(0deg);
     border: 2px solid #3371e3;
     transition: all 0.1s linear;
+
+    &:active {
+      background-color: grey;
+    }
   
     &:hover {
       border: 1px solid transparent;

@@ -1,7 +1,7 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
 
-const ContainerRegistry = () => {
+const ContainerRegistry = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
 
 	function openModal() {
@@ -37,6 +37,7 @@ const ContainerRegistry = () => {
 				content={content}
 				modalIsOpen={modalIsOpen}
 				closeModal={closeModal}
+				setToolState={props.setToolState}
 			/>
 		</div>
 	);
