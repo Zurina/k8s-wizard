@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/k8s-wizard/static/css/main.bf3d792a.css",
-    "main.js": "/k8s-wizard/static/js/main.dc770135.js",
+    "main.js": "/k8s-wizard/static/js/main.e67f2154.js",
     "static/media/logo-mathias.png": "/k8s-wizard/static/media/logo-mathias.2bcda5c7f5193a89ecd5.png",
     "static/media/texture.png": "/k8s-wizard/static/media/texture.d630a42e18fba6a81e24.png",
     "index.html": "/k8s-wizard/index.html",
     "main.bf3d792a.css.map": "/k8s-wizard/static/css/main.bf3d792a.css.map",
-    "main.dc770135.js.map": "/k8s-wizard/static/js/main.dc770135.js.map"
+    "main.e67f2154.js.map": "/k8s-wizard/static/js/main.e67f2154.js.map"
   },
   "entrypoints": [
     "static/css/main.bf3d792a.css",
-    "static/js/main.dc770135.js"
+    "static/js/main.e67f2154.js"
   ]
 }
