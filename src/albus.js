@@ -8,6 +8,7 @@ import NoNeedForK8s from './steps/noNeedForK8s'
 import SelfHostK8s from './steps/selfHostK8s'
 import OnPremiseHosting from './steps/onPremiseHosting'
 import CloudHosting from './steps/cloudHosting'
+import HybridHosting from './steps/hybridHosting'
 import ToolBoxes from './steps/toolBoxes'
 
 const Albus = (props) => (
@@ -25,6 +26,7 @@ const Albus = (props) => (
 										<SelfHostK8s id="self-host-k8s" updateEnvState={props.updateEnvState}/>
 										<OnPremiseHosting id="on-premise-hosting" updateEnvState={props.updateEnvState}/>
 										<CloudHosting id="cloud-hosting" updateEnvState={props.updateEnvState}/>
+										<HybridHosting id="hybrid-hosting" updateEnvState={props.updateEnvState}/>
 										<ToolBoxes envState={props.envState} id="tool-boxes" updateEnvState={props.updateEnvState}/>
 									</Steps>
 								</div>

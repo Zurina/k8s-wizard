@@ -21,7 +21,6 @@ import Authentication from "../box-components/authentication";
 import Configuration from "../components/configuration";
 
 const ToolBoxes = (props) => {
-
 	const [toolState, setToolState] = React.useState({});
 
 	return (
@@ -29,28 +28,32 @@ const ToolBoxes = (props) => {
 			id="tool-boxes"
 			render={({}) => (
 				<div className="toolbox-container">
-					<Configuration toolState={toolState} envState={props.envState} />
+					<Configuration
+						setToolState={setToolState}
+						toolState={toolState}
+						envState={props.envState}
+					/>
 					<div className="toolboxes">
 						<h1>Which tools and configurations are you looking for?</h1>
 						<div className="boxes-container">
-							<IAC setToolState={setToolState}/>
-							<Authentication setToolState={setToolState}/>
-							<EnvIsolation setToolState={setToolState}/>
-							<ContainerRegistry setToolState={setToolState}/>
-							<ApplicationPackaging setToolState={setToolState}/>
-							<VersionControl setToolState={setToolState}/>
-							<RepositoryStructure setToolState={setToolState}/>
-							<CI setToolState={setToolState}/>
-							<CD setToolState={setToolState}/>
-							<Traffic setToolState={setToolState}/>
-							<Networking setToolState={setToolState}/>
-							<ServiceMesh setToolState={setToolState}/>
-							<Storage setToolState={setToolState}/>
-							<Observability setToolState={setToolState}/>
-							<Credentials setToolState={setToolState}/>
-							<DevEnv setToolState={setToolState}/>
-							<BackupClusters setToolState={setToolState}/>
-							<Security setToolState={setToolState}/>
+							<IAC setToolState={setToolState} />
+							<Authentication setToolState={setToolState} />
+							<EnvIsolation setToolState={setToolState} />
+							<ContainerRegistry setToolState={setToolState} />
+							<ApplicationPackaging setToolState={setToolState} />
+							<VersionControl setToolState={setToolState} />
+							<RepositoryStructure setToolState={setToolState} />
+							<CI setToolState={setToolState} />
+							<CD setToolState={setToolState} />
+							<Traffic setToolState={setToolState} />
+							<Networking setToolState={setToolState} />
+							<ServiceMesh setToolState={setToolState} />
+							<Storage setToolState={setToolState} />
+							<Observability setToolState={setToolState} />
+							<Credentials setToolState={setToolState} />
+							<DevEnv setToolState={setToolState} />
+							<BackupClusters setToolState={setToolState} />
+							<Security setToolState={setToolState} />
 						</div>
 					</div>
 				</div>

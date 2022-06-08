@@ -32,12 +32,10 @@ const ToolModal = (props) => {
 		setActiveTool(
 			activeTool != event.currentTarget.id ? event.currentTarget.id : ""
 		);
-		if (activeTool == event.currentTarget.id) {
-			props.setToolState((prev) => ({
-				...prev,
-				[props.content.title]: undefined,
-			}));
-		}
+		props.setToolState((prev) => ({
+			...prev,
+			[props.content.title]: undefined,
+		}));
 	}
 
 	function addToolToState() {

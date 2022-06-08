@@ -13,7 +13,7 @@ const SelfHostK8s = (props) => {
 						<li>Do you need new features as soon as they are released?</li>
 						<li>Are you required to run on-premise for some reason?</li>
 						<li>
-							Are you prepared and skilled enought to deal with and debug issues
+							Are you prepared and skilled enough to deal with and debug issues
 							with the control pane should they arise?
 						</li>
 					</ul>
@@ -42,6 +42,19 @@ const SelfHostK8s = (props) => {
 						<span></span>
 						<span></span>
 						NO
+					</button>
+					<button
+						className="general-button"
+						onClick={() => {
+							props.updateEnvState("self-host-k8s", "hybrid");
+							push("hybrid-hosting");
+						}}
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						HYBRID
 					</button>
 				</div>
 			)}
