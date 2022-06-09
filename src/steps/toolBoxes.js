@@ -34,7 +34,7 @@ const ToolBoxes = (props) => {
 						envState={props.envState}
 					/>
 					<div className="toolboxes">
-						<h1>Which tools and configurations are you looking for?</h1>
+						<h1>Which tools are you looking for?</h1>
 						<div className="boxes-container">
 							<IAC setToolState={setToolState} />
 							<Authentication setToolState={setToolState} />

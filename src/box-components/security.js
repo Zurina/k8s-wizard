@@ -1,5 +1,6 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
+import iconBackground from './icons/security.png';
 
 const Security = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -26,7 +27,7 @@ const Security = (props) => {
 					How should you handle security in your cluster?
 				</span>
 				<div className="box">
-					<div className="icon_bg"></div>
+					<div className="icon_bg" style={{backgroundImage: "url(" + iconBackground + ")"}}></div>
 				</div>
 				<div className="icon"></div>
 			</div>

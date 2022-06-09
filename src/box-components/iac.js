@@ -1,5 +1,6 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
+import iconBackground from './icons/iac.png';
 
 const IAC = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -26,7 +27,7 @@ const IAC = (props) => {
                     Infrastructure as Code helps you omit manuel configurations and makes setup repeatable.
 				</span>
 				<div className="box">
-					<div className="icon_bg"></div>
+					<div className="icon_bg" style={{backgroundImage: "url(" + iconBackground + ")"}}></div>
 				</div>
 				<div className="icon"></div>
 			</div>

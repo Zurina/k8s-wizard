@@ -20,7 +20,7 @@ const Configuration = (props) => {
 			<div>
 				<pre>{JSON.stringify(props.envState, null, 2)}</pre>
 			</div>
-			<h2>Tools</h2>
+			<h2>Chosen tools</h2>
 			<ul>
 				<li>
 					<input

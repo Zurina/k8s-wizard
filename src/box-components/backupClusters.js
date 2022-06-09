@@ -1,5 +1,6 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
+import iconBackground from './icons/backup.png';
 
 const EnvIsolation = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -26,7 +27,7 @@ const EnvIsolation = (props) => {
                     How should you backup clusters?
 				</span>
 				<div className="box">
-					<div className="icon_bg"></div>
+					<div className="icon_bg" style={{backgroundImage: "url(" + iconBackground + ")"}}></div>
 				</div>
 				<div className="icon"></div>
 			</div>

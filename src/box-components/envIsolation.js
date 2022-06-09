@@ -1,5 +1,6 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
+import iconBackground from './icons/env-iso.png';
 
 const EnvIsolation = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -26,7 +27,7 @@ const EnvIsolation = (props) => {
                     What level of environment isolation do you need (e.g. between teams or dev/staging/prod)? 
 				</span>
 				<div className="box">
-					<div className="icon_bg"></div>
+					<div className="icon_bg" style={{backgroundImage: "url(" + iconBackground + ")"}}></div>
 				</div>
 				<div className="icon"></div>
 			</div>
