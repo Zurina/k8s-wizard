@@ -1,33 +1,35 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
-import iconBackground from './icons/env-iso.png';
+import iconBackground from "./icons/env-iso.png";
 
 const EnvIsolation = (props) => {
-	const [modalIsOpen, setIsOpen] = React.useState(false);
+	const openModal = React.useRef(null);
 
-	function openModal() {
-		setIsOpen(true);
-	}
-
-	function closeModal() {
-		setIsOpen(false);
-	}
-
-    const content = {
-        "title": "Environment Isolation",
-        "description": "Whatever you choose here will have an effect on your automation of infrastructure as code. You might be able to use namespaces for separation, you might want to provision separate clusters, or maybe even locating those separate clusters in isolated cloud accounts!",
-        "technologies": ["Namespaces", "Clusters", "Cloud accounts", "Cloud projects"]
-    }
+	const content = {
+		title: "Environment Isolation",
+		description:
+			"Whatever you choose here will have an effect on your automation of infrastructure as code. You might be able to use namespaces for separation, you might want to provision separate clusters, or maybe even locating those separate clusters in isolated cloud accounts!",
+		technologies: [
+			"Namespaces",
+			"Clusters",
+			"Cloud accounts",
+			"Cloud projects",
+		],
+	};
 
 	return (
-		<div className="super-box" onClick={openModal}>
+		<div className="super-box" onClick={() => openModal.current()}>
 			<div className="container">
 				<h2 className="description">Environment Isolation</h2>
 				<span className="description">
-                    What level of environment isolation do you need (e.g. between teams or dev/staging/prod)? 
+					What level of environment isolation do you need (e.g. between teams or
+					dev/staging/prod)?
 				</span>
 				<div className="box">
-					<div className="icon_bg" style={{backgroundImage: "url(" + iconBackground + ")"}}></div>
+					<div
+						className="icon_bg"
+						style={{ backgroundImage: "url(" + iconBackground + ")" }}
+					></div>
 				</div>
 				<div className="icon"></div>
 			</div>
@@ -35,10 +37,10 @@ const EnvIsolation = (props) => {
 				<p className="title">Environment Isolation</p>
 			</div>
 			<MyModal
+				openModal={openModal}
 				content={content}
-				modalIsOpen={modalIsOpen}
-				closeModal={closeModal}
 				setToolState={props.setToolState}
+				toolState={props.toolState[content.title]}
 			/>
 		</div>
 	);

@@ -24,9 +24,6 @@ const ToolBoxes = (props) => {
 	const [toolState, setToolState] = React.useState({});
 
 	return (
-		<Step
-			id="tool-boxes"
-			render={({}) => (
 				<div className="toolbox-container">
 					<Configuration
 						setToolState={setToolState}
@@ -36,29 +33,27 @@ const ToolBoxes = (props) => {
 					<div className="toolboxes">
 						<h1>Which tools are you looking for?</h1>
 						<div className="boxes-container">
-							<IAC setToolState={setToolState} />
-							<Authentication setToolState={setToolState} />
-							<EnvIsolation setToolState={setToolState} />
-							<ContainerRegistry setToolState={setToolState} />
-							<ApplicationPackaging setToolState={setToolState} />
-							<VersionControl setToolState={setToolState} />
-							<RepositoryStructure setToolState={setToolState} />
-							<CI setToolState={setToolState} />
-							<CD setToolState={setToolState} />
-							<Traffic setToolState={setToolState} />
-							<Networking setToolState={setToolState} />
-							<ServiceMesh setToolState={setToolState} />
-							<Storage setToolState={setToolState} />
-							<Observability setToolState={setToolState} />
-							<Credentials setToolState={setToolState} />
-							<DevEnv setToolState={setToolState} />
-							<BackupClusters setToolState={setToolState} />
-							<Security setToolState={setToolState} />
+							<IAC toolState={toolState} setToolState={setToolState} />
+							<Authentication toolState={toolState} setToolState={setToolState} />
+							<EnvIsolation toolState={toolState} setToolState={setToolState} />
+							<ContainerRegistry toolState={toolState} setToolState={setToolState} />
+							<ApplicationPackaging toolState={toolState} setToolState={setToolState} />
+							<VersionControl toolState={toolState} setToolState={setToolState} />
+							<RepositoryStructure toolState={toolState} setToolState={setToolState} />
+							<CI toolState={toolState} setToolState={setToolState} />
+							<CD toolState={toolState} setToolState={setToolState} />
+							<Traffic toolState={toolState} setToolState={setToolState} />
+							<Networking toolState={toolState} setToolState={setToolState} />
+							<ServiceMesh toolState={toolState} setToolState={setToolState} />
+							<Storage toolState={toolState} setToolState={setToolState} />
+							<Observability toolState={toolState} setToolState={setToolState} />
+							<Credentials toolState={toolState} setToolState={setToolState} />
+							<DevEnv toolState={toolState} setToolState={setToolState} />
+							<BackupClusters toolState={toolState} setToolState={setToolState} />
+							<Security toolState={toolState} setToolState={setToolState} />
 						</div>
 					</div>
 				</div>
-			)}
-		/>
 	);
 };
 

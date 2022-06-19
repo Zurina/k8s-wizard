@@ -1,6 +1,12 @@
 import React from "react";
 
 const ArticleRow = (props) => {
+
+	function onLearnMoreClick(event) {
+		event.stopPropagation();
+		alert(props.name);
+	}
+
 	return (
 		<article class="leaderboard__profile">
 			<img
@@ -9,6 +15,7 @@ const ArticleRow = (props) => {
 				class="leaderboard__picture"
 			/>
 			<span class="leaderboard__name">{props.name}</span>
+			<button className="learn-more" onClick={onLearnMoreClick}>Learn more</button>
 		</article>
 	);
 };

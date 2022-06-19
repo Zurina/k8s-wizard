@@ -3,15 +3,7 @@ import MyModal from "../utilities/myModal";
 import iconBackground from './icons/iac.png';
 
 const IAC = (props) => {
-	const [modalIsOpen, setIsOpen] = React.useState(false);
-
-	function openModal() {
-		setIsOpen(true);
-	}
-
-	function closeModal() {
-		setIsOpen(false);
-	}
+	const openModal = React.useRef(null)
 
     const content = {
         "title": "Infrastructure as Code",
@@ -20,7 +12,7 @@ const IAC = (props) => {
     }
 
 	return (
-		<div className="super-box" onClick={openModal}>
+		<div className="super-box" onClick={() => openModal.current()}>
 			<div className="container">
 				<h2 className="description">Infrastructure as Code</h2>
 				<span className="description">
@@ -35,10 +27,10 @@ const IAC = (props) => {
 				<p className="title">Infrastructure as Code</p>
 			</div>
 			<MyModal
+				openModal={openModal}
 				content={content}
-				modalIsOpen={modalIsOpen}
-				closeModal={closeModal}
 				setToolState={props.setToolState}
+				toolState={props.toolState[content.title]}
 			/>
 		</div>
 	);

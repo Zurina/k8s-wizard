@@ -26,27 +26,31 @@ const modalStyle = {
 Modal.setAppElement("#root");
 
 const ToolModal = (props) => {
-	const [activeTool, setActiveTool] = React.useState("");
+	const [modalIsOpen, setIsOpen] = React.useState(false);
 
-	function toolOnClick(event) {
-		setActiveTool(
-			activeTool != event.currentTarget.id ? event.currentTarget.id : ""
-		);
-		props.setToolState((prev) => ({
-			...prev,
-			[props.content.title]: undefined,
-		}));
+	function openModal() {
+		setIsOpen(true);
 	}
 
-	function addToolToState() {
+	function closeModal(event) {
+		event.stopPropagation();
+		setIsOpen(false);
+	}
+
+	React.useEffect(() => {
+		props.openModal.current = openModal;
+	}, []);
+
+	function toolOnClick(event) {
+		let id = event.currentTarget.id;
 		props.setToolState((prev) => ({
 			...prev,
-			[props.content.title]: activeTool,
+			[props.content.title]: props.toolState != id ? id : undefined,
 		}));
 	}
 
 	const technologies = props.content.technologies.map((name) => {
-		if (activeTool == name) {
+		if (props.toolState == name) {
 			return (
 				<div className="active" id={name} onClick={toolOnClick}>
 					<ArticleRow name={name} />
@@ -67,11 +71,13 @@ const ToolModal = (props) => {
 		questions = questions.map((question) => <li>{question}</li>);
 	}
 
+	console.log(modalIsOpen)
+
 	return (
 		<div className="App">
 			<Modal
-				isOpen={props.modalIsOpen}
-				onRequestClose={props.closeModal}
+				isOpen={modalIsOpen}
+				onRequestClose={closeModal}
 				style={modalStyle}
 			>
 				<h1>{props.content.title}</h1>
@@ -79,22 +85,10 @@ const ToolModal = (props) => {
 				{props.content.hasOwnProperty("questions") && <ul>{questions}</ul>}
 				{technologies}
 
-				{activeTool !== "" ? (
-					<button className="general-button" onClick={addToolToState}>
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-						Add tool
-					</button>
+				{props.toolState != undefined ? (
+					<span>Chosen Tool: {props.toolState}</span>
 				) : (
-					<button className="disabled-button" disabled>
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-						Add tool
-					</button>
+					""
 				)}
 			</Modal>
 		</div>

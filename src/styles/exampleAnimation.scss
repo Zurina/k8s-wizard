@@ -352,3 +352,17 @@
   padding: 0px 20px; 
   text-align: center;
 }
+
+.learn-more {
+  background-color: #3371e3;
+  color: white;
+  border-radius: 10%;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.learn-more:hover {
+  background-color: #1d53b6;
+  color: white;
+}

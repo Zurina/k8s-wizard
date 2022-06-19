@@ -1,33 +1,35 @@
 import React from "react";
 import MyModal from "../utilities/myModal";
-import iconBackground from './icons/security.png';
+import iconBackground from "./icons/security.png";
 
 const Security = (props) => {
-	const [modalIsOpen, setIsOpen] = React.useState(false);
+	const openModal = React.useRef(null);
 
-	function openModal() {
-		setIsOpen(true);
-	}
-
-	function closeModal() {
-		setIsOpen(false);
-	}
-
-    const content = {
-        "title": "Security",
-        "description": "Not only should you setup decent RBAC, network policies, but also add security measures like container image - and dependency scanning, and checking potential misconfigurations.",
-        "technologies": ["Falco", "Aqua", "Snyk", "Kubescape", "Various Admission Controllers"]
-    }
+	const content = {
+		title: "Security",
+		description:
+			"Not only should you setup decent RBAC, network policies, but also add security measures like container image - and dependency scanning, and checking potential misconfigurations.",
+		technologies: [
+			"Falco",
+			"Aqua",
+			"Snyk",
+			"Kubescape",
+			"Various Admission Controllers",
+		],
+	};
 
 	return (
-		<div className="super-box" onClick={openModal}>
+		<div className="super-box" onClick={() => openModal.current()}>
 			<div className="container">
 				<h2 className="description">Security</h2>
 				<span className="description">
 					How should you handle security in your cluster?
 				</span>
 				<div className="box">
-					<div className="icon_bg" style={{backgroundImage: "url(" + iconBackground + ")"}}></div>
+					<div
+						className="icon_bg"
+						style={{ backgroundImage: "url(" + iconBackground + ")" }}
+					></div>
 				</div>
 				<div className="icon"></div>
 			</div>
@@ -35,10 +37,10 @@ const Security = (props) => {
 				<p className="title">Security</p>
 			</div>
 			<MyModal
+				openModal={openModal}
 				content={content}
-				modalIsOpen={modalIsOpen}
-				closeModal={closeModal}
 				setToolState={props.setToolState}
+				toolState={props.toolState[content.title]}
 			/>
 		</div>
 	);
