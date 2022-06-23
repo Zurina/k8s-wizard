@@ -19,7 +19,7 @@ const Security = (props) => {
 	};
 
 	return (
-		<div className="super-box" onClick={() => openModal.current()}>
+		<div className="super-box" onClick={openModal.current}>
 			<div className="container">
 				<h2 className="description">Security</h2>
 				<span className="description">

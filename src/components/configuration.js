@@ -3,17 +3,18 @@ import "../styles/configuration.scss";
 
 const Configuration = (props) => {
 	function onInputChange(e) {
+		const eventId = e.target.id
 		if (
-			props.toolState.hasOwnProperty(e.target.id) &&
-			props.toolState[e.target.id] != undefined
-		) {
-			props.setToolState((prev) => ({
-				...prev,
-				[e.target.id]: undefined,
-			}));
-		}
+			props.toolState.hasOwnProperty(eventId) &&
+			props.toolState[eventId] != undefined
+			) {
+				props.setToolState((prev) => ({
+					...prev,
+					[eventId]: undefined,
+				}));
+			}
 	}
-
+	
 	return (
 		<div className="configuration-container">
 			<h2>Environment</h2>

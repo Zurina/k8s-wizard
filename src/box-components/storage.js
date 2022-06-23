@@ -13,7 +13,7 @@ const EnvIsolation = (props) => {
 	};
 
 	return (
-		<div className="super-box" onClick={() => openModal.current()}>
+		<div className="super-box" onClick={openModal.current}>
 			<div className="container">
 				<h2 className="description">Storage</h2>
 				<span className="description">

@@ -27,13 +27,23 @@ Modal.setAppElement("#root");
 
 const ToolModal = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
+	const [superBox, setSuperBox] = React.useState(null)
 
-	function openModal() {
+	function openModal(event) {
+		if (event.target.closest('.super-box') != null) {
+			const box = event.target.closest('.super-box')
+			setSuperBox(box)
+			event.target.closest('.super-box').classList.add('hover')
+		}
 		setIsOpen(true);
 	}
 
 	function closeModal(event) {
 		event.stopPropagation();
+		if (superBox != null) {
+			superBox.classList.remove('hover');
+			setSuperBox(null)
+		}
 		setIsOpen(false);
 	}
 
@@ -70,8 +80,6 @@ const ToolModal = (props) => {
 		questions = JSON.parse(JSON.stringify(props.content.questions));
 		questions = questions.map((question) => <li>{question}</li>);
 	}
-
-	console.log(modalIsOpen)
 
 	return (
 		<div className="App">

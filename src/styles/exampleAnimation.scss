@@ -117,7 +117,8 @@
    position: relative;
  }
  
- .super-box:hover .box {
+ .super-box:hover .box,
+ .hover .box {
  /*   border: 1px solid rgba(225, 227, 232, 0.18); */
    -webkit-box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
            box-shadow: 0 3px 4px 0 rgba(44, 71, 146, 0.25);
@@ -126,28 +127,44 @@
            
  }
  
- .super-box:hover .icon_bg {
+ .super-box:hover .icon_bg,
+ .hover .icon_bg {
    -webkit-transform: translateY(-32px) scale(6);
            transform: translateY(-32px) scale(6);
    background-color: #3371e3;
    background-image: none !important;
  }
  
- .super-box:hover .icon {
+ .super-box:hover .icon,
+ .hover .icon {
    -webkit-transform: translateY(-48px) scale(1.4);
            transform: translateY(-48px) scale(1.4);
- }
+  }
+          
+.super-box:hover .description,
+.hover .description {
+  color: white;
+  z-index: 1;
+  -webkit-transition-delay: 0.32s;
+  transition-delay: 0.32s;
+}
 
- .description {
+
+.super-box:hover .text,
+.hover .text {
+  opacity: 0;
+  -webkit-transform: translateY(-4px) scale(.8);
+  transform: translateY(-4px) scale(.8);
+}
+          
+.super-box:hover .box::after,
+.hover .box::after {
+  opacity: 1;
+}
+.description {
    color: transparent;
   }
   
-  .super-box:hover .description {
-    color: white;
-    z-index: 1;
-    -webkit-transition-delay: 0.32s;
-           transition-delay: 0.32s;
-}
  
  .super-box {
    width: 220px;
@@ -180,11 +197,6 @@
            transition-delay: 0.02s;
  }
  
- .super-box:hover .text {
-   opacity: 0;
-   -webkit-transform: translateY(-4px) scale(.8);
-           transform: translateY(-4px) scale(.8);
- }
  
  .box::after {
   //  content: "Discover the attacker's tactics and purposes and find out the identity of the attacker";
@@ -202,9 +214,6 @@
    color: white;
  }
  
- .super-box:hover .box::after {
-   opacity: 1;
- }
 
 .dr {
   position: absolute;
