@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import MyModal from "../utilities/myModal";
 import iconBackground from "./icons/dev-env.png";
+import Context from "../context/context";
 
-const EnvIsolation = (props) => {
+const EnvIsolation = () => {
 	const openModal = React.useRef(null);
+	const [toolState, setToolState] = useContext(Context);
 
 	const content = {
 		title: "Development Environment",
@@ -38,8 +40,8 @@ const EnvIsolation = (props) => {
 			<MyModal
 				openModal={openModal}
 				content={content}
-				setToolState={props.setToolState}
-				toolState={props.toolState[content.title]}
+				setToolState={setToolState}
+				toolState={toolState[content.title]}
 			/>
 		</div>
 	);

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import MyModal from "../utilities/myModal";
 import iconBackground from "./icons/observability.png";
+import Context from "../context/context";
 
-const Observability = (props) => {
+const Observability = () => {
 	const openModal = React.useRef(null);
+	const [toolState, setToolState] = useContext(Context);
 
 	const content = {
 		title: "Observability",
@@ -40,8 +42,8 @@ const Observability = (props) => {
 			<MyModal
 				openModal={openModal}
 				content={content}
-				setToolState={props.setToolState}
-				toolState={props.toolState[content.title]}
+				setToolState={setToolState}
+				toolState={toolState[content.title]}
 			/>
 		</div>
 	);

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import MyModal from "../utilities/myModal";
 import iconBackground from './icons/iac.png';
+import Context from "../context/context";
 
-const IAC = (props) => {
+const IAC = () => {
 	const openModal = React.useRef(null)
+	const [toolState, setToolState] = useContext(Context);
 
     const content = {
         "title": "Infrastructure as Code",
@@ -29,8 +31,8 @@ const IAC = (props) => {
 			<MyModal
 				openModal={openModal}
 				content={content}
-				setToolState={props.setToolState}
-				toolState={props.toolState[content.title]}
+				setToolState={setToolState}
+				toolState={toolState[content.title]}
 			/>
 		</div>
 	);

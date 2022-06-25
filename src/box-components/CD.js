@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import MyModal from "../utilities/myModal";
 import iconBackground from "./icons/cd.png";
+import Context from "../context/context";
 
-const ContainerRegistry = (props) => {
+const ContainerRegistry = () => {
 	const openModal = React.useRef(null);
+	const [toolState, setToolState] = useContext(Context);
 
 	const content = {
 		title: "Continuous Deployment",
@@ -36,8 +38,8 @@ const ContainerRegistry = (props) => {
 			<MyModal
 				openModal={openModal}
 				content={content}
-				setToolState={props.setToolState}
-				toolState={props.toolState[content.title]}
+				setToolState={setToolState}
+				toolState={toolState[content.title]}
 			/>
 		</div>
 	);

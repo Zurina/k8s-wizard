@@ -1,5 +1,4 @@
 import React from "react";
-import { Step } from "react-albus";
 import Security from "../box-components/security";
 import IAC from "../box-components/iac";
 import EnvIsolation from "../box-components/envIsolation";
@@ -19,41 +18,61 @@ import DevEnv from "../box-components/devEnv";
 import BackupClusters from "../box-components/backupClusters";
 import Authentication from "../box-components/authentication";
 import Configuration from "../components/configuration";
+import Context from "../context/context";
 
 const ToolBoxes = (props) => {
 	const [toolState, setToolState] = React.useState({});
 
+	let concepts = [
+		"Infrastructure as Code",
+		"Authentication",
+		"Environment Isolation",
+		"Container Registry",
+		"Application Packaging",
+		"Version Control",
+		"Repository Structure",
+		"Continuous Integration",
+		"Continuous Deployment",
+		"Traffic",
+		"Networking",
+		"Service Mesh",
+		"Storage",
+		"Observability",
+		"Credentials",
+		"Development Environment",
+		"Backup Clusters",
+		"Security",
+	];
+
 	return (
-				<div className="toolbox-container">
-					<Configuration
-						setToolState={setToolState}
-						toolState={toolState}
-						envState={props.envState}
-					/>
-					<div className="toolboxes">
-						<h1>Which tools are you looking for?</h1>
-						<div className="boxes-container">
-							<IAC toolState={toolState} setToolState={setToolState} />
-							<Authentication toolState={toolState} setToolState={setToolState} />
-							<EnvIsolation toolState={toolState} setToolState={setToolState} />
-							<ContainerRegistry toolState={toolState} setToolState={setToolState} />
-							<ApplicationPackaging toolState={toolState} setToolState={setToolState} />
-							<VersionControl toolState={toolState} setToolState={setToolState} />
-							<RepositoryStructure toolState={toolState} setToolState={setToolState} />
-							<CI toolState={toolState} setToolState={setToolState} />
-							<CD toolState={toolState} setToolState={setToolState} />
-							<Traffic toolState={toolState} setToolState={setToolState} />
-							<Networking toolState={toolState} setToolState={setToolState} />
-							<ServiceMesh toolState={toolState} setToolState={setToolState} />
-							<Storage toolState={toolState} setToolState={setToolState} />
-							<Observability toolState={toolState} setToolState={setToolState} />
-							<Credentials toolState={toolState} setToolState={setToolState} />
-							<DevEnv toolState={toolState} setToolState={setToolState} />
-							<BackupClusters toolState={toolState} setToolState={setToolState} />
-							<Security toolState={toolState} setToolState={setToolState} />
-						</div>
+		<Context.Provider value={[toolState, setToolState, concepts]}>
+			<div className="toolbox-container">
+				<Configuration envState={props.envState} />
+				<div className="toolboxes">
+					<h1>Which tools are you looking for?</h1>
+					<div className="boxes-container">
+						<IAC />
+						<Authentication />
+						<EnvIsolation />
+						<ContainerRegistry />
+						<ApplicationPackaging />
+						<VersionControl />
+						<RepositoryStructure />
+						<CI />
+						<CD />
+						<Traffic />
+						<Networking />
+						<ServiceMesh />
+						<Storage />
+						<Observability />
+						<Credentials />
+						<DevEnv />
+						<BackupClusters />
+						<Security />
 					</div>
 				</div>
+			</div>
+		</Context.Provider>
 	);
 };
 
