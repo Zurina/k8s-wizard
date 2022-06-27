@@ -126,8 +126,48 @@
     }
   }
 
-.modal-next-button {
+
+.arrow {
+  cursor: pointer;
+  position: relative;
+  border: solid 3px white;
+  border-radius: 50%;
+  z-index: 1;
+  transition: all .2s linear;
+  width: 24px;
+  height: 24px;
   float: right;
-  padding: 10px 15px !important;
+  padding: 10px 10px !important;
   margin-top: -4px;
+  &:before, &:after{
+    content:"";
+    position: absolute;
+    width: 30%;
+    height: 8%;
+    top: 41%;
+    left: 55%;
+    background: white;
+    z-index: 2; 
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all .2s linear;
+  }
+  &:after{
+    z-index: 3;
+    top:59%;
+    left:55%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  &:hover{
+    // border: solid 3px green;
+    background-color: white;
+    &:after, &:before{
+      background: rgb(51, 113, 227);
+    }
+  }
+  &:active{
+    border: solid 3px rgb(51, 113, 227);
+    // &:after, &:before{
+    //   background: #111;
+    // }
+  }
 }

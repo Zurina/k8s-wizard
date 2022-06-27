@@ -30,7 +30,7 @@ const ToolModal = (props) => {
 	const [superBox, setSuperBox] = React.useState(null);
 
 	function openModal(event) {
-		console.log("event", event.target)
+		console.log("event", event.target);
 		if (typeof event === "string") {
 			const box = document.getElementById(event);
 			setSuperBox(box);
@@ -39,7 +39,8 @@ const ToolModal = (props) => {
 			const box = event.target.closest(".super-box");
 			setSuperBox(box);
 			box.classList.add("hover");
-		} else { // TODO FIX BUG
+		} else {
+			// TODO FIX BUG
 			if (superBox != null) {
 				superBox.classList.remove("hover");
 				setSuperBox(null);
@@ -96,7 +97,7 @@ const ToolModal = (props) => {
 		questions = JSON.parse(JSON.stringify(props.content.questions));
 		questions = questions.map((question) => <li>{question}</li>);
 	}
-	
+
 	return (
 		<div className="App">
 			<Modal
@@ -104,21 +105,11 @@ const ToolModal = (props) => {
 				onRequestClose={closeModal}
 				style={modalStyle}
 			>
-				<h1>
+				<h1 className="tool-modal-title">
 					{props.content.title}
-
-					<button
-						className="modal-next-button general-button"
-						onClick={nextConcept}
-					>
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-						Next
-					</button>
+					<div class="arrow" onClick={nextConcept}></div>
 				</h1>
-				<h4 style={{ fontWeight: 100 }}>{props.content.description}</h4>
+				<h4 className="tool-modal-description">{props.content.description}</h4>
 				{props.content.hasOwnProperty("questions") && <ul>{questions}</ul>}
 				{technologies}
 

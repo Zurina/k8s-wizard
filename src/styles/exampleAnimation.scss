@@ -59,6 +59,7 @@ body {
    position: absolute;
    width: 220px;
    height: 220px;
+   padding: 10px;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
@@ -169,10 +170,10 @@ body {
    color: transparent;
   }
   
- 
  .super-box {
    width: 220px;
    height: 220px;
+   margin: 18px;
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
@@ -378,4 +379,12 @@ body {
 .learn-more:hover {
   background-color: #1d53b6;
   color: white;
+}
+
+.tool-modal-title {
+  margin-bottom: 40px;
+}
+
+.tool-modal-description {
+  margin-bottom: 40px;
 }
