@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/k8s-wizard/static/css/main.d7b899f9.css",
-    "main.js": "/k8s-wizard/static/js/main.096b0867.js",
+    "main.css": "/k8s-wizard/static/css/main.cf6bdb5d.css",
+    "main.js": "/k8s-wizard/static/js/main.f39fffab.js",
     "static/media/logo-mathias.png": "/k8s-wizard/static/media/logo-mathias.2bcda5c7f5193a89ecd5.png",
     "static/media/texture.png": "/k8s-wizard/static/media/texture.d630a42e18fba6a81e24.png",
     "index.html": "/k8s-wizard/index.html",
-    "main.d7b899f9.css.map": "/k8s-wizard/static/css/main.d7b899f9.css.map",
-    "main.096b0867.js.map": "/k8s-wizard/static/js/main.096b0867.js.map"
+    "main.cf6bdb5d.css.map": "/k8s-wizard/static/css/main.cf6bdb5d.css.map",
+    "main.f39fffab.js.map": "/k8s-wizard/static/js/main.f39fffab.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7b899f9.css",
-    "static/js/main.096b0867.js"
+    "static/css/main.cf6bdb5d.css",
+    "static/js/main.f39fffab.js"
   ]
 }
