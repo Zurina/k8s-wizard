@@ -8,13 +8,13 @@ const ArticleRow = (props) => {
 	}
 
 	return (
-		<article class="leaderboard__profile">
+		<article className="leaderboard__profile">
 			<img
 				src="https://randomuser.me/api/portraits/men/36.jpg"
 				alt="Mark Zuckerberg"
-				class="leaderboard__picture"
+				className="leaderboard__picture"
 			/>
-			<span class="leaderboard__name">{props.name}</span>
+			<span className="leaderboard__name">{props.name}</span>
 			<button className="learn-more" onClick={onLearnMoreClick}>Learn more</button>
 		</article>
 	);

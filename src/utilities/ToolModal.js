@@ -27,13 +27,24 @@ Modal.setAppElement("#root");
 
 const ToolModal = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
-	const [superBox, setSuperBox] = React.useState(null)
+	const [superBox, setSuperBox] = React.useState(null);
 
 	function openModal(event) {
-		if (event.target.closest('.super-box') != null) {
-			const box = event.target.closest('.super-box')
-			setSuperBox(box)
-			event.target.closest('.super-box').classList.add('hover')
+		console.log("event", event.target)
+		if (typeof event === "string") {
+			const box = document.getElementById(event);
+			setSuperBox(box);
+			box.classList.add("hover");
+		} else if (event.target.closest(".super-box") != null) {
+			const box = event.target.closest(".super-box");
+			setSuperBox(box);
+			box.classList.add("hover");
+		} else { // TODO FIX BUG
+			if (superBox != null) {
+				superBox.classList.remove("hover");
+				setSuperBox(null);
+			}
+			setIsOpen(false);
 		}
 		setIsOpen(true);
 	}
@@ -41,8 +52,8 @@ const ToolModal = (props) => {
 	function closeModal(event) {
 		event.stopPropagation();
 		if (superBox != null) {
-			superBox.classList.remove('hover');
-			setSuperBox(null)
+			superBox.classList.remove("hover");
+			setSuperBox(null);
 		}
 		setIsOpen(false);
 	}
@@ -57,6 +68,11 @@ const ToolModal = (props) => {
 			...prev,
 			[props.content.title]: props.toolState != id ? id : undefined,
 		}));
+	}
+
+	function nextConcept(event) {
+		closeModal(event);
+		props.nextModalRef.current(props.nextId);
 	}
 
 	const technologies = props.content.technologies.map((name) => {
@@ -80,7 +96,7 @@ const ToolModal = (props) => {
 		questions = JSON.parse(JSON.stringify(props.content.questions));
 		questions = questions.map((question) => <li>{question}</li>);
 	}
-
+	
 	return (
 		<div className="App">
 			<Modal
@@ -88,7 +104,20 @@ const ToolModal = (props) => {
 				onRequestClose={closeModal}
 				style={modalStyle}
 			>
-				<h1>{props.content.title}</h1>
+				<h1>
+					{props.content.title}
+
+					<button
+						className="modal-next-button general-button"
+						onClick={nextConcept}
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						Next
+					</button>
+				</h1>
 				<h4 style={{ fontWeight: 100 }}>{props.content.description}</h4>
 				{props.content.hasOwnProperty("questions") && <ul>{questions}</ul>}
 				{technologies}
