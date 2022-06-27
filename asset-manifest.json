@@ -1,15 +1,26 @@
 {
   "files": {
-    "main.css": "/k8s-wizard/static/css/main.cf6bdb5d.css",
-    "main.js": "/k8s-wizard/static/js/main.f39fffab.js",
+    "main.css": "/k8s-wizard/static/css/main.e72998d2.css",
+    "main.js": "/k8s-wizard/static/js/main.ae44d018.js",
     "static/media/logo-mathias.png": "/k8s-wizard/static/media/logo-mathias.2bcda5c7f5193a89ecd5.png",
+    "static/media/vcs.png": "/k8s-wizard/static/media/vcs.b06ab9239fd25bce6033.png",
+    "static/media/ci.png": "/k8s-wizard/static/media/ci.9ec7037fe0632684636e.png",
+    "static/media/backup.png": "/k8s-wizard/static/media/backup.1307a0424c5606299a9a.png",
+    "static/media/env-iso.png": "/k8s-wizard/static/media/env-iso.d5df0842a23c1da4fce9.png",
+    "static/media/storage.png": "/k8s-wizard/static/media/storage.a16198aedc33b3c79757.png",
+    "static/media/dev-env.png": "/k8s-wizard/static/media/dev-env.48632f4cbfdfc87b9fa7.png",
+    "static/media/iac.png": "/k8s-wizard/static/media/iac.1f2bc6c64538e395dbe6.png",
+    "static/media/container-registry.png": "/k8s-wizard/static/media/container-registry.2154ac536b7782261bce.png",
+    "static/media/repo-structure.png": "/k8s-wizard/static/media/repo-structure.8c6c2cfdd7795fe7c97f.png",
     "static/media/texture.png": "/k8s-wizard/static/media/texture.d630a42e18fba6a81e24.png",
+    "static/media/auth.png": "/k8s-wizard/static/media/auth.32aab6fe9c0ccc07b078.png",
+    "static/media/credentials.png": "/k8s-wizard/static/media/credentials.986102b57cbdf9fa25f7.png",
     "index.html": "/k8s-wizard/index.html",
-    "main.cf6bdb5d.css.map": "/k8s-wizard/static/css/main.cf6bdb5d.css.map",
-    "main.f39fffab.js.map": "/k8s-wizard/static/js/main.f39fffab.js.map"
+    "main.e72998d2.css.map": "/k8s-wizard/static/css/main.e72998d2.css.map",
+    "main.ae44d018.js.map": "/k8s-wizard/static/js/main.ae44d018.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf6bdb5d.css",
-    "static/js/main.f39fffab.js"
+    "static/css/main.e72998d2.css",
+    "static/js/main.ae44d018.js"
   ]
 }
