@@ -1,8 +1,7 @@
 const contentDescs = [
     {
         title: "Infrastructure as Code",
-        shortDescription:
-        "Infrastructure as Code helps you omit manuel configurations and makes setup repeatable.",
+        shortDescription: "Infrastructure as Code helps you omit manuel configurations and makes setup repeatable.",
         iconBackground: require("./icons/iac.png"),
         description:
         "Is multi cloud support a factor to you? Do you need to migrate stuff often? Does the tool you are considered have the necessary coverage you need for your requirements?",
@@ -31,8 +30,7 @@ const contentDescs = [
     },
     {
         title: "Environment Isolation",
-        shortDescription:
-        "What level of environment isolation do you need (e.g. between teams or dev/staging/prod)?",
+        shortDescription: "What level of environment isolation do you need (e.g. between teams or dev/staging/prod)?",
         iconBackground: require("./icons/env-iso.png"),
         description:
         "Whatever you choose here will have an effect on your automation of infrastructure as code. You might be able to use namespaces for separation, you might want to provision separate clusters, or maybe even locating those separate clusters in isolated cloud accounts!",

@@ -13,7 +13,7 @@ const NoNeedForK8s = (props) => {
 					<ArticleRow name="Containers as a Service" />
 					<ArticleRow name="Serverless" />
 					<ArticleRow name="Hashicorp Nomad" />
-					<ArticleRow name="One or few VMs to keep things simple" />
+					<ArticleRow name="One or few VMs" />
 					<button
 						className="general-button"
 						onClick={() => {

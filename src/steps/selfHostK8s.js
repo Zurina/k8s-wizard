@@ -28,7 +28,7 @@ const SelfHostK8s = (props) => {
 						<span></span>
 						<span></span>
 						<span></span>
-						YES
+						Yes
 					</button>
 					<button
 						className="general-button"
@@ -41,7 +41,7 @@ const SelfHostK8s = (props) => {
 						<span></span>
 						<span></span>
 						<span></span>
-						NO
+						No
 					</button>
 					<button
 						className="general-button"
@@ -54,7 +54,7 @@ const SelfHostK8s = (props) => {
 						<span></span>
 						<span></span>
 						<span></span>
-						HYBRID
+						Hybrid
 					</button>
 				</div>
 			)}

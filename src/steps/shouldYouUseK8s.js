@@ -6,7 +6,7 @@ const ShouldYouUseK8s = (props) => {
 		<Step
 			id={props.id}
 			render={({ push }) => (
-				<div>
+				<div class="question-content">
 					<h1>Should you even use Kubernetes?</h1>
 					<h3>If you can say yes to the following, then yes:</h3>
 					<ul>
@@ -34,7 +34,7 @@ const ShouldYouUseK8s = (props) => {
 						<span></span>
 						<span></span>
 						<span></span>
-						YES
+						Yes
 					</button>
 					<button
 						className="general-button"
@@ -48,7 +48,7 @@ const ShouldYouUseK8s = (props) => {
 						<span></span>
 						<span></span>
 						<span></span>
-						NO
+						No
 					</button>
 				</div>
 			)}

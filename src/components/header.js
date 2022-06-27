@@ -6,21 +6,18 @@ const styles = createUseStyles({
 	header: {
 		display: "flex",
 		justifyContent: "space-between",
+		alignItems: "center",
 		paddingLeft: "100px",
 		paddingRight: "100px",
-		paddingTop: "30px",
-		paddingBottom: "20px",
-		height: "100px",
+		height: "150px",
 		backgroundImage: `url(${background})`,
 		backgroundColor: "#303030",
 		color: "white",
 	},
 	navlinks: {
-		// padding: "10px",
-		marginTop: "110px",
 		cursor: "pointer",
 		color: "white",
-		textDecoration: "none",
+		textDecoration: "underline",
 	}
 });
 
