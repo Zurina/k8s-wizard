@@ -8,7 +8,7 @@ const styles = createUseStyles({
 		justifyContent: "space-between",
 		paddingLeft: "100px",
 		paddingRight: "100px",
-		paddingTop: "20px",
+		paddingTop: "30px",
 		paddingBottom: "20px",
 		height: "100px",
 		backgroundImage: `url(${background})`,
@@ -16,8 +16,8 @@ const styles = createUseStyles({
 		color: "white",
 	},
 	navlinks: {
-		padding: "20px",
-		margin: "20px",
+		// padding: "10px",
+		marginTop: "110px",
 		cursor: "pointer",
 		color: "white",
 		textDecoration: "none",
@@ -34,14 +34,14 @@ const Header = (props) => {
 			</div>
 			<div>
 				<a onClick={props.openModal} className={classes.navlinks}>
-					Helmcharts
+					What is Helmcharts?
 				</a>
-				<a href="#" className={classes.navlinks}>
+				{/* <a href="#" className={classes.navlinks}>
 					Feedback
 				</a>
 				<a href="#" className={classes.navlinks}>
 					Contact
-				</a>
+				</a> */}
 			</div>
 		</div>
 	);

@@ -52,7 +52,7 @@ const HelmModal = (props) => {
 				packages are found in repositories or are created.<br></br>
 				<br></br>
 				<i>
-					<u>Helm would is the package manager of Kubernetes.</u>
+					<u>Helm is the package manager of Kubernetes.</u>
 				</i>
 			</div>
 			<h3>Why do we need Helm?</h3>
@@ -101,7 +101,7 @@ const HelmModal = (props) => {
 				<i>
 					<u>
 						Operators are best practice to use in regards to adding external
-						tools to your Kubernetes.
+						tools to Kubernetes.
 					</u>
 				</i>
 			</div>

@@ -10,7 +10,6 @@ const ToolBoxes = (props) => {
 
 	const conceptBoxes = conceptDescs.map((concept) => {
 		const openModal = React.useRef(null);
-		// const iconBackground = require(concept.iconBackground);
 		return (
 			<div className="super-box" onClick={openModal.current}>
 				<div className="container">
