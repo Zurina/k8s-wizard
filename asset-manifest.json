@@ -1,15 +1,22 @@
 {
   "files": {
     "main.css": "/k8s-wizard/static/css/main.e72998d2.css",
-    "main.js": "/k8s-wizard/static/js/main.ae44d018.js",
+    "main.js": "/k8s-wizard/static/js/main.6d4cbd79.js",
     "static/media/logo-mathias.png": "/k8s-wizard/static/media/logo-mathias.2bcda5c7f5193a89ecd5.png",
     "static/media/vcs.png": "/k8s-wizard/static/media/vcs.b06ab9239fd25bce6033.png",
     "static/media/ci.png": "/k8s-wizard/static/media/ci.9ec7037fe0632684636e.png",
     "static/media/backup.png": "/k8s-wizard/static/media/backup.1307a0424c5606299a9a.png",
+    "static/media/cd.png": "/k8s-wizard/static/media/cd.e8b910f42e6a1ac39ad0.png",
     "static/media/env-iso.png": "/k8s-wizard/static/media/env-iso.d5df0842a23c1da4fce9.png",
     "static/media/storage.png": "/k8s-wizard/static/media/storage.a16198aedc33b3c79757.png",
+    "static/media/app-packaging.png": "/k8s-wizard/static/media/app-packaging.d583302f111db211d939.png",
+    "static/media/service-mesh.png": "/k8s-wizard/static/media/service-mesh.433d0539678ad837f6b7.png",
+    "static/media/networking.png": "/k8s-wizard/static/media/networking.ac512b7896272c517092.png",
+    "static/media/traffic.png": "/k8s-wizard/static/media/traffic.7b55578ac6b72df8bee2.png",
     "static/media/dev-env.png": "/k8s-wizard/static/media/dev-env.48632f4cbfdfc87b9fa7.png",
     "static/media/iac.png": "/k8s-wizard/static/media/iac.1f2bc6c64538e395dbe6.png",
+    "static/media/security.png": "/k8s-wizard/static/media/security.6c62af7b0e89486b2868.png",
+    "static/media/observability.png": "/k8s-wizard/static/media/observability.f4e46090707a9f665080.png",
     "static/media/container-registry.png": "/k8s-wizard/static/media/container-registry.2154ac536b7782261bce.png",
     "static/media/repo-structure.png": "/k8s-wizard/static/media/repo-structure.8c6c2cfdd7795fe7c97f.png",
     "static/media/texture.png": "/k8s-wizard/static/media/texture.d630a42e18fba6a81e24.png",
@@ -17,10 +24,10 @@
     "static/media/credentials.png": "/k8s-wizard/static/media/credentials.986102b57cbdf9fa25f7.png",
     "index.html": "/k8s-wizard/index.html",
     "main.e72998d2.css.map": "/k8s-wizard/static/css/main.e72998d2.css.map",
-    "main.ae44d018.js.map": "/k8s-wizard/static/js/main.ae44d018.js.map"
+    "main.6d4cbd79.js.map": "/k8s-wizard/static/js/main.6d4cbd79.js.map"
   },
   "entrypoints": [
     "static/css/main.e72998d2.css",
-    "static/js/main.ae44d018.js"
+    "static/js/main.6d4cbd79.js"
   ]
 }
