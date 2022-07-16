@@ -10,7 +10,6 @@
   "main": "index.js",
   "dependencies": {
     "gh-pages": "^3.2.3",
-    "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
     "rc-progress": "2.2.1",
