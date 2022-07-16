@@ -2,32 +2,34 @@ import React from "react";
 import Modal from "react-modal";
 import ArticleRow from "./articleRow";
 
-const modalStyle = {
-	overlay: {
-		position: "fixed",
-		top: 0,
-		left: 0,
-		backgroundColor: "rgba(0, 0, 0, 0)",
-		zIndex: "2",
-	},
-	content: {
-		position: "absolute",
-		top: "10%",
-		left: "65%",
-		right: "3%",
-		bottom: "5%",
-		backgroundColor: "#3371e3",
-		borderRadius: "1rem",
-		padding: "1.5rem",
-		color: "white",
-	},
-};
-
 Modal.setAppElement("#root");
 
 const ToolModal = (props) => {
 	const [modalIsOpen, setIsOpen] = React.useState(false);
 	const [superBox, setSuperBox] = React.useState(null);
+	const [leftWidth, setleftWidth] = React.useState("65%");
+	const [learnMoreTool, setlearnMoreTool] = React.useState(null);
+
+	const modalStyle = {
+		overlay: {
+			position: "fixed",
+			top: 0,
+			left: 0,
+			backgroundColor: "rgba(0, 0, 0, 0)",
+			zIndex: "2",
+		},
+		content: {
+			position: "absolute",
+			top: "10%",
+			left: leftWidth,
+			right: "3%",
+			bottom: "5%",
+			backgroundColor: "#3371e3",
+			borderRadius: "1rem",
+			padding: "1.5rem",
+			color: "white",
+		},
+	};
 
 	function openModal(event) {
 		console.log("event", event.target);
@@ -57,6 +59,7 @@ const ToolModal = (props) => {
 			setSuperBox(null);
 		}
 		setIsOpen(false);
+		setleftWidth("65%");
 	}
 
 	React.useEffect(() => {
@@ -76,17 +79,30 @@ const ToolModal = (props) => {
 		props.nextModalRef.current(props.nextId);
 	}
 
+	function expandToolboxForLearnMore(name) {
+		setleftWidth("22%");
+		let learnMoreTools = require("../content/toolsLearnMore")["default"];
+		console.log(learnMoreTools[props.content.title][name])
+		setlearnMoreTool(learnMoreTools[props.content.title][name]);
+	}
+
 	const technologies = props.content.technologies.map((name) => {
 		if (props.toolState == name) {
 			return (
 				<div className="active" id={name} onClick={toolOnClick}>
-					<ArticleRow name={name} />
+					<ArticleRow
+						name={name}
+						expandToolboxForLearnMore={expandToolboxForLearnMore}
+					/>
 				</div>
 			);
 		} else {
 			return (
 				<div id={name} onClick={toolOnClick}>
-					<ArticleRow name={name} />
+					<ArticleRow
+						name={name}
+						expandToolboxForLearnMore={expandToolboxForLearnMore}
+					/>
 				</div>
 			);
 		}
@@ -105,19 +121,41 @@ const ToolModal = (props) => {
 				onRequestClose={closeModal}
 				style={modalStyle}
 			>
-				<h1 className="tool-modal-title">
-					{props.content.title}
-					<div class="arrow" onClick={nextConcept}></div>
-				</h1>
-				<h4 className="tool-modal-description">{props.content.description}</h4>
-				{props.content.hasOwnProperty("questions") && <ul>{questions}</ul>}
-				{technologies}
-
-				{props.toolState != undefined ? (
-					<span>Chosen Tool: {props.toolState}</span>
-				) : (
-					""
+				{leftWidth != "65%" && (
+					<div className="learnMoreInfo">
+						<h1>{learnMoreTool["title"]}</h1>
+						<p>{learnMoreTool["description"]}</p>
+						<h3>Pros</h3>
+						<ul>
+							{learnMoreTool["pros"].map((p, i) => (
+								<li>{p}</li>
+							))}
+						</ul>
+						<h3>Cons</h3>
+						<ul>
+							{learnMoreTool["cons"].map((c, i) => (
+								<li>{c}</li>
+							))}
+						</ul>
+					</div>
 				)}
+				<div className={`${leftWidth != "65%" ? "learnMore" : ""}`}>
+					<h1 className="tool-modal-title">
+						{props.content.title}
+						<div class="arrow" onClick={nextConcept}></div>
+					</h1>
+					<h4 className="tool-modal-description">
+						{props.content.description}
+					</h4>
+					{props.content.hasOwnProperty("questions") && <ul>{questions}</ul>}
+					{technologies}
+
+					{props.toolState != undefined ? (
+						<span>Chosen Tool: {props.toolState}</span>
+					) : (
+						""
+					)}
+				</div>
 			</Modal>
 		</div>
 	);

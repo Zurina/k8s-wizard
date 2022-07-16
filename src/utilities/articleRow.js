@@ -4,7 +4,7 @@ const ArticleRow = (props) => {
 
 	function onLearnMoreClick(event) {
 		event.stopPropagation();
-		alert(props.name);
+		props.expandToolboxForLearnMore(props.name)
 	}
 
 	return (
