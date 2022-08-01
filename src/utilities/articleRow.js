@@ -4,7 +4,12 @@ const ArticleRow = (props) => {
 
 	function onLearnMoreClick(event) {
 		event.stopPropagation();
-		props.expandToolboxForLearnMore(props.name)
+		console.log("name", props.name)
+		if (props.url != undefined) {
+			window.open(props.url, '_blank', 'noopener,noreferrer');
+		} else {
+			props.expandToolboxForLearnMore(props.name)
+		}
 	}
 
 	return (

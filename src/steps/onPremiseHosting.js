@@ -14,15 +14,22 @@ const OnPremiseHosting = (props) => {
 						integrated. Some include provisioning the underlying infrastructure
 						while others doesn't.
 					</p>
-					<ArticleRow name="Kubeadm" />
-					<ArticleRow name="Kops" />
-					<ArticleRow name="Kubespray" />
-					<ArticleRow name="Rancher" />
-					<ArticleRow name="Talos" />
-					<ArticleRow name="Portainer" />
-					<button className="general-button"
-							onClick={() => 
-							push("tool-boxes")}>
+					<ArticleRow
+						name="Kubeadm"
+						url="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/"
+					/>
+					<ArticleRow name="Kops" url="https://kops.sigs.k8s.io/" />
+					<ArticleRow
+						name="Kubespray"
+						url="https://kubernetes.io/docs/setup/production-environment/tools/kubespray/"
+					/>
+					<ArticleRow
+						name="Rancher"
+						url="https://kubernetes.io/docs/setup/production-environment/tools/kubespray/"
+					/>
+					<ArticleRow name="Talos" url="https://www.talos.dev/" />
+					<ArticleRow name="Portainer" url="https://www.portainer.io/" />
+					<button className="general-button" onClick={() => push("tool-boxes")}>
 						<span></span>
 						<span></span>
 						<span></span>

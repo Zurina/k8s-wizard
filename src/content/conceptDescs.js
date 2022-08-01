@@ -7,7 +7,6 @@ const contentDescs = [
         "Is multi cloud support a factor to you? Do you need to migrate stuff often? Does the tool you are considered have the necessary coverage you need for your requirements?",
         technologies: [
             "Terraform",
-            "Cloud Development Kit",
             "Cloudformation",
             "Pulumi",
             "Crossplane",

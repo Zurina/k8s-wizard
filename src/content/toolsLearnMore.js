@@ -2,21 +2,38 @@ const toolsLearnMore = {
 	"Infrastructure as Code": {
 		Terraform: {
 			title: "Terraform",
-			description: "Infrastructure as code with yaml blblalblal...",
-			pros: ["YAML"],
-			cons: ["Secrets needs to be injected...."],
-		},
-		"Cloud Development Kit": {
-			title: "Cloud Development Kit",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Terraform is an infrastructure as code tool that lets you define both cloud and on-prem resources in human-readable configuration files that you can version, reuse, and share. You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle.",
+			pros: [
+				"Cloud agnostic.",
+				"It simplifies the management and orchestration of multi-tier infrastructure.",
+				"YAML is friendly and easier to use and configure",
+				"Very strong community and good documentation.",
+				"Allows you to modularize your code, which saves a lot of duplication.",
+				"Terraform allows you to plan your execution without actually applying the change to your cloud resources.",
+			],
+			cons: [
+				"No rollback. This has to be done through git by merging previous commit for example.",
+				"Security of “state files” is a concern. The users need to ensure that the state files are handled in the remote backend because they have confidential information.",
+				"In addition to security, state files are a concern because managing the resources is impossible if the terraform state is ever lost; using a backend to store the state files is a best practice",
+			],
 		},
 		Cloudformation: {
 			title: "Cloudformation",
 			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			pros: [
+				"Works best for new AWS services",
+				"YAML is friendly and easier to use and configure",
+				"Many tools help in Unit Testing for the CloudFormation templates. It makes it easier to find errors, warnings, and other info in the code.",
+				"It integrates easily with other Infrastructure-as-a-code solutions",
+				"Cloudformation supports conditionals, which enables the user to decide whether to create a resource or not.",
+			],
+			cons: [
+				"Not cloud agnostic, so it does not serve for multi cloud architecture.",
+				"Nested stacks are not as good as Terraform. It is a bit more challenging to implement and to manage. CorssStacks references, the DependsOn attribute, or the GetAtt function can help manage the outputs of one template as the input to another template.",
+				"There is a size limit of 51MB on the stacks that don’t work in the developers’ favor all the time.",
+				"Modularization of code in CloudFormation is not as mature as Terraform. This is a very new feature that has been introduced by AWS in CloudFormation.",
+			],
 		},
 		Pulumi: {
 			title: "Pulumi",
