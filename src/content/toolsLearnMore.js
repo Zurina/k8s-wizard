@@ -20,7 +20,8 @@ const toolsLearnMore = {
 		},
 		Cloudformation: {
 			title: "Cloudformation",
-			description: "",
+			description:
+				"AWS CloudFormation is a service that gives developers and businesses an easy way to create a collection of related AWS and third-party resources, and provision and manage them in an orderly and predictable fashion.",
 			pros: [
 				"Works best for new AWS services",
 				"YAML is friendly and easier to use and configure",
@@ -37,21 +38,49 @@ const toolsLearnMore = {
 		},
 		Pulumi: {
 			title: "Pulumi",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Pulumi lets teams build Universal Infrastructure as Code using popular programming languages (Python, JavaScript, TypeScript, Go, .NET/C#, Java, YAML)",
+			pros: [
+				"Building IaC with Pulumi removes many entry barriers as it works with modern languages like Go and Node.js. You can construct logic loops and conditions to pull in the resources you need with code language you're familiar with.",
+				"It enhances the testing process by letting you run unit and integration tests before delivering them. That will increase confidence amongst your team and stakeholders.",
+				"Pulumi keeps a version history and has great rollback features.",
+			],
+			cons: [
+				"Allowing different programming languages to work with the tool can lead to duplication. Teams may develop the same fundamental functionality using different languages, which isn't efficient. And they can't easily share multiple codebases.",
+				"Small community. Terraform and Cloudformation has a way bigger community and thereby a more abundant documentation.",
+				"It's free for individual use, but comes with a price plan for teams and enterprises.",
+			],
 		},
 		Crossplane: {
 			title: "Crossplane",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Crossplane is a bit different. You can build control planes without needing to write code. Crossplane has a highly extensible backend that enables you to orchestrate applications and infrastructure no matter where they run, and a highly configurable frontend that lets you define the declarative API it offers.",
+			pros: [
+				"Crossplane builds on top of Kubernetes making the creation of resources more smooth.",
+				"It is highly observable. For example, if you delete a VM manually, Terraform won't notice this, but because of Crossplane's integration with K8S, it will notice it and revert it back to it's desired state.",
+				"Automatic reverts of manual changes help mitigate unintentional developer mistakes and thereby help developers follow best practices.",
+				"Support all major cloud platforms.",
+				"State lock and wait time for other collaborators (Strong consistency)",
+			],
+			cons: [
+				"Small community but growing.",
+				"Requires a K8S cluster, but this is not a con if you intend to use K8S clusters of course.",
+				"Compared to Terraform plan, there is no high-level preview of what will be created, modified or deleted with Crossplane.",
+			],
 		},
 		"Arm templates": {
 			title: "Arm templates",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Arm templates can be useful if you use Azure as cloud. They are a form of infrastructure as code, a concept where you define the infrastructure that needs to be deployed. ARM templates use declarative syntax, meaning you define the resources for Azure to deploy without specifying how the resources are created.",
+			pros: [
+				"Azure Resource Manager allows you to view and manage resources from a centralized dashboard",
+				"Convenient if using Azure",
+			],
+			cons: [
+				"ARM templates' primary downside is that they are restricted to Azure cloud deployments.",
+				"Does not include any forecast of resources to be created, like Terraform plan.",
+				"Heavy in syntax using JSON but Bicep can help you ease this.",
+			],
 		},
 	},
 	Authentication: {
