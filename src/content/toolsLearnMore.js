@@ -86,67 +86,111 @@ const toolsLearnMore = {
 	Authentication: {
 		Keycloak: {
 			title: "Keycloak",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Add authentication to applications and secure services with minimum effort. No need to deal with storing users or authenticating users. Keycloak provides user federation, strong authentication, user management, fine-grained authorization, and more.",
+			pros: [
+				"Users authenticate with Keycloak rather than individual applications. This means that your applications don't have to deal with login forms, authenticating users, and storing users. Once logged-in to Keycloak, users don't have to login again to access a different application. This also applied to logout",
+				"If you need custom claim from OIDC provider and also looking for replace existing Identity provider. And you expect more programatic automation with Identity provider. Keycloak definitely can fulfill the requirement and with REST API support.",
+				"Supports multiple identity providers.",
+				"OpenID and SAML support.",
+				"Maintained by devs at Redhat.",
+				"JSON Web Token.",
+				"Useful when you have a lot of clients/applications.",
+				"Very useful when you have a lot of integration with third part systems (Google, Fb, Twitter and etc) because Keycloak has them out-of-box.",
+			],
+			cons: ["If you only have one client, then it's a bit overkill to use."],
 		},
 		Dex: {
 			title: "Dex",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Dex is an identity service that uses OpenID Connect to drive authentication for other apps.",
+			pros: [
+				"If you already have an existing Identity Provider (AD, SAML, Github..etc) and just need an OIDC interface to bridge applications with a centralized service, then Dex is your choice.",
+			],
+			cons: [
+				"It's not ideal when you don't already have an existing Identity Provider.",
+			],
 		},
 		"Existing Public Identity Provider (Google etc.)": {
 			title: "Existing Public Identity Provider (Google etc.)",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
-		},
-		"Cloudfoundry UAA": {
-			title: "Cloudfoundry UAA",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Identity Platform is a customer identity and access management (CIAM) platform that helps organizations add identity and access management functionality to their applications, protect user accounts, and scale with confidence on for example Google Cloud.",
+			pros: [
+				"Useful if you using Kubernetes in the cloud. Primarily only useful for the big providers like Google, AWS and Azure.",
+			],
+			cons: [
+				"Vendor lock in. It makes you restricted to one particular cloud.",
+				"Not ideal for hybrid cloud setup.",
+			],
 		},
 		"Tremolo Security's OpenUnison": {
 			title: "Tremolo Security's OpenUnison",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Tremolo Security’s Unison is powerful way to provide authentication, course grained authorization and identity management services for your applications.",
+			pros: [
+				"Good for enterprises.",
+				"Provide Single Sign-On to your Active Directory forests.",
+				"Provide identity information to cloud based applications without having to forklift existing identity infrastructure into the cloud",
+			],
+			cons: ["Bad for smaller setups."],
 		},
 	},
 	"Environment Isolation": {
 		Namespaces: {
-			title: "Environment Isolation",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			title: "Namespaces",
+			description:
+				"In Kubernetes, namespaces provides a mechanism for isolating groups of resources within a single cluster.",
+			pros: [
+				"They are the easiest way of isolating and separating workloads from each other.",
+				"This is the best approach if very strict isolation of workloads is not a priority for you.",
+				"It's also easier to manage multiple namespaces. If you want to apply role-based access control (RBAC) policies across several Kubernetes namespaces, for instance, you can simply create a ClusterRole instead of a Role.",
+			],
+			cons: [
+				"The major downside of using multiple namespaces is that it provides less isolation",
+				"Using namespaces could translate to security or privacy issues in the event that a workload running in one namespace manages to interact with another namespace in a way it shouldn't.",
+				"Configuration mistakes, such as ill-defined ClusterRoles, by which you accidentally allow workloads to interact across namespaces. This is the main risk that arises from multiple namespaces.",
+				"Security bugs in Kubernetes that attackers can exploit in order to escalate a breach from one namespace into others. Realistically speaking, this is not likely to be an issue. But it's a possibility.",
+			],
 		},
 		Clusters: {
 			title: "Clusters",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Cluster isolation means having separate clusters to isolate workloads.",
+			pros: [
+				"If you require very strict isolation and namespaces aren't enough for you, this is the better approach.",
+				"Although it's possible for security vulnerabilities to enable breaches to spread between clusters, the potential risk here is lower, given that most tooling in Kubernetes is designed to interact with single clusters.",
+			],
+			cons: [
+				"On the other hand, the fact that Kubernetes tooling is designed with single clusters in mind by default also means that multiple clusters are harder to set up and manage via one control plane.",
+				"You also likely need to configure networking in such a way that the clusters can all communicate with the control plane — while also, ideally, preventing inter-cluster communication unless you require it.",
+			],
 		},
 		"Cloud accounts": {
 			title: "Cloud accounts",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
-		},
-		"Cloud projects": {
-			title: "Cloud projects",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Environment isolation using cloud accounts goes into separating your workloads on different cloud accounts.",
+			pros: [
+				"This can make it easier to handle billing of your workloads, especially if it's important for you to separate you bills in teams, departments etc.",
+			],
+			cons: [
+				"This will most likely make it harder for your workloads to communicate accross cloud accounts, as they will be running in completely separate environments.",
+			],
 		},
 	},
 	"Container Registry": {
 		"The registry offered by your cloud provider": {
 			title: "The registry offered by your cloud provider",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description: "This can be ECR from AWS or ACR from Azure, etc.",
+			pros: [
+				"Requires minimal setup",
+				"Native integration with the Kubernetes service from the cloud.",
+				"It will most likely make your deployments easier as it's a part of the cloud meaning the integration between your Kubernetes cluster and the registry is a part of the same ecosystem.",
+			],
+			cons: [
+				"Vendor lock in.",
+				"Not great for multi-cloud setups.",
+				"Makes migration to other clouds harder.",
+			],
 		},
 		Jfrog: {
 			title: "Jfrog",

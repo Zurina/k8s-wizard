@@ -23,7 +23,6 @@ const contentDescs = [
             "Keycloak",
             "Dex",
             "Existing Public Identity Provider (Google etc.)",
-            "Cloudfoundry UAA",
             "Tremolo Security's OpenUnison",
         ],
     },
@@ -37,7 +36,6 @@ const contentDescs = [
             "Namespaces",
             "Clusters",
             "Cloud accounts",
-            "Cloud projects",
         ],
     },
     {
