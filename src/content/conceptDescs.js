@@ -49,6 +49,7 @@ const contentDescs = [
             "The registry offered by your cloud provider",
             "Jfrog",
             "Dockerhub",
+            "Github Container Registry",
             "Harbor",
         ],
     },
