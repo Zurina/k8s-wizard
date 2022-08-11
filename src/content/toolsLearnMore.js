@@ -306,8 +306,8 @@ const toolsLearnMore = {
 		},
 		Pulumi: {
 			title: "Pulumi",
-			description: "",
-			pros: ["bla"],
+			description: "Define infrastructure on any cloud using familiar programming languages. Pulumi is different, in that it lets you use your favorite languages. Instead of templating, Pulumi programs use real code. Thanks to simple things like functions and classes, we have seen 1,000s of lines of templated YAML shrink to just 100 lines of code. ",
+			pros: ["Pulumi is also multi-cloud. So, you only need to learn one programming model, tool, and workflow to program Kubernetes in addition to your cloud resources."],
 			cons: ["bla"],
 		},
 		Naml: {
