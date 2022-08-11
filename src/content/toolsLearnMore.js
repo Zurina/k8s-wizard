@@ -253,6 +253,7 @@ const toolsLearnMore = {
 				"It is obvious that Helm is a must-have for Kubernetes deployments. But the real benefits lay in the role it plays in streamlining your CI/CD pipelines.",
 				"Helm automatically maintains a database of all the versions of your releases. So, whenever something goes wrong during deployment, rolling back to the previous version is just one command away.",
 				"There are several CI/CD integration hooks available in Helm that enable teams to automate certain actions to take place by default, just like macros in Microsoft office, for example, before installation begins, or after an upgrade has finished. You can even schedule health checks for Helm to verify if a deployment has been completed successfully.",
+				"Another reason to choose Helm is the need to decrease the amount of time you spend with YAML files. Helm templates have arguments that make it easier to understand how services work without delving too deep into YAML.",
 			],
 			cons: [
 				"Troubleshooting and Debugging --> The biggest challenge for Helm is complexity. The whole system is based on templating Helm charts which makes it very difficult to create and debug complex applications that may consist of multiple Kubernetes resources. The more Helm charts there are, the more complex the entire system is. Imagine how much time it would take for a team to spot and resolve a bug in a Helm chart template that has been used numerous times across many Kubernetes resources in a complex application. As your ecosystem gets bigger, the operator pattern is a good addition.",
@@ -276,14 +277,32 @@ const toolsLearnMore = {
 				"A custom resource definition (CRD) object defines a new, unique object type, called a kind, in the cluster and lets the Kubernetes API server handle its entire lifecycle.\nOperators are software extensions to Kubernetes that make use of CRDs to manage applications and their components. Operators follow Kubernetes principles, notably the control loop",
 			pros: [
 				"Adopting the operater pattern is really useful when you helm ecosystem gets complex and your helmcharts too big to manage.",
+				"Operators come in handy when teams want to implement a complex, custom configuration or deploy a special application that involves a lot of operational expertise.",
 			],
-			cons: ["bla"],
+			cons: [
+				"Operators and Helm kind of do the same thing, just in different ways. In general, Helm charts are most useful when first setting up a Kubernetes cluster to deploy simple applications. Helm charts can handle the install-update-delete lifecycle for the applications deployed to the cluster.",
+			],
 		},
 		Kustomize: {
 			title: "Kustomize",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description: "Kustomize introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications. Now, built into kubectl as apply -k.",
+			pros: [
+				"Choose Kustomize if you are planning to write all the configurations on your own, and you possess a good understanding of how YAML works. While Kustomize allows you to perform complicated customizations quickly, it requires you to be able to visualize how the patches and layers fit together.",
+				"Kustomize is simple to use.",
+				"It is declarative, aligning with the Kubernetes philosophy.",
+				"Kustomize supports an inherited-base model, which makes it scale better than Helm.",
+				"Using the native version integrated into kubectl eliminates external dependencies.",
+				"It makes it easier to use off-the-shelf apps.",
+				"It uses only plain YAML files.",
+			],
+			cons: [
+				"On the other hand, if you want your developers to be able to add new apps and services in a safe and easy way, creating Helm charts is a better solution.",
+				"Kustomize does not offer many features.",
+				"It is not designed to follow the DRY (Don’t Repeat Yourself) principle.",
+				"Users must manually declare resources and patches in kustomization.yaml, and the file must be manually updated whenever a new file is added.",
+				"The native version embedded in kubectl is much older than the current standalone version.", 
+				"Online support for Kustomize is difficult to find.",
+			],
 		},
 		Pulumi: {
 			title: "Pulumi",
