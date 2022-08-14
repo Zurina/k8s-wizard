@@ -276,7 +276,7 @@ const toolsLearnMore = {
 			description:
 				"A custom resource definition (CRD) object defines a new, unique object type, called a kind, in the cluster and lets the Kubernetes API server handle its entire lifecycle.\nOperators are software extensions to Kubernetes that make use of CRDs to manage applications and their components. Operators follow Kubernetes principles, notably the control loop",
 			pros: [
-				"Adopting the operater pattern is really useful when you helm ecosystem gets complex and your helmcharts too big to manage.",
+				"Adopting the operater pattern is really useful when your helm ecosystem gets complex and your helmcharts too big to manage.",
 				"Operators come in handy when teams want to implement a complex, custom configuration or deploy a special application that involves a lot of operational expertise.",
 			],
 			cons: [
@@ -285,7 +285,8 @@ const toolsLearnMore = {
 		},
 		Kustomize: {
 			title: "Kustomize",
-			description: "Kustomize introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications. Now, built into kubectl as apply -k.",
+			description:
+				"Kustomize introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications. Now, built into kubectl as apply -k.",
 			pros: [
 				"Choose Kustomize if you are planning to write all the configurations on your own, and you possess a good understanding of how YAML works. While Kustomize allows you to perform complicated customizations quickly, it requires you to be able to visualize how the patches and layers fit together.",
 				"Kustomize is simple to use.",
@@ -300,27 +301,40 @@ const toolsLearnMore = {
 				"Kustomize does not offer many features.",
 				"It is not designed to follow the DRY (Don’t Repeat Yourself) principle.",
 				"Users must manually declare resources and patches in kustomization.yaml, and the file must be manually updated whenever a new file is added.",
-				"The native version embedded in kubectl is much older than the current standalone version.", 
+				"The native version embedded in kubectl is much older than the current standalone version.",
 				"Online support for Kustomize is difficult to find.",
 			],
 		},
-		Pulumi: {
-			title: "Pulumi",
-			description: "Define infrastructure on any cloud using familiar programming languages. Pulumi is different, in that it lets you use your favorite languages. Instead of templating, Pulumi programs use real code. Thanks to simple things like functions and classes, we have seen 1,000s of lines of templated YAML shrink to just 100 lines of code. ",
-			pros: ["Pulumi is also multi-cloud. So, you only need to learn one programming model, tool, and workflow to program Kubernetes in addition to your cloud resources."],
-			cons: ["bla"],
-		},
 		Naml: {
 			title: "Naml",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"It is a framework for infrastructure teams who need more than just conditional manifests. It allows teams to start encapsulating, managing, and testing their applications in raw Go. Teams can now buid controllers, operators, and custom toolchains using reliable, testable, and scalable Go.",
+			pros: [
+				"Express applications in Go instead of YAML",
+				"Write real tests using Go to check and validate your deployments",
+				"Define custom installation logic. What happens if it fails?",
+				"Use the Go compiler to check your syntax",
+				"Test your applications in Kubernetes using kind",
+			],
+			cons: [
+				"Small community.",
+				"Bigger learning curve as Go also needs to be learned.",
+				"Might not be fully up to date regarding new features compared to Helm.",
+			],
 		},
 		Shipa: {
 			title: "Shipa",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Shipa is a Developer Platform used to deploy and manage applications, providing a consistent workflow and policy engine on top of that.",
+			pros: [
+				"Unlike Helm, Shipa provide higher-level features such as logs, shell, policy management, developer dashboard, etc.",
+				"Shipa provides a consistent experience all the way from application deployment and management to policy enforcement.",
+				"Shipa leverages Helm charts, so they can be used together.",
+			],
+			cons: [
+				"Helm is Kubernetes-specific, while Shipa is cluster-agnostic and focuses at the application level instead, which is really a con.",
+				"Shipa is more of a platform and is concerned with much more than just application packaging, so if you're looking for a tool mainly concerned with application packaging, Shipa is not what you're looking for. Shipa is better compared to Openshift for example.",
+			],
 		},
 	},
 	"Version Control": {
@@ -358,15 +372,41 @@ const toolsLearnMore = {
 	"Repository Structure": {
 		Monorepo: {
 			title: "Monorepo",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"The monorepo approach uses a single repository to host all the code for the multiple libraries or services composing a company’s projects. At its most extreme, the whole codebase from a company — spanning various projects and coded in different languages — is hosted in a single repository.",
+			pros: [
+				"When creating an application-wide refactoring of the code, multiple libraries will be affected. If you’re hosting them via multiple repositories, managing all the different pull requests to keep them synchronized with each other can prove to be a challenge. A monorepo makes it easy to perform all modifications to all code for all libraries and submit it under a single pull request.",
+				"A single place to store all the project code, and can be accessed by everyone in the team",
+				"Easy to reuse and share code, collaborate with the team",
+				"Easy to manage dependencies",
+				"eam members can get an overall view of the entire project",
+				"Easy to understand the impact of your change on the entire project",
+			],
+			cons: [
+				"Slower development cycles",
+				"Further, it is difficult to implement Continuous Deployments (CD), because many people can check-in their changes, and your Continuous Integration (CI) system may have to do multiple rebuilds.",
+				"Also, if you hire a lot of independent contractors for your project, giving them access to the entire code base may not be so secure. You might have different security levels for different parts of your system or project, and because of this, a monorepo is restricting you from implementing granular access.",
+				"When we tag the monorepo, all code within is assigned the new tag. If this action triggers a new release, then all libraries hosted in the repository will be newly released with the version number from the tag, even though many of those libraries may not have had any change.",
+				"It can make teams unnecessarily dependant on each other if repos span accross teams, which can create friction.",
+			],
 		},
 		"Multi-repo": {
 			title: "Multi-repo",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"The multi-repo approach uses several repositories to host the multiple libraries or services of a project developed by a company. At its most extreme, it’ll host every minimum set of reusable code or standalone functionality (such as a microservice) under its repository.",
+			pros: [
+				"Each service and library have its own versioning",
+				"Code check-outs and pulls are small and separate, thus there are no performance issues even if the project size grows",
+				"Teams can work independently and need not have access to the entire codebase",
+				"Faster development and flexibility",
+				"Each service can be released separately and have its own deployment cycle, thus making CI and CD easier to implement",
+				"Better access control – all teams need not have full access to all the libraries – but can get read access if they need",
+			],
+			cons: [
+				"The dependencies and libraries used across services and projects have to be regularly synced to get the latest version",
+				"Encourages a siloed culture at some point, leading to duplicate code and individual teams trying to resolve the same problem",
+				"Each team may follow a different set of best practices for their code causing difficulties in following common best practices",
+			],
 		},
 	},
 	"Continuous Integration": {

@@ -64,7 +64,6 @@ const contentDescs = [
 			"RAW Kubernetes YAML",
 			"CRDs and operators",
 			"Kustomize",
-			"Pulumi",
 			"Naml",
 			"Shipa",
 		],
