@@ -219,7 +219,6 @@ const contentDescs = [
             "Aqua",
             "Snyk",
             "Kubescape",
-            "Various Admission Controllers",
         ],
     },
 ];

@@ -340,15 +340,38 @@ const toolsLearnMore = {
 	"Version Control": {
 		Github: {
 			title: "Github",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"GitHub is an online software development platform used for storing, tracking, and collaborating on software projects.",
+			pros: [
+				"GitHub probably has some of the best documentation.",
+				"Is has Github Actions which makes it very straightforward to implement CI",
+				"Is has Github Container Registry which makes it easy to store build artifacts ready to be consumed by your CD flow.",
+				"With GitHub pages, you can get started quickly without worrying about setting up hosting or DNS.",
+				"GitHub lets you work with the CI/CD tools of your choice, but you'll need to integrate them yourself. GitHub users typically work with a third-party CI program such as Github Actions, Jenkins, CircleCI, or TravisCI.",
+				"Allows for more freedom in terms of other tools as its not a full development platform itself.",
+			],
+			cons: [
+				"GitHub does offer private repositories on both free and paid tiers, but even private repositories have their issues. For high-value intellectual property, you’re putting all of this in the hands of GitHub as well as anyone who has a login, which, like many sites, has had security breaches before and is targeted constantly.",
+				"Github, unlike Gitlab for example does not offer as many features within its own program, but offers ways to integrate with many outside programs and services. These include software that GitHub has worked on to integrate with the service and hundreds of other programs via GitHub Marketplace.",
+				"With Github you often have to configure more integrations with other tools compared to Gitlab for example.",
+			],
 		},
 		Gitlab: {
 			title: "Gitlab",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Gitlab is not just a VCS platform. GitLab helps you automate the builds, integration, and verification of your code. With SAST, DAST, code quality analysis, plus pipelines that enable concurrent testing and parallel execution, your teams get quick insights about every commit so they can deliver higher quality code faster.",
+			pros: [
+				"Offers you a complete software development solution, for example integrated CI/CD flows, meaning everything can be handled from one place.",
+				"Offer many internal tools as code quality checking etc.",
+				"Although it does market itself as a complete devops platform, Gitlab does offer integrations with some third-party programs and platforms such as Jira, Microsoft Teams, Slack, Gmail, and numerous other apps and platforms.",
+				"Seamless integration is possible with Gitlab.",
+				"Gitlab offers detailed viewing and documentation of the software projects.",
+			],
+			cons: [
+				"Not as big of a community as Github.",
+				"Less speedy when compared to Github while pulling or pushing the software codes.",
+				"Gitlab user interface is more heavy and take a lot of time while switching from one page to another.",
+			],
 		},
 		Bitbucket: {
 			title: "Bitbucket",
@@ -456,15 +479,30 @@ const toolsLearnMore = {
 	"Continuous Deployment": {
 		"Pull based (Argo CD or Flux)": {
 			title: "Pull based (Argo CD or Flux)",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Pull-based deployment uses an agent installed in a cluster to pull changes whenever there is a deviation from the desired configuration. In the pull-based approach, deployment targets are limited to Kubernetes and an agent must be installed in each Kubernetes cluster.",
+			pros: [
+				"Secure infrastructure - no need to open your firewall or grant admin access externally",
+				"changes can be automatically detected and applied without human intervention easier scaling of identical clusters",
+			],
+			cons: [
+				"An agent needs to be installed in every cluster",
+				"Limited to Kubernetes only",
+			],
 		},
 		"Push based (From your CI pipelines)": {
 			title: "Push based (From your CI pipelines)",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Push-based, or agentless, deployment relies on a CI/CD tool to push changes to the infrastructure environment",
+			pros: [
+				"Ease of use",
+				"well-known as part of CI/CD",
+				"more flexible, as deployment targets can be on physical servers or virtual containers, not restricted to Kubernetes clusters",
+			],
+			cons: [
+				"Requires organizations to open their firewall to a cluster and grant admin access to external CI/CD",
+				"Requires organizations to adjust their CI/CD pipelines when they introduce new environments",
+			],
 		},
 	},
 	Traffic: {
@@ -666,33 +704,80 @@ const toolsLearnMore = {
 	Security: {
 		Falco: {
 			title: "Falco",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Falco, a CNCF incubating project, can help detect any anomalous activities in cloud native environments with rich, out-of-the-box default rules.",
+			pros: [
+				"Common policy language to detect threats across containers, hosts, Kubernetes and cloud.",
+				"Great for smaller companies or more isolated projects",
+				"You can immediately respond to policy violation alerts and integrate Falco within your response workflows.",
+				"Falco out-of-the box rules alert on malicious activity and CVE exploits.",
+				"Docker, Slack, Kubernetes, Helm, and Fluentd are some of the popular tools that integrate with Falco Security.",
+				"Cheapest solution for priced versions.",
+			],
+			cons: [
+				"Is not considered an enterprise security solution.",
+				"Does not scan libraries.",
+			],
 		},
 		Aqua: {
 			title: "Aqua",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Aqua helps you security your entire environment of your Kubernetes ecosystem.",
+			pros: [
+				"Security products for several Cloud Providers: Aqua offers solutions to monitor and secure cloud-native workloads on AWS, Google Cloud, Red Hat, and Azure.",
+				"Aqua Security has added a Kubernetes Runtime Protection module that provides an option for using Kubernetes Admission Controllers to deploy security controls as a set of sidecar containers directly on to a Kubernetes pod.",
+				"Aqua is good if you need cheap and k8's or small environments.",
+				"A dashboard on discovered vulnerabilities from across your codebase and analytics insights on the security of your application.",
+				"Discover dependency vulnerabilities early, before deploying containers.",
+				"Check for vulnerabilities in image components before using those across your container images.",
+				"It has a rich CI/CD integration as it allows users to scan the code based during development.",
+				"Great for enterprises.",
+			],
+			cons: [
+				"Aqua does not provide a separate CLI that you can access locally through your terminal. As a result, the interface has to be used for all interactions between your infrastructure and Aqua.",
+				"Lack of comprehensive documentation.",
+				"Does not scan libaries.",
+				"Not the ideal choice for smaller companies or isolated projects.",
+				"Most expensive security solution compared to Snyk and Falco.",
+			],
 		},
 		Snyk: {
 			title: "Snyk",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Snyk provides a set of products that are used to enable the secure development of cloud-native applications. The goal is to detect any vulnerabilities during the development process, and before the application is being deployed. Furthermore, Snyk provides continuous scanning of integrated resources and automatically notifies users should it detect any vulnerabilities.",
+			pros: [
+				"Has a really good free tier offering.",
+				"Integrated IDE checks: Snyk provides two IDE integrations, namely Eclipse and JetBrains.",
+				"Native Git Scanning allows you to scan pull requests before they are merged.",
+				"Add an automated Snyk test to your CI/CD pipeline to scan your codebase for vulnerabilities with every deployment.",
+				"Integrated Snyk into your production environment to monitor your codebase for new vulnerabilities and ensure that no new ones are deployed.",
+				"The Reporting Option generates an overview of the discovered vulnerabilities.",
+				"Comprehensive alerts and notification settings with reports right to your inbox weekly.",
+				"Find and fix insecure configurations in Terraform and Kubernetes code.",
+				"Snyk offers a CLI tool that you can install either through npm, brew on Linux and Mac, or scoop on Windows.",
+				"Scans libaries.",
+				"Great for enterprises.",
+				"Less expensive than Aqua.",
+				"PR with vulnerability fixes",
+			],
+			cons: [
+				"Not the ideal choice for smaller companies or isolated projects.",
+			],
 		},
 		Kubescape: {
 			title: "Kubescape",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
-		},
-		"Various Admission Controllers": {
-			title: "Various Admission Controllers",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"A tool that checks whether Kubernetes is deployed in accordance with major compliance frameworks.",
+			pros: [
+				"Open Source.",
+				"Providing a multi-cloud K8s single pane of glass, including risk analysis, security compliance, RBAC visualizer and image vulnerabilities scanning.",
+				"Test clusters or scan single YAML files and integrate it to your processes.",
+				"Kubescape checks over 20 possible weaknesses based on the NSA-identified list. The NSA’s report provides a description of the covered issues and the rationale for their inclusion. For example, Containers running in privileged mode, containers running with dangerous capabilities, credentials contained in configuration files and more.",
+				"Intuitive CLI.",
+			],
+			cons: [
+				"Kubescape doesn’t check for vulnerabilities inside the containers you run in your cluster.",
+			],
 		},
 	},
 };
