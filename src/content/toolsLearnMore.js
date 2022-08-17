@@ -691,7 +691,7 @@ const toolsLearnMore = {
 				"Production cluster replication for the purpose of testing or development",
 				"General backup and restore capabilities for Kubernetes clusters",
 				"Cluster migration feature.",
-				"Works great for smaller companies and isolated projects."
+				"Works great for smaller companies and isolated projects.",
 			],
 			cons: ["Not the ideal enterprise solution."],
 		},
@@ -703,15 +703,20 @@ const toolsLearnMore = {
 				"Backup and Restore - Backup and restore your applications to protect your data",
 				"Disaster Recovery - Meet regulatory and corporate mandates for your business",
 				"Application Mobility - Move between clouds and on-premises for load balancing and upgrades",
-				"Great for enterprises."
+				"Great for enterprises.",
 			],
 			cons: ["Free version limits you to 5 nodes."],
 		},
 		"Gitops Redeploy": {
 			title: "Gitops Redeploy",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"As Git acts as a single source of truth for all DevOps operations, the entire system is described declaratively in Git using .yaml files. Changes made to applications, infrastructure, deployment, and environment are all managed via Git. For instance, Kubernetes configuration and environment configuration can be managed with Helm via reusable charts. The application code can be declared in a Dockerfile, and Terraforms can declare the infrastructure.",
+			pros: [
+				"Your backups are you versioned code in git.",
+				"No need for external backups the old way.",
+				"Not only can you quickly deploy containers and rollback, but you can also reproduce the entire cluster infrastructure at the time of a disaster.",
+			],
+			cons: ["Takes more work to setup as it requries several tools to work, than just a single tool to be responsible for it."],
 		},
 	},
 	Security: {
