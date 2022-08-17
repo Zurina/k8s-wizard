@@ -684,15 +684,28 @@ const toolsLearnMore = {
 	"Backup Clusters": {
 		Velero: {
 			title: "Velero",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Velero is an open source tool to safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes.",
+			pros: [
+				"Open source.",
+				"Production cluster replication for the purpose of testing or development",
+				"General backup and restore capabilities for Kubernetes clusters",
+				"Cluster migration feature.",
+				"Works great for smaller companies and isolated projects."
+			],
+			cons: ["Not the ideal enterprise solution."],
 		},
 		Kasten: {
 			title: "Kasten",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Kasten is a backup and restore solution that also takes pride in its mobility and disaster recovery systems. The backup process with Kasten is simplified thanks to its ability to automatically discover applications.",
+			pros: [
+				"Backup and Restore - Backup and restore your applications to protect your data",
+				"Disaster Recovery - Meet regulatory and corporate mandates for your business",
+				"Application Mobility - Move between clouds and on-premises for load balancing and upgrades",
+				"Great for enterprises."
+			],
+			cons: ["Free version limits you to 5 nodes."],
 		},
 		"Gitops Redeploy": {
 			title: "Gitops Redeploy",
