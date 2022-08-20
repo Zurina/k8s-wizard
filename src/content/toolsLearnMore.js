@@ -546,27 +546,65 @@ const toolsLearnMore = {
 		},
 		Calico: {
 			title: "Calico",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Calico is another popular networking option in the Kubernetes ecosystem. While Flannel is positioned as the simple choice, Calico is best known for its performance, flexibility, and power. Calico takes a more holistic view of networking, concerning itself not only with providing network connectivity between hosts and pods, but also with network security and administration. The Calico CNI plugin wraps Calico functionality within the CNI framework.",
+			pros: [
+				"Support for Network Policies.",
+				"SCTP Support",
+				"Can be used with other CNIs.",
+				"Calico can be deployed quickly by applying a single manifest file.",
+				"Unlike Flannel, Calico does not use an overlay network. Instead, Calico configures a layer 3 network that uses the BGP routing protocol to route packets between hosts. This means that packets do not need to be wrapped in an extra layer of encapsulation when moving between hosts. The BGP routing mechanism can direct packets natively without an extra step of wrapping traffic in an additional layer of traffic.",
+				"Calico can also integrate with Istio, a service mesh, to interpret and enforce policy for workloads within the cluster both at the service mesh layer and the network infrastructure layer. This means that you can configure powerful rules describing how pods should be able to send and accept traffic, improving security and control over your networking environment.",
+				"Calico is a good choice for environments that support its requirements and when performance and features like network and security policy are important. Additionally, Calico offers commercial support as Calico Enterprise or Calico Cloud if you’re seeking a support contract or want to keep that option open for the future",
+				"In general, it’s a good choice for when you want to be able to control your network instead of just configuring it once and forgetting about it.",
+			],
+			cons: [
+				"Besides the performance that this offers, one side effect of this is that it allows for more conventional troubleshooting when network problems arise. While encapsulated solutions using technologies like VXLAN work well, the process manipulates packets in a way that can make tracing difficult.",
+				"Not the best tool if you're looking for a network solution (CNI) that you just configure once and forget about it.",
+				"No multicast support.",
+			],
 		},
 		Cilium: {
 			title: "Cilium",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"A relative newcomer to the land of Kubernetes CNI plugins is Cilium. Cilium and its observability tool, Hubble, take advantage of eBPF. eBPF is a newer technology that runs within the Linux kernel and enables the configuration and execution of sandbox programs that can extend the capability of the kernel without requiring to change the kernel source code. Cilium uses eBPF technology to support more advanced networking and observability features for your Kubernetes cluster networking.",
+			pros: [
+				"One of the advantages that Cilium offers over other CNI plugins is reduced overhead when managing large networks.",
+				"While some CNI plugins rely on iptables on each Kubernetes cluster node to manage network addressing, Cilium takes advantage of eBPF to handle this more efficiently and in a more performant manner. Efficient address lookup is critical as your Kubernetes cluster scales to tens of thousands of nodes.",
+				"Cilium offers networking policies that operate at layers 3, 4, and 7 of the OSI networking model. This ability to apply policies at multiple layers affords more flexibility in how you manage ingress and egress traffic within your Kubernetes cluster.",
+				"While still a relatively new CNI plugin, Cilium may be worth consideration, especially if you require fine-grained security controls or need to reduce lookup latency for very large Kubernetes clusters.",
+				""
+			],
+			cons: ["Although Cilium proves to be performant on large scale Kubernetes clusters, it does appear to be quite resource intensive."],
 		},
 		Flannel: {
 			title: "Flannel",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"CoreOS created Flannel as one of the first CNI implementations for Kubernetes.  As such, it is one of the oldest and most mature CNI plugins available. It is also a great entry-level choice for networking for your first Kubernetes cluster, due to its simplicity and ease of use.",
+			pros: [
+				"Easy to install and configure.",
+				"It is packaged as a single binary called flanneld and can be installed by default by many common Kubernetes cluster deployment tools and in many Kubernetes distributions. Flannel can use the Kubernetes cluster’s existing etcd cluster to store its state information using the API to avoid having to provision a dedicated data store.",
+				"Overall, Flannel is a good choice for most users. From an administrative perspective, it offers a simple networking model that sets up an environment that’s suitable for most use cases when you only need the basics. In general, it’s a safe bet to start out with Flannel until you need something that it cannot provide.",
+				"Flannel has several different types of backends available for encapsulation and routing. The default and recommended approach is to use VXLAN, as it offers both good performance and is less manual intervention than other options.",
+				"Flannel configures a layer 3 IPv4 overlay network. A large internal network is created that spans across every node within the cluster. Within this overlay network, each node is given a subnet to allocate IP addresses internally. As pods are provisioned, the Docker bridge interface on each node allocates an address for each new container. Pods within the same host can communicate using the Docker bridge, while pods on different hosts will have their traffic encapsulated in UDP packets by flanneld for routing to the appropriate destination.",
+			],
+			cons: [
+				"One of the drawbacks of Flannel is its lack of advanced features, such as the ability to configure network policies and firewalls. Thus Flannel is a great entry level choice for Kubernetes cluster networking, however, if you are looking for advance networking features, you may want to consider other CNI options such as Calico.",
+				"No support for network policies.",
+			],
 		},
 		Weave: {
 			title: "Weave",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Weave Net by Weaveworks is a CNI-capable networking option for Kubernetes that offers a different paradigm than the others we’ve discussed so far. Weave creates a mesh overlay network between each of the nodes in the cluster, allowing for flexible routing between participants. This, coupled with a few other unique features, allows Weave to intelligently route in situations that might otherwise cause problems.",
+			pros: [
+				"Like Calico, Weave also provides network policy capabilities for your cluster. This is automatically installed and configured when you set up Weave, so no additional configuration is necessary beyond adding your network rules.",
+				"One thing that Weave provides that the other options do not is easy encryption for the entire network. While it adds quite a bit of network overhead, Weave can be configured to automatically encrypt all routed traffic by using NaCl encryption for sleeve traffic and, since it needs to encrypt VXLAN traffic in the kernel, IPsec ESP for fast datapath traffic.",
+				"Weave is a great option for those looking for feature rich networking without adding a large amount of complexity or management. It is relatively easy to set up, offers many built-in and automatically configured features, and can provide routing in scenarios where other solutions might fail.",
+			],
+			cons: [
+				"The mesh topography does put a limit on the size of the network that can be reasonably accommodated, but for most users, this won’t be a problem.",
+			],
 		},
 	},
 	"Service Mesh": {
@@ -582,7 +620,7 @@ const toolsLearnMore = {
 				"Out of the box, Linkerd stats and routes are observable via a CLI. On the GUI side, options include premade Grafana dashboards and a native Linkerd dashboard.",
 				"Tracing can be enabled via an add-on with OpenTelemetry (formerly OpenCensus) as the collector, and Jaeger doing the tracing itself.",
 				"Linked is perhaps best for those with less experience.",
-				"It may even be preferred for deployments where every ounce of performance is critical."
+				"It may even be preferred for deployments where every ounce of performance is critical.",
 			],
 			cons: ["No tracing.", "No ingress included."],
 		},
