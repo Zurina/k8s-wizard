@@ -572,21 +572,50 @@ const toolsLearnMore = {
 	"Service Mesh": {
 		Linkerd: {
 			title: "Linkerd",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Linkerd can be used as a cloud orchestration tool to secure communication between these services by providing features such as load balancing, service discovery, proxy integration and transparency, adaptive routing, failure recovery, circuit breaking and instrumentation.",
+			pros: [
+				"It provides Prometheus and Grafana out of the box.",
+				"Linkerd has its own dashboard great to observe what’s happening in Real-Time.",
+				"Unlike Istio that can be quite difficult to setup in a cluster, Linkerd does not need much configuration.",
+				"Light control panel.",
+				"Out of the box, Linkerd stats and routes are observable via a CLI. On the GUI side, options include premade Grafana dashboards and a native Linkerd dashboard.",
+				"Tracing can be enabled via an add-on with OpenTelemetry (formerly OpenCensus) as the collector, and Jaeger doing the tracing itself.",
+				"Linked is perhaps best for those with less experience.",
+				"It may even be preferred for deployments where every ounce of performance is critical."
+			],
+			cons: ["No tracing.", "No ingress included."],
 		},
 		Istio: {
 			title: "Istio",
 			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			pros: [
+				"Jaegar tracing.",
+				"Has built in ingress & egress controller using Envoy.",
+				"Secures service-to-service and pod-to-pod communication.",
+				"Enables canary deployments and A/B testing.",
+				"Gives insight into network performance issues.",
+				"Implements routing rules and policies that manage communication and data transfer.",
+			],
+			cons: [
+				"Heavy control panel.",
+				"Does not have a default dashboard but Kiali can be used as an extension for that.",
+				"Also, it is difficult to configure the .yaml files to ensure the right setup and encrypted communication.",
+				"Istio is time-consuming to set up and implement.",
+			],
 		},
 		Consul: {
 			title: "Consul",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Consul Service Mesh provides service-to-service connection authorization and encryption using mutual Transport Layer Security (TLS).",
+			pros: [
+				"Offers both CLI and a Dashboard - the latter lets you visualize your services, nodes, key value pairs, and intentions. You can also navigate through access controls. Should you want to dive deeper, the GUI offers a look into topology, instances, intentions, routing, and tags.",
+				"Consul is best reserved for veterans as it has a tougher learning curve who also need ultimate configurability.",
+				"Consul provides well-rounded control features centered on configuration and segmentation. You can deploy Consul natively or via proxy framework. The latter supports Envoy. Consul leverages a local client which lets teams easily run Consul via pod on each node",
+			],
+			cons: [
+				"Because Consul is mature and feature-rich, it can be more difficult to master. Additionally, some experimentation may be necessary to get Consul up and running effectively. ",
+			],
 		},
 	},
 	Storage: {
@@ -598,8 +627,11 @@ const toolsLearnMore = {
 		},
 		Rook: {
 			title: "Rook",
-			description: "",
-			pros: ["bla"],
+			description:
+				"Rook is a storage orchestration tool that provides a cloud-native, open source solution for a diverse set of storage providers. Rook uses the power of Kubernetes to turn a storage system into self-managing services that provide a seamless experience for saving Kubernetes application or deployment data.",
+			pros: [
+				"One of the main benefits of Rook is that it interacts with data storage via native Kubernetes mechanisms. That means that you no longer need to manually configure Ceph using its commands.",
+			],
 			cons: ["bla"],
 		},
 	},
@@ -678,7 +710,7 @@ const toolsLearnMore = {
 			pros: [
 				"Native integration with the particular cloud's Kubernetes service.",
 				"In key vault you no need to worry about security and managing your own identities technical support is also beneficial.",
-				"Azure Key vault can compliment HashiCorp Vault — Your master HashiCorp Vault key can be stored in Azure Key Vault using the key vault provider to make it more secure. Check out the HashiCorp Vault on Azure link below for more details."
+				"Azure Key vault can compliment HashiCorp Vault — Your master HashiCorp Vault key can be stored in Azure Key Vault using the key vault provider to make it more secure. Check out the HashiCorp Vault on Azure link below for more details.",
 			],
 			cons: [
 				"Azure Key vault and Amazon KMS are managed services — you don’t have full control.",
