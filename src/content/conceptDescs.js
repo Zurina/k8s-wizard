@@ -192,7 +192,7 @@ const contentDescs = [
         shortDescription: "What is the right local developer environment?",
         iconBackground: require("./icons/dev-env.png"),
         description:
-        "Giving developers a local environment where they can test everything in a representative and matching way is important for a team's performance and ability to debug. Depending on your budget, it may be local clusters or remote clusters (or namespaces in a remote cluster).",
+        "Giving developers a local environment where they can test everything in a representative and matching way is important for a team's performance and ability to debug. Depending on your budget, it may be local clusters or remote clusters (or namespaces in a remote cluster). You want your development environment to mimic as much as possible your production environment.",
         technologies: [
             "Docker compose",
             "Tilt",

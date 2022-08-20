@@ -638,47 +638,117 @@ const toolsLearnMore = {
 	Credentials: {
 		"K8S secrets": {
 			title: "K8S secrets",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Such information might otherwise be put in a Pod specification or in a container image.",
+			pros: [
+				"Native part of Kubernetes making it easy to use.",
+				"Good for API tokens, passwords, etc.",
+				"They can be encrypted at rest with some extra work, but not good if you are looking for e2e encryption while injecting to K8s pods and stuff.",
+			],
+			cons: [
+				"By default, secrets in Kubernetes are not encrypted, only base64 encoded.",
+				"Cannot be rotated unless using an external tool.",
+				"Cannot access secrets across namespaces.",
+				"A bigger problem is that k8s RBAC doesn't provide fine-grained control over which principals can access which secrets, while vault does.",
+			],
 		},
 		Vault: {
 			title: "Vault",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Secure, store and tightly control access to tokens, passwords, certificates, encryption keys for protecting secrets and other sensitive data using a UI, CLI, or HTTP API.",
+			pros: [
+				"Supports e2e encryption option.",
+				"UI for managing the secrets.",
+				"With Vault you can rotate secrets and have secrets with short TTL",
+				"Vault can use LDAP, oauth, IAM, etc as identity providers",
+				"Vault can provide a PKI for signing certs (enabling for example automation of cert generation for mtls",
+				"Vault you can use the secrets outside of K8s and you manage the RBAC of them within Vault.",
+				"It's a cloud agnostic secrets management system it allows you to safely store and manage sensitive data in hybrid cloud environments",
+			],
+			cons: [
+				"Vault requires infrastructure to run vault on, in production this will have to be managed, secured, fed, and watered. More security-conscious companies may see this as a benefit though as the vault remains under company control. However, if this is seen as a blocker, the cloud version which is effectively a managed vault offering on the HashiCorp platform, is now in public beta which will eliminate this problem.",
+				"Learning curve / Training — Vault is relatively simple to learn the basics, and there is some excellent training on the HashiCorp site, however, if your teams are already familiar with Azure Key Vault of AWS KMS, this is another thing to learn!",
+				"May be too overkill to use, if you have a simple setup with one cluster, few containers and few secrets.",
+			],
 		},
 		"Cloud provider secret stores": {
 			title: "Cloud provider secret stores",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"This can be Azure Key Vault, AWS KMS etc, which are managed services offering native integration with other of the cloud services.",
+			pros: [
+				"Native integration with the particular cloud's Kubernetes service.",
+				"In key vault you no need to worry about security and managing your own identities technical support is also beneficial.",
+				"Azure Key vault can compliment HashiCorp Vault — Your master HashiCorp Vault key can be stored in Azure Key Vault using the key vault provider to make it more secure. Check out the HashiCorp Vault on Azure link below for more details."
+			],
+			cons: [
+				"Azure Key vault and Amazon KMS are managed services — you don’t have full control.",
+				"Vendor lock-in.",
+				"Not ideal for a hybrid cloud setup",
+			],
 		},
 	},
 	"Development Environment": {
 		"Docker compose": {
 			title: "Docker compose",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Docker Compose is a tool that was developed to help define and share multi-container applications. With Compose, we can create a YAML file to define the services and with a single command, can spin everything up or tear it all down.",
+			pros: [
+				"Exellent for running starting and running multiple containers simultaneously with one command.",
+			],
+			cons: [
+				"Docker Compose's intention is to run all containers on the same machine (node), which is in the context of Kubernetes doesn't make that much sense.",
+				"Depending on what you're developing, Docker Compose does not provide you a close to indentical development environment compared to a production Kubernetes environment. For this, you need a local Kubernetes solution.",
+			],
 		},
 		Tilt: {
 			title: "Tilt",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"If Docker Compose is not good enough for you, then you might want to look into Tilt as it's an uses Docker Compose under the hood with additional features. It is not a Kubernetes cluster itself, but it offers a great interface to work with local clusters like Kind, Minikube etc. Tilt is a microservice development environment for teams that deploy to Kubernetes.",
+			pros: [
+				"See all the pieces of your app, and trigger custom workflows like seeding databases or creating infrastructure.",
+				"Our engine starts the whole app and runs automated rebuilds as you edit in your IDE. Get a continuous feedback loop with your logs, broken builds, and runtime errors.",
+				"It has a great UI, so you don't necessarily need to use kubectl all the time.",
+				"Tilt’s live_update deploys code to running containers, in seconds not minutes. Even for compiled languages or changing dependencies, live_update is fast and reliable.",
+				"Snapshots lets you share your dev environment and collaborate on issues as quickly as looking at the monitor next to you.",
+				"We’ve codified best practices to give your team a common development path and ensure reproducibility. Anyone can start the app – new hires just: tilt up.",
+				"Highens developer collaboration and improves teamwork.",
+			],
+			cons: [
+				"It may not be needed when working individually on a project.",
+				"It might be too many features compared to what you need in a simple setup.",
+				"For example, Docker Compose might do exactly what you need when testing singular containers or the integration between a few ones.",
+			],
 		},
 		Skaffold: {
 			title: "Skaffold",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"For simple container-based applications that don’t rely on Kubernetes resource types, Skaffold can “deploy” these applications by running application containers directly in your local Docker daemon. This enables application developers who are not yet ready to make the jump to Kubernetes to take advantage of the streamlined development experience Skaffold provides.",
+			pros: [
+				"Skaffold is like tilt in the sense of that it's not offering a local cluster for you to use. It's rather a way to structure and deploy your applications smoothly to your local cluster.",
+				"Skaffold in combination with a local cluster works really great and improves developer efficiency as you don't have to interact with the local cluster directly, which can be slower.",
+				"Skaffold as well as Tilt, acts as an interface in front of your local cluster speeding up development.",
+				"Highens developer collaboration and improves teamwork.",
+			],
+			cons: [
+				"It may not be needed when working individually on a project.",
+				"It might be too many features compared to what you need in a simple setup.",
+				"For example, Docker Compose might do exactly what you need when testing singular containers or the integration between a few ones.",
+			],
 		},
 		"Local cluster (kind, k3d, docker desktop, etc.)": {
 			title: "Local cluster (kind, k3d, docker desktop, etc.)",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"A local cluster can be used as your development environment to test new features and such.",
+			pros: [
+				"Production-like environment - when deploying Kubernetes locally, you can choose between using convenient, lightweight environments, such as minikube, K3S, or even Docker Desktop; or taking the time to do a manual installation for a more production-like environment. This flexibility allows you to overcome the inherent limitations of out-of-the-box solutions in terms of networking, nodes, scalability, add-ons, and more.",
+				"A local cluster in combination with Skaffold or Tilt to integrate with it can be really efficient and smooth as your development environment.",
+				"If you need to test containers in a production alike environment or test your application with the additional features compared a local cluster offers compared to Docker Compose, then you should go for this.",
+			],
+			cons: [
+				"It may not be required for you, if you only need to run simple containers and test the integration between them.",
+				"Requires more setup.",
+				"If you depend on a local cluster, it is also important that you have a unified setup across your developers so all have the same environment. This will result in less errors.",
+			],
 		},
 	},
 	"Backup Clusters": {
@@ -716,7 +786,9 @@ const toolsLearnMore = {
 				"No need for external backups the old way.",
 				"Not only can you quickly deploy containers and rollback, but you can also reproduce the entire cluster infrastructure at the time of a disaster.",
 			],
-			cons: ["Takes more work to setup as it requries several tools to work, than just a single tool to be responsible for it."],
+			cons: [
+				"Takes more work to setup as it requries several tools to work, than just a single tool to be responsible for it.",
+			],
 		},
 	},
 	Security: {
