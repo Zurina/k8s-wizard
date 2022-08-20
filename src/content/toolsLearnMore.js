@@ -540,9 +540,13 @@ const toolsLearnMore = {
 	Networking: {
 		"Cloud provider implementation": {
 			title: "Cloud provider implementation",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Using the CNI provided by your cloud like AWS VPC CNI or Azure CNI.",
+			pros: ["Easier to setup as it's already part of the ecosystem."],
+			cons: [
+				"Limited IP addresses which may become a problem in larger projects. This may not be a problem anymore.",
+				"Vendor lock-in."
+			],
 		},
 		Calico: {
 			title: "Calico",
@@ -573,9 +577,11 @@ const toolsLearnMore = {
 				"While some CNI plugins rely on iptables on each Kubernetes cluster node to manage network addressing, Cilium takes advantage of eBPF to handle this more efficiently and in a more performant manner. Efficient address lookup is critical as your Kubernetes cluster scales to tens of thousands of nodes.",
 				"Cilium offers networking policies that operate at layers 3, 4, and 7 of the OSI networking model. This ability to apply policies at multiple layers affords more flexibility in how you manage ingress and egress traffic within your Kubernetes cluster.",
 				"While still a relatively new CNI plugin, Cilium may be worth consideration, especially if you require fine-grained security controls or need to reduce lookup latency for very large Kubernetes clusters.",
-				""
+				"If performance and security through network policies and encryption are paramount, you should consider Cilium, as well as Weave or Calico",
 			],
-			cons: ["Although Cilium proves to be performant on large scale Kubernetes clusters, it does appear to be quite resource intensive."],
+			cons: [
+				"Although Cilium proves to be performant on large scale Kubernetes clusters, it does appear to be quite resource intensive.",
+			],
 		},
 		Flannel: {
 			title: "Flannel",
