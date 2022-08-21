@@ -78,7 +78,6 @@ const contentDescs = [
             "Github",
 			"Gitlab",
 			"Bitbucket",
-			"Circle CI",
 			"Cloud specific",
 		],
 	},
@@ -98,13 +97,13 @@ const contentDescs = [
         description:
         "A lot of options. Each have a lot and different features. Look for local development/execution story, public ecosystem/shareability, integrations with your VCS.",
         technologies: [
+            "Cloud provider CI",
             "Github Actions",
             "Jenkins",
             "CircleCI",
             "Gitlab CI",
             "Bitbucket",
             "Dagger",
-            "Spacelift (infrastructure as code)",
         ],
     },
     {

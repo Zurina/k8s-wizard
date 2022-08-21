@@ -354,6 +354,7 @@ const toolsLearnMore = {
 				"GitHub does offer private repositories on both free and paid tiers, but even private repositories have their issues. For high-value intellectual property, you’re putting all of this in the hands of GitHub as well as anyone who has a login, which, like many sites, has had security breaches before and is targeted constantly.",
 				"Github, unlike Gitlab for example does not offer as many features within its own program, but offers ways to integrate with many outside programs and services. These include software that GitHub has worked on to integrate with the service and hundreds of other programs via GitHub Marketplace.",
 				"With Github you often have to configure more integrations with other tools compared to Gitlab for example.",
+				"Only supports Git VCS.",
 			],
 		},
 		Gitlab: {
@@ -375,21 +376,32 @@ const toolsLearnMore = {
 		},
 		Bitbucket: {
 			title: "Bitbucket",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
-		},
-		"Circle CI": {
-			title: "Circle CI",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"With best-in-class Jira integration, and built-in CI/CD, Bitbucket Cloud is the native Git tool in Atlassian’s Open DevOps solution.",
+			pros: [
+				"Powerful Jira integration.",
+				"Bitbucket even comes with an easy-to-use integration for Trello, if you don’t want to get into Jira.",
+				"One extremely useful aspect of Bitbucket is that every repository can have its own wiki, available at the flick of a switch. This functionality means that you can include all the information and notes you require within the platform, keeping them close-to-hand during the course of your dev cycle.",
+			],
+			cons: [
+				"Smaller community than Github for example. This may be troublesome for some integrations in the cloud for example.",
+				"Can lose its stability when the process becomes heavy.",
+				"Integrating third-party applications is not easy, etc.",
+			],
 		},
 		"Cloud specific": {
 			title: "Cloud specific",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description: "This can for example be Azure Devops or AWS CodeCommit.",
+			pros: [
+				"This can be a good choice if you want all of you code ecosystem to be in the same place and have a tight integration with your infrastructure and hosting place in the cloud.",
+				"For example, both Azure DevOps and GitHub integrate with Microsoft Azure. Developers who want to take advantage of Azure’s security offerings, the product of partnerships with cybersecurity firms like Coalfire, can use either GitHub or Azure DevOps with the cloud service platform.",
+				"GitHub Actions does not offer some of the features users have with Azure Pipelines. For example, GitHub Actions does not support scale set agents — self-hosted agents that can automatically scale to meet the needs of a project — unlike Azure Pipelines.",
+				"Azure DevOps will work with a wider variety of projects than GitHub, as the GitHub Projects platform will only support projects that keep their code on GitHub. Both tools, however, offer robust project management features and can help developers keep their projects organized.",
+			],
+			cons: [
+				"Vendor lock-in.",
+				"Compared to Github Actions, Azure Devops does not have the same amount of plugins available through the community compared to Github Actions.",
+			],
 		},
 	},
 	"Repository Structure": {
@@ -433,47 +445,119 @@ const toolsLearnMore = {
 		},
 	},
 	"Continuous Integration": {
+		"Cloud provider CI": {
+			title: "Cloud provider CI",
+			description: "This can for example be Azure Devops or AWS CodeCommit.",
+			pros: [
+				"Ideal for bigger teams or enterprises.",
+				"This can be a good choice if you want all of you code ecosystem to be in the same place and have a tight integration with your infrastructure and hosting place in the cloud.",
+				"For example, both Azure DevOps and GitHub integrate with Microsoft Azure. Developers who want to take advantage of Azure’s security offerings, the product of partnerships with cybersecurity firms like Coalfire, can use either GitHub or Azure DevOps with the cloud service platform.",
+				"GitHub Actions does not offer some of the features users have with Azure Pipelines. For example, GitHub Actions does not support scale set agents — self-hosted agents that can automatically scale to meet the needs of a project — unlike Azure Pipelines.",
+				"Azure DevOps will work with a wider variety of projects than GitHub, as the GitHub Projects platform will only support projects that keep their code on GitHub. Both tools, however, offer robust project management features and can help developers keep their projects organized.",
+			],
+			cons: [
+				"Vendor lock-in.",
+				"Less ideal for small projects as its pricing plan is for example more heavy than Github.",
+				"Compared to Github Actions, Azure Devops does not have the same amount of plugins available through the community compared to Github Actions.",
+			],
+		},
 		"Github Actions": {
 			title: "Github Actions",
 			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			pros: [
+				"GitHub Actions pipelines can be broken into separate YAML files for each workflow. For example, programmers in GitHub Actions can create multiple YAML files; a team may split up the files based on the environment for which a team has tested and built an application. This feature can help developers create a cleaner design for applications that use a different build process for a development and production environment.",
+				"Some IT organizations prefer GitHub Actions because it's more tightly integrated with their code repositories on GitHub. Development teams will like the familiar UI.",
+				"For a team that wants to house an application's pipeline and code repository in the same place, GitHub Actions could have the edge.",
+				"You can build your own Action if you cannot find what you need in the Github Actions ecosystem.",
+				"The community is very large and there exists Actions for almost everything by now. The need for custom creations yourself is quite rare with Github Actions.",
+			],
+			cons: [
+				"GitHub Actions only offers the ability to run on a Windows, MacOS or Linux machine with particular, unmodifiable specifications.",
+				"Only suited when having Github as VCS.",
+			],
 		},
 		Jenkins: {
 			title: "Jenkins",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Jenkins is an open source continuous integration/continuous delivery and deployment (CI/CD) automation software DevOps tool written in the Java programming language. It is used to implement CI/CD workflows, called pipelines.",
+			pros: [
+				"Developers don’t need to take tension about the money; it is free of cost. It is platform-independent.",
+				"It is one of the most important features that make it most widely used. It has its type of plug-in, which helps the developer a lot in executing the jobs. Jenkins plug-ins can be developed by anyone and for anyone. Dashboard view plug-in, test analysis plug-in, build pipeline plug-in, and many more like this makes the developer familiar with the Jenkins tool.",
+				"Jenkins supports many CI/CD platforms, not only the pipeline. It can make interaction with other tools also. Several plug-ins are available in it, which allows users to make connections with other CI/CD platforms.",
+				"Jenkins supports different types of source code repositories like SVN, Git, etc. The developer can set different trigger after making changes in the codes. He can do it every time.",
+				"Jenkins requires build servers, which means you need to build and configure these yourself, which can sound like a hassle, but it makes the build times faster as it does not have to spin up an Linux server for your build.",
+			],
+			cons: [
+				"Creating customized build servers can take time and if performant builds is not a priority for you, this may not be ideal for you.",
+				"Jenkins’ management is a tough nut to crack. It runs on a server and requires server administrator abilities to keep track of all of its actions.",
+				"When compared to contemporary UI trends, it lacks user-friendliness in some areas.",
+				"Jenkins installation and configuration is a time-consuming operation.",
+			],
 		},
-		CircleCI: {
-			title: "CircleCI",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+		"Circle CI": {
+			title: "Circle CI",
+			description:
+				"CircleCI is a continuous integration & delivery platform that helps the development teams to release code rapidly and automate the build, test, and deploy that can be integrated with other VCS systems. CircleCI can be configured to run very complex pipelines efficiently with caching, docker layer caching, resource classes and many more.",
+			pros: [
+				"Choosing CircleCI means you will separate your VCS and your CI, which for some teams can be what they want.",
+				"CircleCI works in integration with any version control system (VCS), say GitHub or bitbucket. CircleCI can be integrated with 50+ tools & services, including Slack and LambdaTest.",
+				"The only CI/CD platform that’s FedRAMP certified and SOC 2 Type II compliant. Built-in features like audit logs, OpenID Connect, third-party secrets management, and LDAP give you complete control of your code.",
+				"Makes it easy to connect all of your favorite tools to build the way you want. Use our API or choose from hundreds of orbs — packages of reusable configuration — to bring in your preferred integrations.",
+				"CircleCI offers SSH access to builds while GitHub Actions does not. With SSH access, programmers will find it easy to debug issues with nonpresent commands or files in unexpected directories.",
+				"CircleCI allows builds to be run on different compute instances. For certain projects, it may make sense to use a larger instance size to improve build times at the cost of spending more credits.",
+				"If a team's repositories aren't linked to GitHub, CircleCI has UI features that could prove to be beneficial.",
+			],
+			cons: [
+				"A oon could be that you now have two tools for your VCS and CI, which can be annoying, when you have the option of choosing Github Actions for Github for example, meaning only one place for the two concepts.",
+				"CircleCI forces pipelines to exist as a singular configuration YAML file.",
+			],
 		},
 		"Gitlab CI": {
 			title: "Gitlab CI",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Gitlab is not just a VCS platform. GitLab helps you automate the builds, integration, and verification of your code. With SAST, DAST, code quality analysis, plus pipelines that enable concurrent testing and parallel execution, your teams get quick insights about every commit so they can deliver higher quality code faster.",
+			pros: [
+				"Offers you a complete software development solution, for example integrated CI/CD flows, meaning everything can be handled from one place.",
+				"Offer many internal tools as code quality checking etc.",
+				"Although it does market itself as a complete devops platform, Gitlab does offer integrations with some third-party programs and platforms such as Jira, Microsoft Teams, Slack, Gmail, and numerous other apps and platforms.",
+				"Seamless integration is possible with Gitlab.",
+				"Gitlab offers detailed viewing and documentation of the software projects.",
+			],
+			cons: [
+				"Not as big of a community as Github.",
+				"Less speedy when compared to Github while pulling or pushing the software codes.",
+				"Gitlab user interface is more heavy and take a lot of time while switching from one page to another.",
+			],
 		},
 		Bitbucket: {
 			title: "Bitbucket",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"With best-in-class Jira integration, and built-in CI/CD, Bitbucket Cloud is the native Git tool in Atlassian’s Open DevOps solution. Bitbucket Pipelines is an integrated CI/CD service built into Bitbucket. It allows you to automatically build, test, and even deploy your code based on a configuration file in your repository. ",
+			pros: [
+				"Very good integration with third party tools.",
+				"Powerful Jira integration.",
+				"Bitbucket even comes with an easy-to-use integration for Trello, if you don’t want to get into Jira.",
+				"One extremely useful aspect of Bitbucket is that every repository can have its own wiki, available at the flick of a switch. This functionality means that you can include all the information and notes you require within the platform, keeping them close-to-hand during the course of your dev cycle.",
+			],
+			cons: [
+				"Smaller community than Github for example. This may be troublesome for some integrations in the cloud for example.",
+				"Can lose its stability when the process becomes heavy.",
+				"Integrating third-party applications is not easy, etc.",
+			],
 		},
 		Dagger: {
 			title: "Dagger",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
-		},
-		"Spacelift (infrastructure as code)": {
-			title: "Spacelift (infrastructure as code)",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Dagger is a portable devkit for CI/CD pipelines that helps you build powerful CI/CD pipelines quickly, then run them anywhere. Developed in the open by the creators of Docker.",
+			pros: [
+				"Dagger seeks to treat pipelines as software and thereby applying software principles and concepts to it.",
+				"Instead of gluing pipelines together with throwaway scripts, they can “play lego” by composing reusable actions, using an intuitive declarative language and API.",
+				"Actions can safely be shared and reused thanks to a complete package management system, and there is a growing catalog of open-source actions developed by the community.",
+				"Pipelines can be tested and debugged locally, then run on any CI system.",
+				"All actions are automatically cached: no manual tweaking necessary",
+				"Because Dagger runs equally well anywhere a Docker-compatible runtime is available, it eliminates two major problems in the devops experience: dev/CI drift, and CI lock-in: \nDev/CI drift: instead of writing the same automation twice - once in a CI-specific configuration, and again in a Docker compose file, shell script or Makefile - simply write a Dagger plan once, then run it in all environments. \nI lock-in: migrating from one CI system to another, or supporting teams with multiple CI systems, should not require rewriting entire pipelines from scratch! The same Dagger plan can be run without modification on all major CI systems.",
+			],
+			cons: ["Small community", "Still in a quite new product."],
 		},
 	},
 	"Continuous Deployment": {
@@ -508,33 +592,77 @@ const toolsLearnMore = {
 	Traffic: {
 		Nginx: {
 			title: "Nginx",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Nginx s open source software designed as a web server to deliver maximum performance and stability. It comprises HTTP server capabilities and functions as a proxy server for email, reverse proxy and load balancer for specific servers.",
+			pros: [
+				"With NGINX, one can handle multiple connections without having overhead as it supports context switching.",
+				"Easily switch from dynamic content to static content with the help of Nginx.",
+				"Simple installation and configuration features.",
+				"Allows detection of the internal failure using the port features.",
+				"Suitable for HTTP and gRPC load balancing.",
+			],
+			cons: [
+				"Nginx don't support non-HTTP TCP workloads",
+				"Nginx is considered slow sometimes.",
+				"The back end server health check process covers only port detection and not URL detection.",
+			],
 		},
 		Kong: {
 			title: "Kong",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Kong is a API Gateway and is built on top of Nginx. The Open Source solution Kong API Gateway and the enterprise version Kong Enterprise gathers more tools around the gateway, such as dashboards or monitoring tools.",
+			pros: [
+				"Kong incorporates a plugin part - developing plugins for almost everything you can need: authentication, logs, monitoring, rate limiting, etc.",
+				"Provides other features like: upstreams, certificate management, request and response transformation, serverless code execution, logging, and CORS, which are very helpful when you wish to develop APIs quickly.",
+				"Kong can scale horizontally: the API Gateway is stateless and the database is unique.",
+			],
+			cons: [
+				"Kong only needs a PostgreSQL to save its configurations and can be installed in lots of environments and OS.",
+				"May be overkill if all you need is a lightweight reverse proxy to direct your traffic to your applications. Nginx for example does this really well.",
+			],
 		},
 		HAProxy: {
 			title: "HAProxy",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"HAProxy stands for High Availability Proxy which is an open source software written in C. HAProxy is a high performance, free and open source software used by developers to improve website/application performance. It supports load balancing capabilities that help distribute workloads and result in performance improvements, such as reduced response times and increased throughput.",
+			pros: [
+				"HAproxy is fast and lightweight",
+				"Supports non-HTTP TCP workloads.",
+				"Can be used for RabbitMQ for example.",
+				"HAProxy supports virtual hosts and multiple network segments (layers 4 and 7).",
+				"Easy integration with third party monitoring tools and services.",
+				"Supports Session retention and Cookie guidance.",
+			],
+			cons: [
+				"Does not offer web server capabilities.",
+				"HAProxy does not support POP/SMTP protocol and SPDY protocol.",
+			],
 		},
 		Traefik: {
 			title: "Traefik",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Traefik is an open-source Edge Router that makes publishing your services a fun and easy experience. It receives requests on behalf of your system and finds out which components are responsible for handling them.",
+			pros: [
+				"What sets Traefik apart, besides its many features, is that it automatically discovers the right configuration for your services. The magic happens when Traefik inspects your infrastructure, where it finds relevant information and discovers which service serves which request.",
+				"Traefik is natively compliant with every major cluster technology, such as Kubernetes, Docker, Docker Swarm, AWS, Mesos, Marathon, and the list goes on; and can handle many at the same time. (It even works for legacy software running on bare metal.)",
+				"With Traefik, there is no need to maintain and synchronize a separate configuration file: everything happens automatically, in real time (no restarts, no connection interruptions). With Traefik, you spend time developing and deploying new features to your system, not on configuring and maintaining its working state.",
+				"Supports non-HTTP TCP workloads.",
+				"Can be used for RabbitMQ for example.",
+			],
+			cons: [
+				"Not as easy to set up advanced configurations that Nginx can do (if you need them).",
+				"Traefik cannot serve up a webpage, since it's not a webserver like for example Nginx.",
+			],
 		},
 		"Loadbalancer services from your cloud provider": {
 			title: "Loadbalancer services from your cloud provider",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description: "This can be AWS ALB or Azure Load Balancer.",
+			pros: [
+				"Native integration with the Kubernetes service offered by the particular cloud in question.",
+				"AWS ALB ALB supports multiple features including host or path based routing, TLS (Transport Layer Security) termination, WebSockets, HTTP/2, AWS WAF (Web Application Firewall) integration, integrated access logs, and health checks.",
+				"Offers the same features as other normal load balancers.",
+			],
+			cons: ["Might end up being more expensive.", "Vendor lock-in."],
 		},
 	},
 	Networking: {
@@ -545,7 +673,7 @@ const toolsLearnMore = {
 			pros: ["Easier to setup as it's already part of the ecosystem."],
 			cons: [
 				"Limited IP addresses which may become a problem in larger projects. This may not be a problem anymore.",
-				"Vendor lock-in."
+				"Vendor lock-in.",
 			],
 		},
 		Calico: {
