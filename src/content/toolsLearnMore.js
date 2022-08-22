@@ -106,6 +106,7 @@ const toolsLearnMore = {
 				"Dex is an identity service that uses OpenID Connect to drive authentication for other apps.",
 			pros: [
 				"If you already have an existing Identity Provider (AD, SAML, Github..etc) and just need an OIDC interface to bridge applications with a centralized service, then Dex is your choice.",
+				"The authentication flow goes likes this: OAuth2 client logs a user in through dex. That client uses the returned ID Token as a bearer token when talking to the Kubernetes API. Kubernetes uses dex’s public keys to verify the ID Token. A claim designated as the username (and optionally group information) will be associated with that request."
 			],
 			cons: [
 				"It's not ideal when you don't already have an existing Identity Provider.",
@@ -196,8 +197,14 @@ const toolsLearnMore = {
 			title: "Jfrog",
 			description:
 				"The JFrog Container Registry is the most comprehensive and advanced registry in the market today, supporting Docker containers and Helm Chart repositories for your Kubernetes deployments. Use it as your single access point to manage and organize your Docker images, while avoiding Docker Hub throttling or retention issues. JFrog provides reliable, consistent, and efficient access to remote Docker container registries with integration to your build ecosystem.",
-			pros: ["b"],
-			cons: ["bla"],
+			pros: [
+				"Optimal solution if you're looking for registry responsible for more than just conatiner images.",
+				"Granular permission on a image per image basis.",
+				"Very good choice if you're looking to use more of Jfrog's products like Jfrog Pipelines etc.",
+				"Using Artifactory as your Docker Repository instead of Private Repositories on Docker Hub removes any issues related to networking or internet connectivity. When all of your Docker images are accessed through local repositories in Artifactory, connectivity is never a problem, not for developers nor CI servers.",
+				"Set up a fully automated Docker promotion pipeline. Only promote a Docker image to the next level if it passes the required quality gates at each stage so you can be sure that any image that ends up in production systems or is downloaded by end users has been tried, tested and fully approved through an automated process with Artifactory’s REST API.",
+			],
+			cons: ["Requires more work to setup.", "May be too overkill in terms of features provided, if all you want is to store some simple images somewhere."],
 		},
 		Dockerhub: {
 			title: "Dockerhub",
@@ -235,9 +242,24 @@ const toolsLearnMore = {
 		},
 		Harbor: {
 			title: "Harbor",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Harbor is an open source registry that secures artifacts with policies and role-based access control, ensures images are scanned and free from vulnerabilities, and signs images as trusted. Harbor, a CNCF Graduated project, delivers compliance, performance, and interoperability to help you consistently and securely manage artifacts across cloud native compute platforms like Kubernetes and Docker.",
+			pros: [
+				"Harbor can be installed on any Kubernetes environment or on a system with Docker support.",
+				"Security and vulnerability analysis",
+				"Content signing and validation",
+				"Multi-tenant",
+				"Extensible API and web UI",
+				"Replication across many registries, including Harbor",
+				"Identity integration and role-based access control",
+				"Garbage collection",
+				"Harbor can also be used as an image cache solution, because of image pull limit from dockerhub for example.",
+				"Overall, it is a solid option to consider if you plan on hosting your container registry.",
+			],
+			cons: [
+				"Requires you to host it yourself somewhere, which potentially means more operational work for you.",
+				"Unnecessary in smaller setups where you easily can use a hosted solution somewhere, so you don't have to manage it yourself.",
+			],
 		},
 	},
 	"Application Packaging": {
@@ -794,49 +816,105 @@ const toolsLearnMore = {
 		"Storage provided by cloud provider": {
 			title: "Storage provided by cloud provider",
 			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			pros: [
+				"Already integrated in the setup for your chosen storage provider. Not much setup to be done. You can easily get on to a great start with this choice.",
+			],
+			cons: ["Vendor lock-in.", "Not ideal for hybrid / multi cloud setup."],
 		},
 		Rook: {
 			title: "Rook",
 			description:
-				"Rook is a storage orchestration tool that provides a cloud-native, open source solution for a diverse set of storage providers. Rook uses the power of Kubernetes to turn a storage system into self-managing services that provide a seamless experience for saving Kubernetes application or deployment data.",
+				"Rook is a storage orchestration tool (and a Kubernetes Operator) that provides a cloud-native, open source solution for a diverse set of storage providers. Rook uses the power of Kubernetes to turn a storage system into self-managing services that provide a seamless experience for saving Kubernetes application or deployment data. Rook is an abstraction on top of storage providers like Ceph of NFS. Ceph is a distributed storage system that provides file, block and object storage and is deployed in large scale production clusters. Rook will enable us to automate deployment, bootstrapping, configuration, scaling and upgrading Ceph Cluster within a Kubernetes environment. Ceph is widely used in an In-House Infrastructure where managed Storage solution is rarely an option.",
 			pros: [
 				"One of the main benefits of Rook is that it interacts with data storage via native Kubernetes mechanisms. That means that you no longer need to manually configure Ceph using its commands.",
+				"Normally, Ceph is used to automate the storage management and Rook can sit on top of Kubernetes clusters to automate administrator-facing operations, offloading the storage team from the need to run day-to-day operations.",
 			],
-			cons: ["bla"],
+			cons: [
+				"Might be took overkill if all you have is a simple setup with one or few clusters and a dozen of applications. Rook becomes more useful when dealing with large enterprise setups.",
+			],
 		},
 	},
 	Observability: {
 		"Cloud provider services": {
 			title: "Cloud provider services",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"This can be Azure Monitor or AWS Cloudwatch than can provide metrics, alerts, logs etc.",
+			pros: [
+				"The pros for using the monitoring solutions provided by your cloud provider is that it will have a very good native integration with the Kubernetes solution offered by them, which essentially means less setup for you, and you can easily start using it without setting nothing custom up.",
+				"If you do not need a broad variety of visualization dashboards or tools, then the cloud provider's monitoring solution could be a good fit for you.",
+				"Amazon Elastic Kubernetes Service (Amazon EKS) integrates with CloudWatch Logs for the Kubernetes control plane. The control plane is provided as a managed service by Amazon EKS and you can turn on logging without installing a CloudWatch agent. The CloudWatch agent can also be deployed to capture Amazon EKS node and container logs. Fluent Bit and Fluentd are also supported for sending your container logs to CloudWatch Logs.",
+				"CloudWatch Container Insights provides a comprehensive metrics monitoring solution for Amazon EKS at the cluster, node, pod, task, and service level. Amazon EKS also supports multiple options for metrics capture with Prometheus. The Amazon EKS control plane provides a metrics endpoint that exposes metrics in a Prometheus format. You can deploy Prometheus into your Amazon EKS cluster to consume these metrics.",
+				"You can also set up the CloudWatch agent to scrape Prometheus metrics and create CloudWatch metrics, in addition to consume other Prometheus endpoints. Container Insights monitoring for Prometheus can also automatically discover and capture Prometheus metrics from supported, containerized workloads and systems.",
+				"These same features can also be achieved with Azure Monitor if using Azure Kubernetes Service.",
+			],
+			cons: [
+				"Vendor lock-in.",
+				"Not feasible for a multicloud/hybrid cloud setup.",
+				"It is not free.",
+				"Not the most ideal one if you're looking for a broad variety of visualization capabilities.",
+			],
 		},
 		Datadog: {
 			title: "Datadog",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Datadog is a monitoring and analytics tool for information technology (IT) and DevOps teams that can be used to determine performance metrics as well as event monitoring for infrastructure and cloud services. The software can monitor services such as servers, databases and tools.",
+			pros: [
+				"Many Datadog users love the clean user interface and the out-of-the-box dashboards within the platform. This single pane of glass is useful for visualizing the entire system. Drag-and-drop widgets let you create custom views without having to code. An array of visualization tools allow you to see data in a variety of formats and easily generate reports.",
+				"Datadog is simple to get up and running. You can install and configure the Datadog agent quickly and connect external services via API integrations. However, once you dive deeper into the log analytics use case, you may find that the ingestion and retention “rehydration” process becomes far more costly and complex than you want to manage.",
+				"You can terraform your whole monitoring setup.",
+				"Team collaboration tools.",
+				"Full API access.",
+				"Slice and dice graphs and alerts.",
+				"Customizable monitoring dashboards.",
+				"Alert notifications.",
+				"Clean graphs of StatsD.",
+				"80+ turn-key integrations.",
+				"Easy-to-use search tool.",
+				"Centralized place for all your logs, both infrastructure and application logging.",
+				"Datadog takes an infrastructure monitoring approach geared toward analytics. It is focused on performance measurement for cloud services and is particularly adept at measuring the performance of databases and servers as well as measuring performance in a multi-cloud world.",
+			],
+			cons: [
+				"The log analytics process within Datadog is far more complex than it needs to be. You can send logs to Datadog, but you can’t analyze them. If you want to analyze them, you need to index and retain them. There’s a separate pricing structure around ingestion and retention (we’ll cover more about that next). Because of the complexity and cost structure, some organizations choose not to retain as many logs as they might need or want to. That leads to issues when troubleshooting and root cause analysis, especially for persistent issues that last beyond the retention period for your logs.",
+				"Shortening log retention windows can become a significant tradeoff and result in a loss of visibility into more complex issues – ranging from lingering application and infrastructure performance problems to advanced persistent security threats.",
+				"It is not agentless. Requires a Datadog agent to be installed on every node.",
+			],
 		},
 		Honeycomb: {
 			title: "Honeycomb",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"Honeycomb is a fast analysis tool that reveals how your code is experienced in complex and unpredictable environments. Troubleshoot complex relationships within your distributed services and solve problems faster.",
+			pros: [
+				"The Honeycomb Kubernetes Agent tails the log files for each container, parses their contents into structured events, and sends those events to Honeycomb. This means that the agent can be rolled out without changing existing deployments.",
+				"The agent is also available as a ksonnet mixin to compose it with existing deployments. For example, instead of deploying the agent as a DaemonSet, we might want to add the Honeycomb agent as a sidecar in an existing deployment to watch log files at a particular path.",
+				"Instead of simply consuming logs, the Honeycomb Kubernetes Agent lets you define how logs from a particular pod are handled. This is important when running third-party apps—-e.g. reverse proxies, queues, or databases—-whose log output you don’t fully control.",
+			],
+			cons: ["Lack of audit trail."],
 		},
 		"Self-hosted ELK, Prometheus, Grafana, Kibana, Elastic search": {
 			title: "Self-hosted ELK, Prometheus, Grafana, Kibana, Elastic search",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"For a simple setup with great monitoring features, these technologies might be exactly what you need, but it does come with a bit extra work for you, since it's not managed solutions.",
+			pros: [
+				"Prometheus is the de facto tool for monitoring time-series for Kubernetes.",
+				"When it comes to getting a hosted version of Prometheus, which is key for scaling and long term storage, MetricFire runs a great hosted prometheus service.",
+				"Hosting these montioring services yourself makes it very configurable for you as you have full ownership of everything. However, it does also put all the responsibility on you.",
+			],
+			cons: [
+				"If you need more than a time series tool and you need a little bit of everything, Datadog is a great option for you as it offers all-around APM, logs, time-series, and tracing tool.",
+				"If you need to scale time-series metrics, choose Hosted Prometheus by MetricFire.",
+			],
 		},
 		Relic: {
 			title: "Relic",
-			description: "",
-			pros: ["bla"],
-			cons: ["bla"],
+			description:
+				"New Relic is an observability platform that helps you build better software. You can bring in data from any digital source so that you can fully understand your system and how to improve it.",
+			pros: [
+				"New Relic platform is likely to be the preference for those wanting to monitor applications and especially those requiring real-time monitoring of those applications.",
+				"Bring all your data together: Instrument everything and import data from across your technology stack using our agents, integrations, and APIs, and access it from a single UI.",
+				"Analyze your data: Get all your data at your fingertips to find the root causes of problems and optimize your systems. Build dashboards and charts or use our powerful query language.",
+				"Respond to incidents quickly: Our machine learning solution proactively detects and explains anomalies and warns you before they become problems.",
+			],
+			cons: ["Not the best option for infrastructure monitoring solutions."],
 		},
 	},
 	Credentials: {
@@ -898,6 +976,7 @@ const toolsLearnMore = {
 				"Docker Compose is a tool that was developed to help define and share multi-container applications. With Compose, we can create a YAML file to define the services and with a single command, can spin everything up or tear it all down.",
 			pros: [
 				"Exellent for running starting and running multiple containers simultaneously with one command.",
+				"Easy to use.",
 			],
 			cons: [
 				"Docker Compose's intention is to run all containers on the same machine (node), which is in the context of Kubernetes doesn't make that much sense.",
@@ -1056,6 +1135,7 @@ const toolsLearnMore = {
 			],
 			cons: [
 				"Not the ideal choice for smaller companies or isolated projects.",
+				"Overall, the learning curve for Snyk is quite gradual. It takes some time to understand the scope and use case of different products to decide which ones are important for your application. Once you have gained a general understanding of the platform, using their Open Source and Container scanning functionality is a breeze.",
 			],
 		},
 		Kubescape: {
