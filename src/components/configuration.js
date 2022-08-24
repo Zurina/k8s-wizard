@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Context from "../context/context";
 import "../styles/configuration.scss";
-import pdf from "./pdf";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
