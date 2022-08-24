@@ -97,7 +97,13 @@ const Configuration = (props) => {
 			<div>
 				<pre>{JSON.stringify(props.envState, null, 2)}</pre>
 			</div>
-			<button onClick={downloadChosenToolsAsCsv}>Download</button>
+			<button className="general-button" onClick={downloadChosenToolsAsCsv}>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				Download
+			</button>
 			<h2>Chosen tools</h2>
 			<ul>{conceptRadioButtons}</ul>
 		</div>
