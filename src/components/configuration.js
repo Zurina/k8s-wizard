@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import Context from "../context/context";
 import "../styles/configuration.scss";
-import pdf from "./pdf"
+import pdf from "./pdf";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 const Configuration = (props) => {
 	const [toolState, setToolState, concepts] = useContext(Context);
@@ -40,31 +42,71 @@ const Configuration = (props) => {
 		);
 	});
 
+	function headRows() {
+		return [
+			{
+				concept: "concept",
+				title: "title",
+				description: "description",
+				pros: "pros",
+				cons: "cons",
+			},
+		];
+	}
+
+	function bodyRows(rowCount) {
+		rowCount = rowCount || 10;
+		var body = [];
+		for (var j = 1; j <= rowCount; j++) {
+			body.push({
+				concept: j,
+				title: "lkjadshf",
+				description: "kjadsfkjh",
+				pros: "alsdkjfæalkjsdæfklajsdælf",
+				cons: "kajshdflkjahsdlfkjhasldjkfhanlksjdhflajksdhfkjlh",
+			});
+		}
+		return body;
+	}
+
 	function downloadChosenToolsAsCsv() {
-		// const doc = new jsPDF('', '');
 		const learnMoreTools = require("../content/toolsLearnMore")["default"];
 
-		let data = []
-
+		let data = [];
 
 		for (const [concept, toolName] of Object.entries(toolState)) {
 			if (toolName != undefined) {
-				const tool = learnMoreTools[concept][toolName];
-				data.push(tool)
+				const tool = {...learnMoreTools[concept][toolName]};
+
+				let prosStr = "";
+				tool["pros"].forEach(pro => {
+					prosStr += pro + "\n\n"
+				})
+
+				let consStr = "";
+				tool["cons"].forEach(con => {
+					consStr += con + "\n\n"
+				})
+				
+				tool["concept"] = concept;
+				tool["pros"] = prosStr
+				tool["cons"] = consStr
+				data.push(tool);
 			}
 		}
 
-		const headers = [
-			{key: 'title', label: 'Title'},
-			{key: 'description', label: 'description'},
-			{key: 'pros', label: 'Pros'},
-			{key: 'cons', label: 'Cons'},
-		  ]
+		let doc = new jsPDF("l");
+		let head = headRows();
 
-		const filename = "hello.pdf"
+		doc.autoTable({
+			head: head,
+			body: data,
+			startY: 0,
+			rowPageBreak: "auto",
+			bodyStyles: { valign: "top" },
+		});
 
-		pdf({data: data, headers, filename})
-
+		doc.save("your_tools.pdf");
 	}
 
 	return (

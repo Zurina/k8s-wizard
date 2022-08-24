@@ -24,7 +24,7 @@ export default function ({ data, headers, filename }) {
 	};
 
 	// Let's set up a standard padding that we can add to known coordinates
-	const padding = 15;
+	const padding = 0;
 
 	doc.setFontSize(8);
 
@@ -67,7 +67,7 @@ export default function ({ data, headers, filename }) {
 
 	doc.line(pageMargin, pageMargin + 3.5, liveArea.width, pageMargin + 3.5);
 
-	const baseYPosForRows = pageMargin + padding;
+	const baseYPosForRows = pageMargin + 30;
 	let nextYPos = baseYPosForRows;
 
 	// ROWS
@@ -115,6 +115,7 @@ export default function ({ data, headers, filename }) {
 		// disappear from view as your yPosition grows.
 		if (nextYPos > liveArea.height) {
 			doc.addPage();
+
 			nextYPos = baseYPosForRows;
 		}
 	});
