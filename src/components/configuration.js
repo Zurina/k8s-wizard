@@ -42,71 +42,53 @@ const Configuration = (props) => {
 		);
 	});
 
-	function headRows() {
-		return [
-			{
-				concept: "concept",
-				title: "title",
-				description: "description",
-				pros: "pros",
-				cons: "cons",
-			},
-		];
-	}
-
-	function bodyRows(rowCount) {
-		rowCount = rowCount || 10;
-		var body = [];
-		for (var j = 1; j <= rowCount; j++) {
-			body.push({
-				concept: j,
-				title: "lkjadshf",
-				description: "kjadsfkjh",
-				pros: "alsdkjfæalkjsdæfklajsdælf",
-				cons: "kajshdflkjahsdlfkjhasldjkfhanlksjdhflajksdhfkjlh",
-			});
-		}
-		return body;
-	}
-
 	function downloadChosenToolsAsCsv() {
 		const learnMoreTools = require("../content/toolsLearnMore")["default"];
 
 		let data = [];
 
+		let headers = [
+			{
+				concept: "Concept",
+				title: "Title",
+				description: "Description",
+				pros: "Pros",
+				cons: "Cons",
+			},
+		];
+
 		for (const [concept, toolName] of Object.entries(toolState)) {
 			if (toolName != undefined) {
-				const tool = {...learnMoreTools[concept][toolName]};
+				const tool = { ...learnMoreTools[concept][toolName] };
 
 				let prosStr = "";
-				tool["pros"].forEach(pro => {
-					prosStr += pro + "\n\n"
-				})
+				tool["pros"].forEach((pro) => {
+					prosStr += pro + "\n\n";
+				});
 
 				let consStr = "";
-				tool["cons"].forEach(con => {
-					consStr += con + "\n\n"
-				})
-				
+				tool["cons"].forEach((con) => {
+					consStr += con + "\n\n";
+				});
+
 				tool["concept"] = concept;
-				tool["pros"] = prosStr
-				tool["cons"] = consStr
+				tool["pros"] = prosStr;
+				tool["cons"] = consStr;
 				data.push(tool);
 			}
 		}
 
 		let doc = new jsPDF("l");
-		let head = headRows();
 
 		doc.autoTable({
-			head: head,
+			head: headers,
 			body: data,
 			startY: 0,
 			rowPageBreak: "auto",
 			bodyStyles: { valign: "top" },
 		});
 
-		doc.save("your_tools.pdf");
+		doc.save("Your_tools.pdf");
 	}
 
 	return (
