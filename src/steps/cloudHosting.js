@@ -26,7 +26,7 @@ const CloudHosting = (props) => {
 						push={push}
 					/>
 					<ClickableArticleRow
-						name="Elastic Kubernetes Engine"
+						name="AWS Elastic Kubernetes Engine"
 						updateEnvState={props.updateEnvState}
 						push={push}
 					/>

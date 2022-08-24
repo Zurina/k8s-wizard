@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import ArticleRow from "./articleRow";
+import tips from "./tipsBasedOnEnv";
 
 Modal.setAppElement("#root");
 
@@ -32,7 +33,6 @@ const ToolModal = (props) => {
 	};
 
 	function openModal(event) {
-		console.log("event", event.target);
 		if (typeof event === "string") {
 			const box = document.getElementById(event);
 			setSuperBox(box);
@@ -82,7 +82,6 @@ const ToolModal = (props) => {
 	function expandToolboxForLearnMore(name) {
 		setleftWidth("22%");
 		let learnMoreTools = require("../content/toolsLearnMore")["default"];
-		console.log(learnMoreTools[props.content.title][name])
 		setlearnMoreTool(learnMoreTools[props.content.title][name]);
 	}
 
@@ -147,6 +146,9 @@ const ToolModal = (props) => {
 					<h4 className="tool-modal-description">
 						{props.content.description}
 					</h4>
+					<span className="tool-modal-tips">
+						**{tips(props.envState, props.content.title)}**
+					</span>
 					{props.content.hasOwnProperty("questions") && <ul>{questions}</ul>}
 					{technologies}
 

@@ -106,7 +106,8 @@ const toolsLearnMore = {
 				"Dex is an identity service that uses OpenID Connect to drive authentication for other apps.",
 			pros: [
 				"If you already have an existing Identity Provider (AD, SAML, Github..etc) and just need an OIDC interface to bridge applications with a centralized service, then Dex is your choice.",
-				"The authentication flow goes likes this: OAuth2 client logs a user in through dex. That client uses the returned ID Token as a bearer token when talking to the Kubernetes API. Kubernetes uses dex’s public keys to verify the ID Token. A claim designated as the username (and optionally group information) will be associated with that request."
+				"The authentication flow goes likes this: OAuth2 client logs a user in through dex. That client uses the returned ID Token as a bearer token when talking to the Kubernetes API. Kubernetes uses dex’s public keys to verify the ID Token. A claim designated as the username (and optionally group information) will be associated with that request.",
+				
 			],
 			cons: [
 				"It's not ideal when you don't already have an existing Identity Provider.",

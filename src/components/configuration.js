@@ -102,7 +102,7 @@ const Configuration = (props) => {
 				<span></span>
 				<span></span>
 				<span></span>
-				Download
+				Export your tools (pdf)
 			</button>
 			<h2>Chosen tools</h2>
 			<ul>{conceptRadioButtons}</ul>

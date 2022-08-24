@@ -35,6 +35,7 @@ const ToolBoxes = (props) => {
 					<p className="title">{concept.title}</p>
 				</div>
 				<ToolModal
+					envState={props.envState}
 					openModal={openModal}
 					content={concept}
 					setToolState={setToolState}
