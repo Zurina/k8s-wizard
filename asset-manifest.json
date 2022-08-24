@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/k8s-wizard/static/css/main.b4ac6d86.css",
-    "main.js": "/k8s-wizard/static/js/main.225e5468.js",
+    "main.js": "/k8s-wizard/static/js/main.3395c96a.js",
     "static/js/498.5cd87da5.chunk.js": "/k8s-wizard/static/js/498.5cd87da5.chunk.js",
     "static/js/703.8897a76e.chunk.js": "/k8s-wizard/static/js/703.8897a76e.chunk.js",
     "static/js/300.f7327f22.chunk.js": "/k8s-wizard/static/js/300.f7327f22.chunk.js",
@@ -27,13 +27,13 @@
     "static/media/credentials.png": "/k8s-wizard/static/media/credentials.986102b57cbdf9fa25f7.png",
     "index.html": "/k8s-wizard/index.html",
     "main.b4ac6d86.css.map": "/k8s-wizard/static/css/main.b4ac6d86.css.map",
-    "main.225e5468.js.map": "/k8s-wizard/static/js/main.225e5468.js.map",
+    "main.3395c96a.js.map": "/k8s-wizard/static/js/main.3395c96a.js.map",
     "498.5cd87da5.chunk.js.map": "/k8s-wizard/static/js/498.5cd87da5.chunk.js.map",
     "703.8897a76e.chunk.js.map": "/k8s-wizard/static/js/703.8897a76e.chunk.js.map",
     "300.f7327f22.chunk.js.map": "/k8s-wizard/static/js/300.f7327f22.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b4ac6d86.css",
-    "static/js/main.225e5468.js"
+    "static/js/main.3395c96a.js"
   ]
 }
