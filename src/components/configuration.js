@@ -49,8 +49,7 @@ const Configuration = (props) => {
 
 		let headers = [
 			{
-				concept: "Concept",
-				title: "Title",
+				name: "Concept & Tool",
 				description: "Description",
 				pros: "Pros",
 				cons: "Cons",
@@ -71,9 +70,10 @@ const Configuration = (props) => {
 					consStr += con + "\n\n";
 				});
 
-				tool["concept"] = concept;
+				tool["name"] = concept + " - " + tool["title"];
 				tool["pros"] = prosStr;
 				tool["cons"] = consStr;
+				delete tool["title"];
 				data.push(tool);
 			}
 		}
@@ -83,7 +83,8 @@ const Configuration = (props) => {
 		doc.autoTable({
 			head: headers,
 			body: data,
-			startY: 0,
+			columnStyles: { 0: { minCellWidth: 40 } },
+			startY: 15,
 			rowPageBreak: "auto",
 			bodyStyles: { valign: "top" },
 		});
