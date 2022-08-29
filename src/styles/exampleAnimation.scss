@@ -234,7 +234,7 @@ body {
 }
 
 .leaderboard {
-  max-width: 490px;
+  max-width: 250px;
   width: 100%;
   border-radius: 12px;
   
@@ -296,10 +296,7 @@ body {
   }
   
   &__profile {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
     border: 2px solid white;
-    align-items: center;
     padding: 10px 30px 10px 10px;
     overflow: hidden;
     // margin-left: 20%;
@@ -311,6 +308,9 @@ body {
     cursor: pointer;
     transition: transform .25s cubic-bezier(.7,.98,.86,.98), box-shadow .25s cubic-bezier(.7,.98,.86,.98);
     background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     
     &:hover {
       transform: scale(1.04);
@@ -352,9 +352,16 @@ body {
   box-shadow: 0 0 40px -10px rgba(0, 0, 0, .4);
 }
 
+.leaderboard__profile {
+  color: black;
+  text-align: center;
+}
+
 .active .leaderboard__profile {
   background-color: #000c22;
+  color: white;
 }
+
 
 .active .leaderboard__name {
   color: white;
