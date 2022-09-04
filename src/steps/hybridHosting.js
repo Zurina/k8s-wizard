@@ -1,13 +1,13 @@
 import React from "react";
 import { Step } from "react-albus";
-import ClickableArticleRow from "../utilities/clickableArticleRow";
+import ClickableArticleRow from "../components/clickableArticleRow";
 
 const HybridHosting = (props) => {
 	return (
 		<Step
 			id={props.id}
 			render={({ push }) => (
-				<div>
+				<div className="step-container">
 					<h1>Which cloud provider will you use for your hybrid setup?</h1>
 					<h3>
 						There are a lot of options. It comes down to your needs and maybe
@@ -20,6 +20,10 @@ const HybridHosting = (props) => {
 						Service, IAM an so on.
 					</p>
 					<span>Choose one.</span>
+					<ArticleRow
+						name="Kubeadm"
+						url="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/"
+					/>
 					<ClickableArticleRow
 						name="Google Kubernetes Engine"
 						updateEnvState={props.updateEnvState}

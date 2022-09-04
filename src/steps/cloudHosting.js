@@ -1,13 +1,13 @@
 import React from "react";
 import { Step } from "react-albus";
-import ClickableArticleRow from "../utilities/clickableArticleRow";
+import ClickableArticleRow from "../components/clickableArticleRow";
 
 const CloudHosting = (props) => {
 	return (
 		<Step
 			id={props.id}
 			render={({ push }) => (
-				<div>
+				<div className="step-container">
 					<h1>Which managed cluster should you use?</h1>
 					<h3>
 						There are a lot of options. It comes down to your needs and maybe

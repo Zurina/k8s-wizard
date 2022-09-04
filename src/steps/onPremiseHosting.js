@@ -1,13 +1,13 @@
 import React from "react";
 import { Step } from "react-albus";
-import ArticleRow from "../utilities/articleRow";
+import ArticleRow from "../components/articleRow";
 
 const OnPremiseHosting = (props) => {
 	return (
 		<Step
 			id={props.id}
 			render={({ push }) => (
-				<div>
+				<div className="step-container">
 					<h1>How can you provision clusters?</h1>
 					<p>
 						These all come with different levels of automation and control

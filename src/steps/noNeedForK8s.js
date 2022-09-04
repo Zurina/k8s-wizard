@@ -1,13 +1,13 @@
 import React from "react";
 import { Step } from "react-albus";
-import ArticleRow from "../utilities/articleRow";
+import ArticleRow from "../components/articleRow";
 
 const NoNeedForK8s = (props) => {
 	return (
 		<Step
 			id={props.id}
 			render={({ push }) => (
-				<div>
+				<div className="step-container">
 					<h1>Use something else!</h1>
 					<ArticleRow name="PAAS" />
 					<ArticleRow name="Containers as a Service" />

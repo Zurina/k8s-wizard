@@ -6,7 +6,7 @@ const SelfHostK8s = (props) => {
 		<Step
 			id={props.id}
 			render={({ push }) => (
-				<div>
+				<div className="step-container">
 					<h1>Should you self-host Kubernetes?</h1>
 					<h3>If you can say yes to the following, then yes:</h3>
 					<ul>

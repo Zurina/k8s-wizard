@@ -3,7 +3,7 @@ import Configuration from "../components/configuration";
 import Context from "../context/context";
 import concepts from "../content/concepts";
 import conceptDescs from "../content/conceptDescs";
-import ToolModal from "../utilities/ToolModal";
+import ToolModal from "../components/ToolModal";
 
 const ToolBoxes = (props) => {
 	const [toolState, setToolState] = React.useState({});

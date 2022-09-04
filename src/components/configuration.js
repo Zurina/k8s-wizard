@@ -55,9 +55,14 @@ const Configuration = (props) => {
 			},
 		];
 
+		console.log("hello", toolState)
+
 		for (const [concept, toolName] of Object.entries(toolState)) {
 			if (toolName != undefined) {
 				const tool = { ...learnMoreTools[concept][toolName] };
+				console.log(tool)
+
+				console.log(tool["pros"])
 
 				let prosStr = "";
 				tool["pros"].forEach((pro) => {
