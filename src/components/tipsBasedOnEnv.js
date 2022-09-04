@@ -7,6 +7,9 @@ export default function tips(envState, concept) {
             }
             break;
         case "Authentication":
+            if ("self-host-k8s" in envState && envState["self-host-k8s"] == "yes") {
+                tips += "Dex or Keycloak are ideal choices for you. See the pros and cons to see what fits you best."
+            }
             break;
         case "Environment Isolation":
             break;

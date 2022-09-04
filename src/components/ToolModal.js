@@ -113,6 +113,8 @@ const ToolModal = (props) => {
 		questions = questions.map((question) => <li>{question}</li>);
 	}
 
+	let tip = tips(props.envState, props.content.title)
+
 	return (
 		<div className="App">
 			<Modal
@@ -132,7 +134,7 @@ const ToolModal = (props) => {
 						</ul>
 						<h3>Cons</h3>
 						<ul>
-							{learnMoreTool["cons"].map((c, i) => (
+							{learnMoreTool["cons"].map((c) => (
 								<li>{c}</li>
 							))}
 						</ul>
@@ -146,9 +148,15 @@ const ToolModal = (props) => {
 					<h4 className="tool-modal-description">
 						{props.content.description}
 					</h4>
-					<span className="tool-modal-tips">
-						**{tips(props.envState, props.content.title)}**
-					</span>
+
+					{tip != "" ? (
+						<span className="tool-modal-tips">
+							**{tip}**
+						</span>
+					) : (
+						""
+					)}
+
 					{props.content.hasOwnProperty("questions") && <ul>{questions}</ul>}
 					{technologies}
 
