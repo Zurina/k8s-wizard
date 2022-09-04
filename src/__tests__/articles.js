@@ -1,8 +1,8 @@
 import "@testing-library/jest-dom";
 import * as React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
-import ArticleRow from "../utilities/articleRow"
-import ClickableArticleRow from "../utilities/clickableArticleRow"
+import ArticleRow from "../components/articleRow"
+import ClickableArticleRow from "../components/clickableArticleRow"
 
 test("Article row", () => {
 	render( <ArticleRow name={"Mathias"}/>);
