@@ -14,7 +14,6 @@ const ArticleRow = (props) => {
 
 	return (
 		<article className="leaderboard__profile">
-			{/* <h2 className="leaderboard__picture">{props.name.substring(0, 1)}</h2> */}
 			<span className="leaderboard__name">{props.name}</span>
 			<button className="learn-more" onClick={onLearnMoreClick}>Learn more</button>
 		</article>
