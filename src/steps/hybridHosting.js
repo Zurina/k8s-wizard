@@ -23,6 +23,7 @@ const HybridHosting = (props) => {
 					<ClickableArticleRow
 						name="Kubeadm"
 						url="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/"
+						push={push}
 					/>
 					<ClickableArticleRow
 						name="Google Kubernetes Engine"
