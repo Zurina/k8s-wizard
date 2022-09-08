@@ -20,7 +20,7 @@ const HybridHosting = (props) => {
 						Service, IAM an so on.
 					</p>
 					<span>Choose one.</span>
-					<ArticleRow
+					<ClickableArticleRow
 						name="Kubeadm"
 						url="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/"
 					/>
